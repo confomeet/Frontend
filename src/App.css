@@ -1,0 +1,752 @@
+/* fonts */
+/* ...................................... */
+/* poppins-regular - En */
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/poppins/poppins-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""),
+    url("./assets/fonts/poppins/poppins-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/poppins/poppins-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("./assets/fonts/poppins/poppins-regular.woff") format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/poppins/poppins-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("./assets/fonts/poppins/poppins-regular.svg#Poppins") format("svg");
+  /* Legacy iOS */
+}
+
+/* ...................................... */
+
+/* Cairo Ar */
+
+@font-face {
+  font-family: "Cairo";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/cairo/Cairo.eot");
+  /* IE9 Compat Modes */
+  src: local(""),
+    url("./assets/fonts/cairo/Cairo.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("./assets/fonts/cairo/Cairo.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("./assets/fonts/cairo/Cairo.woff")
+      format("woff"),
+    /* Modern Browsers */ url("./assets/fonts/cairo/Cairo.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */ url("./assets/fonts/cairo/Cairo.svg#Cairo")
+      format("svg");
+  /* Legacy iOS */
+}
+
+/* ........................................................................................... */
+
+/* General Styles */
+body,
+html,
+#root {
+  height: 100% !important;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* font-family: "Poppins" !important; */
+}
+
+#root {
+  /* background-color: #f5f6fa !important; */
+  background-color: #fff !important;
+}
+
+body.swal2-shown.swal2-height-auto {
+  height: 100% !important;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* font: 400 14px, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  box-shadow: none !important;
+}
+
+img {
+  max-width: 100%;
+}
+
+.main-content-wrap {
+  /* background-color: #f5f6fa !important; */
+  background-color: transparent !important;
+
+  min-height: 100%;
+}
+
+.center-content {
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.align-baseline {
+  align-items: baseline;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.between {
+  justify-content: space-between !important;
+}
+
+.MuiAutocomplete-noOptions {
+  display: none;
+}
+
+.MuiOutlinedInput-root {
+  border-radius: 10px;
+}
+
+.full-height {
+  height: 100% !important;
+}
+
+/* ...................................... */
+/* disply font weight variants */
+.display-text {
+  font-weight: 800 !important;
+}
+
+/* ........................................................................................... */
+/* Scroll bar styles */
+::-webkit-scrollbar-thumb {
+  background-color: #d3d4d580;
+  border-radius: 3px;
+  /* border: 1px solid rgba(68, 93, 119, 0.15); */
+  height: "10px !important";
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+  background-color: #ffffff;
+  border: 1px solid #eee;
+  margin: 2px 0;
+}
+
+/* ........................................................................................... */
+/* animations */
+/**
+ * ----------------------------------------
+ * animation twinkle
+ * ----------------------------------------
+ */
+@keyframes twinkle {
+  20% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-in-ver-bottom
+ * ----------------------------------------
+ */
+.scale-in-ver-bottom {
+  -webkit-animation: scale-in-ver-bottom 0.5s
+    cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-ver-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes scale-in-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: inherit;
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: inherit;
+  }
+}
+
+@keyframes scale-in-ver-bottom {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 0% 100%;
+    transform-origin: 0% 100%;
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-in-top
+ * ----------------------------------------
+ */
+.scale-in-top {
+  -webkit-animation: scale-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-top {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-in-center 
+ * ----------------------------------------
+ */
+.scale-in-center {
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0.2;
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation wobble-hor-bottom
+ * ----------------------------------------
+ */
+.wobble-hor-bottom {
+  -webkit-animation: wobble-hor-bottom 0.8s both;
+  animation: wobble-hor-bottom 0.8s both;
+}
+
+@-webkit-keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+@keyframes wobble-hor-bottom {
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    -webkit-transform: translateX(-30px) rotate(-6deg);
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    -webkit-transform: translateX(-15px) rotate(-3.6deg);
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    -webkit-transform: translateX(9px) rotate(2.4deg);
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
+
+/**
+ * ----------------------------------------
+ * animation Ripples
+ * ----------------------------------------
+ */
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* ........................................................................................... */
+/* Main buttons Variants */
+button {
+  text-transform: capitalize !important;
+}
+
+.medium-btn {
+  min-width: 146px !important;
+  height: 46px;
+  border-radius: 2px !important;
+}
+
+.small-btn {
+  width: 40px;
+  height: 40px;
+  min-width: 40px !important;
+  border-radius: 8px !important;
+}
+
+/*...........................................................................................*/
+/* Add contacts */
+.add-contact {
+  position: relative;
+}
+
+.add-contact .MuiDialog-paper {
+  min-width: 50vw;
+}
+
+.add-contact .MuiDialog-paper .MuiTextField-root {
+  margin-top: 16px;
+}
+.RTLTypo {
+  direction: rtl;
+}
+.LTRTypo {
+  direction: ltr;
+}
+.arTitle {
+  direction: rtl;
+  font-weight: bold !important;
+}
+.enTitle {
+  font-weight: bold !important;
+}
+.add-cobinet .MuiDialog-paper {
+  min-width: 40vw;
+}
+.add-cobinet .MuiDialog-paper .MuiTextField-root {
+  width: 100%;
+  margin-top: 6px;
+}
+.Layout-popover {
+  width: auto !important;
+}
+
+.css-ittuaa-MuiInputAdornment-root {
+  margin: 10px;
+}
+
+.MuiContainer-root {
+  padding: 0 !important;
+}
+
+.css-1fvfc4u-MuiContainer-root {
+  padding: 0 !important;
+}
+
+.css-lz8926.Appointment-appointment {
+  background-color: inherit !important;
+}
+
+.css-nuongj.Appointment-appointment {
+  background-color: inherit !important;
+}
+
+.css-pzc27e-MuiToolbar-root.Toolbar-toolbar {
+  height: 85px;
+}
+
+.css-18bo7dq.Root-root:first-of-type {
+  direction: ltr;
+}
+
+.Cell-today {
+  /* width: 100% !important; */
+  /* height: 25% !important; */
+  margin-top: 1px !important;
+  font-weight: bold !important;
+  /* border-radius: 0px !important; */
+  /* color: white!important; */
+}
+
+.css-a0uocc-MuiTable-root.Table-table {
+  width: 354px !important;
+
+  direction: rtl;
+}
+.Mui-error {
+  font-size: 11px;
+  margin: 0;
+}
+@media screen and (max-width: 600px) {
+  .css-a0uocc-MuiTable-root.Table-table {
+    width: 285px !important;
+  }
+  .Cell-today {
+    margin-top: 0 !important;
+    color: #000 !important;
+    background: inherit !important;
+  }
+}
+.css-1bntp2l.Table-table {
+  width: 354px !important;
+
+  direction: rtl;
+}
+@media screen and (max-width: 400px) {
+  .css-9x2lje-MuiTableCell-root {
+    font-size: 11px;
+  }
+  .Cell-text {
+    font-size: 10px;
+  }
+  .css-qc6sy-singleValue {
+    font-size: 11px;
+  }
+
+  .HeaderCell-cell {
+    font-size: 12px !important;
+  }
+  .css-5wlpvr-MuiTable-root.Table-table {
+    width: 285px !important;
+  }
+  .css-a0uocc-MuiTable-root.Table-table {
+    width: 285px !important;
+  }
+  .css-1bntp2l.Table-table {
+    width: 285px !important;
+  }
+  .css-1y04xgk.Table-table {
+    width: 285px !important;
+  }
+}
+.CgMenuBoxToggle {
+  height: 120vh;
+}
+@media screen and (min-width: 1200px) {
+  .CgMenuBoxToggle > button {
+    position: fixed;
+    z-index: 1101;
+    background-color: transparent !important;
+  }
+  .CgMenuBoxToggle > button:hover,
+  .CgMenuBoxToggle > button:focus,
+  .CgMenuBoxToggle > button:active,
+  .CgMenuBoxToggle > button:focus-visible,
+  .CgMenuBoxToggle > button:focus-within,
+  .CgMenuBoxToggle > button:visited {
+    background-color: transparent !important;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+  }
+  .CgMenuBoxToggle > div {
+    position: fixed;
+    margin-top: 80px;
+    width: 23%;
+    z-index: 22;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1200px) {
+  .CgMenuBoxToggle {
+    width: 40%;
+    position: absolute;
+    z-index: 1111;
+    /* box-shadow: 1px 0px 16px -6px #adadad !important; */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .seperateBox {
+    padding: 8px !important;
+  }
+  .rdrMonth {
+    width: 100%;
+  }
+  .CgMenuBoxToggle {
+    width: 96% !important;
+    position: absolute;
+  }
+  .CgMenuBox > button > svg {
+    margin: 78px 0 0 0 !important;
+  }
+  .CgMenuBoxToggle > button > svg {
+    margin: 78px 0 0 0 !important;
+  }
+  .css-pzc27e-MuiToolbar-root.Toolbar-toolbar {
+    height: 50px;
+  }
+
+  .rdrMonths {
+    flex-direction: column;
+  }
+
+  .rdrDateRangePickerWrapper {
+    flex-direction: column;
+    width: 100%;
+    display: flex;
+  }
+
+  .css-3bmhjh-MuiPaper-root-MuiPopover-paper {
+    top: 16px !important;
+    left: 16px;
+    max-height: 70% !important;
+  }
+
+  .rdrDefinedRangesWrapper {
+    width: 90%;
+    margin: auto;
+    border-left: solid 1px #eff2f7;
+  }
+  .rdrStaticRangeLabel {
+    text-align: center !important;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 925px) {
+  .css-3bmhjh-MuiPaper-root-MuiPopover-paper {
+    top: 15px !important;
+  }
+  .rdrDateRangePickerWrapper {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .rdrDefinedRangesWrapper {
+    width: 90% !important;
+    margin: auto;
+    border-left: solid 1px #eff2f7;
+  }
+  .rdrStaticRangeLabel {
+    text-align: center !important;
+  }
+}
+
+.Cell-text {
+  padding: 0 !important;
+}
+
+/* .css-1wo6pgl-MuiTableCell-root.Cell-cell {
+  height: 120px !important;
+}
+@media screen and (max-width: 600px) {
+.css-1wo6pgl-MuiTableCell-root.Cell-cell {
+    height: 50px !important;
+  }
+} */
+
+.css-julti5-MuiSwitch-root {
+  width: 50px !important;
+  padding: 12px 4px 12px 9px !important;
+}
+
+.css-ecvcn9 {
+  width: 50px !important;
+  padding: 12px 4px 12px 9px !important;
+}
+.css-apyyif-MuiAutocomplete-listbox .MuiAutocomplete-option {
+  justify-content: flex-end !important;
+}
+.css-1o5m5w-MuiFormHelperText-root.Mui-error {
+  white-space: nowrap;
+  font-size: 9px;
+  margin: 0;
+}
+.css-dgdbsq-MuiFormHelperText-root.Mui-error {
+  white-space: nowrap;
+  font-size: 9px;
+  margin: 0;
+}
+.MuiPopover-paper {
+  overflow: hidden !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #fff inset !important;
+}
+.MainLayout-ordinaryHeaderBorder {
+  border: none !important;
+}
+
+.MuiCalendarPicker-root > div > div {
+  flex-direction: row-reverse;
+}
+.MuiTouchRipple-ripple {
+  opacity: 0 !important;
+}
+.MuiModal-backdrop {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+/* @media screen and (max-width: 600px) {
+.css-k19c14-MuiTable-root.Table-table {
+    min-width: 270px !important;
+  }
+} */
+
+/* .css-1ohjfvu{
+  margin-left: auto;
+}
+.css-1dozdou{
+  direction: rtl;
+}
+.css-ktxc6a{
+  margin-left: auto;
+} */
+/* .Header-head{
+  direction: rtl;
+ } */
+/*...........................................................................................*/
+/* Ifram Responsive */
+/* @media screen and (max-width: 600px) {
+  .react-draggable {
+    width: 100vw;
+    height: 100vh;
+  }
+  .react-draggable > div {
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  .react-draggable-dragged.reset-p {
+    height: 75vh;
+  }
+} */

@@ -1,0 +1,290 @@
+import actions from "../../actions";
+import { combineReducers } from "redux";
+
+const {
+  GET_NOTIFICATIONS,
+  GET_NOTIFICATIONS_DONE,
+  ADD_NOTIFICATION,
+  COMPLETE_ADD_NOTIFICATION,
+  EDIT_NOTIFICATION,
+  COMPLETE_EDIT_NOTIFICATION,
+  DELETE_NOTIFICATIONS,
+  COMPLETE_DELETE_NOTIFICATIONS,
+  FETCH_NOTIFICATIONS_PARAMS,
+  COMPLETE_FETCH_NOTIFICATIONS_PARAMS,
+  FETCH_CHANNELS,
+  COMPLETE_FETCH_CHANNELS,
+  FETCH_MY_NOTIFICATIONS,
+  COMPLETE_FETCH_MY_NOTIFICATIONS,
+  READ_NOTIFICATION,
+  COMPLETE_READ_NOTIFICATION,
+  FETCH_NOTIFICATIONS_COUNT,
+  COMPLETE_FETCH_NOTIFICATIONS_COUNT,
+  SEND_NOTIFY_TO_CONTACT,
+  SEND_NOTIFY_TO_CONTACT_DONE,
+} = actions;
+
+export const getNotifications = (state = false, action) => {
+  switch (action.type) {
+    case GET_NOTIFICATIONS:
+      return true;
+    case GET_NOTIFICATIONS_DONE:
+      return false;
+    default:
+      return state;
+  }
+};
+
+export const getNotificationsComplete = (state = {}, action) => {
+  switch (action.type) {
+    case GET_NOTIFICATIONS_DONE:
+      return action.data;
+    default:
+      return state;
+  }
+};
+
+const isAddingNotifications = (state = false, action) => {
+  switch (action.type) {
+    case ADD_NOTIFICATION: {
+      return true;
+    }
+    case COMPLETE_ADD_NOTIFICATION: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const AddNotificationsComplete = (state = {}, action) => {
+  switch (action.type) {
+    case COMPLETE_ADD_NOTIFICATION: {
+      return action.data;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isEditingNotifications = (state = false, action) => {
+  switch (action.type) {
+    case EDIT_NOTIFICATION: {
+      return true;
+    }
+    case COMPLETE_EDIT_NOTIFICATION: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const EditNotificationsComplete = (state = {}, action) => {
+  switch (action.type) {
+    case COMPLETE_EDIT_NOTIFICATION: {
+      return action.data;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isDeletingNotifications = (state = false, action) => {
+  switch (action.type) {
+    case DELETE_NOTIFICATIONS: {
+      return true;
+    }
+    case COMPLETE_DELETE_NOTIFICATIONS: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const DeleteNotificationsComplete = (state = {}, action) => {
+  switch (action.type) {
+    case COMPLETE_DELETE_NOTIFICATIONS: {
+      return action.data;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isFetchingNotificationsParams = (state = false, action) => {
+  switch (action.type) {
+    case FETCH_NOTIFICATIONS_PARAMS: {
+      return true;
+    }
+    case COMPLETE_FETCH_NOTIFICATIONS_PARAMS: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const NotificationParams = (state = {}, action) => {
+  switch (action.type) {
+    case COMPLETE_FETCH_NOTIFICATIONS_PARAMS: {
+      return action.data || {};
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
+
+//Channels
+
+const isFethingChannels = (state = false, action) => {
+  switch (action.type) {
+    case FETCH_CHANNELS: {
+      return true;
+    }
+    case COMPLETE_FETCH_CHANNELS: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const Channels = (state = [], action) => {
+  switch (action.type) {
+    case COMPLETE_FETCH_CHANNELS: {
+      return action.data || [];
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isFecthingMyNotifications = (state = false, action) => {
+  switch (action.type) {
+    case FETCH_MY_NOTIFICATIONS: {
+      return true;
+    }
+    case COMPLETE_FETCH_MY_NOTIFICATIONS: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const MyNotifications = (state = [], action) => {
+  switch (action.type) {
+    case COMPLETE_FETCH_MY_NOTIFICATIONS: {
+      return action.data || [];
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isReadingNotification = (state = false, action) => {
+  switch (action.type) {
+    case READ_NOTIFICATION: {
+      return true;
+    }
+    case COMPLETE_READ_NOTIFICATION: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const ReadNotification = (state = false, action) => {
+  switch (action.type) {
+    case COMPLETE_READ_NOTIFICATION: {
+      return action.data || false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const isFetchingNotificationsCount = (state = false, action) => {
+  switch (action.type) {
+    case FETCH_NOTIFICATIONS_COUNT: {
+      return true;
+    }
+    case COMPLETE_FETCH_NOTIFICATIONS_COUNT: {
+      return false;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+const NotificationsCount = (state = 0, action) => {
+  switch (action.type) {
+    case COMPLETE_FETCH_NOTIFICATIONS_COUNT: {
+      return action.data || 0;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
+export const isSendingNotifyToContact = (state = false, action) => {
+  switch (action.type) {
+    case SEND_NOTIFY_TO_CONTACT:
+      return true;
+    case SEND_NOTIFY_TO_CONTACT_DONE:
+      return false;
+    default:
+      return state;
+  }
+};
+export const sendNotifyToContactComplete = (state = {}, action) => {
+  switch (action.type) {
+    case SEND_NOTIFY_TO_CONTACT_DONE:
+      return action.data;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({
+  getNotifications,
+  getNotificationsComplete,
+  isFetchingNotificationsParams,
+  NotificationParams,
+  isAddingNotifications,
+  AddNotificationsComplete,
+  isEditingNotifications,
+  EditNotificationsComplete,
+  isDeletingNotifications,
+  DeleteNotificationsComplete,
+  isFethingChannels,
+  Channels,
+  isFecthingMyNotifications,
+  MyNotifications,
+  isReadingNotification,
+  ReadNotification,
+  isFetchingNotificationsCount,
+  NotificationsCount,
+  isSendingNotifyToContact,
+  sendNotifyToContactComplete,
+});

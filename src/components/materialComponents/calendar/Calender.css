@@ -1,0 +1,20 @@
+.Layout-popover {
+  width: auto !important;
+  max-width: fit-content !important;
+  transition: none !important;
+  transform: none !important;
+  position: fixed !important;
+  transform-origin: 0 0 !important;
+  top: 30% !important;
+  left: 30% !important;
+  right: inherit !important;
+  z-index: 2;
+  box-shadow: 0 3px 22px 0 rgb(0 0 0 / 11%) !important;
+}
+.MuiTooltip-popper {
+  z-index: 1500 !important;
+  pointer-events: none;
+}
+div[role="tooltip"] {
+  z-index: 1500 !important;
+}
