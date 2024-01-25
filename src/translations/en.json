@@ -450,7 +450,7 @@
     "RECORDING_NAME": "Recording name",
     "RECORDING_SIZE": "Recording size",
     "RECORDING_LOG": "Event recording log",
-    "RECORDING_PATH": "Recording path",
+    "RECORDING_PUBLIC_LINK": "Public link",
     "VERIFICATION_CODE": "Verification code",
     "RESEND_VERIFICATION_CODE": "Resend Verification Code",
     "MANAGER": "Manager",
@@ -469,7 +469,8 @@
     "USER_GROUP_NAME": "Group name",
     "DISPLAYNAME": "Name",
     "HOST": "Host",
-    "PORT": "Port"
+    "PORT": "Port",
+    "DOWNLOAD": "Download"
   },
   "WARNING": {
     "REQUIRED": "Required",
@@ -516,5 +517,11 @@
     "REPEAT_EVERY_X_MONTHS": "Repeat/Months",
     "REPEAT": "Repeat",
     "RANK": "Rank"
+  },
+  "RECORDING_STATUS_NAMES": {
+    "RECORDING": "Processing",
+    "RECORDED": "Processing",
+    "UPLOADED": "Ready",
+    "UPLOADING_FAILED": "Recording error"
   }
 }

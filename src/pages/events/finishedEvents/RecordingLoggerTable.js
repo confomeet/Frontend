@@ -1,3 +1,4 @@
+import React from "react";
 import { Grid, Typography } from "components/muiComponents";
 import { pagination } from "components/shared/utils";
 import FullTabel from "components/table/Table";
@@ -6,6 +7,7 @@ import { getTableRowsAndColumns } from "redux/network/functions";
 import { handleNoValue } from "utils";
 import { eventsStyles } from "../style";
 import PageSubHeading from "videoComponents/typographyGeneral/PageSubHeading";
+import Link from "components/link";
 
 const initTableData = {
   ROWS: [],
@@ -29,7 +31,7 @@ const RecordingLoggerTable = (props) => {
         row.recordingfileName
       ),
       [Object.translate("LABEL.RECORDING_SIZE")]: handleNoValue(row.fileSize),
-      [Object.translate("LABEL.RECORDING_PATH")]: handleNoValue(row.filePath),
+      [Object.translate("LABEL.RECORDING_PUBLIC_LINK")]: recoringLinkCell(row),
     }));
   };
 
@@ -71,3 +73,23 @@ const RecordingLoggerTable = (props) => {
 };
 
 export default RecordingLoggerTable;
+
+function recoringLinkCell(recording) {
+  let status = null;
+  switch (recording.status) {
+    case 0: status = "RECORDING_STATUS_NAMES.RECORDING"; break;
+    case 1: status = "RECORDING_STATUS_NAMES.RECORDED"; break;
+    case 2: status = "RECORDING_STATUS_NAMES.UPLOADED"; break;
+    case 3: status = "RECORDING_STATUS_NAMES.UPLOADING_FAILED"; break;
+    default: {
+      console.warn(`Recording status=${recording.status} is unrecognized. Perhaps API changed.`);
+      status = "VALUE.NO_VALUE";
+    }
+  };
+
+  if (status == "RECORDING_STATUS_NAMES.UPLOADED") {
+    return <Link href={recording.videoPublicLink}>{ Object.translate("LABEL.DOWNLOAD") }</Link>;
+  }
+
+  return <>{ Object.translate(status) }</>;
+}
