@@ -206,7 +206,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
   };
 
   const eventLogs = useMemo(() => {
-    if (!props.allEvents) return [];
     if (!Array.isArray(selectedObj?.eventLogs)) return [];
     return selectedObj?.eventLogs.map((log) => ({
       date: Date.displayDate(log.eventTime, "MMM DD,YYYY  hh:mm:ss A"),
@@ -214,7 +213,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     }));
   }, [selectedObj?.eventLogs]);
   const recordingLogs = useMemo(() => {
-    if (!props.allEvents) return [];
     if (!Array.isFullArray(selectedObj?.videoLogs)) return [];
     return selectedObj?.videoLogs;
   }, [selectedObj?.videoLogs]);
