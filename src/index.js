@@ -13,7 +13,7 @@ root.render(
   <React.StrictMode>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>{"Lilac Meet"}</title>
+      <title>{"ConfOMeet"}</title>
       <link rel="icon" href={`${process.env.PUBLIC_URL}/${"favicon.ico"}`} />
       <link
         rel="apple-touch-icon"
