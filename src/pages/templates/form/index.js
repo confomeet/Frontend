@@ -1,10 +1,6 @@
 import {
   Box,
-  Button,
   Container,
-  IconButton,
-  InputAdornment,
-  Typography,
 } from "components/muiComponents";
 import { useSelector } from "react-redux";
 import formPageStyles from "./style";
@@ -15,17 +11,6 @@ function FormPage({children}) {
   const {
     settingsReducer: { settings },
   } = useSelector((state) => state);
-
-  const isVerified = false;
-  const initialValues = !isVerified
-    ? {
-        email: "",
-        pasword: "",
-        remember: false,
-      }
-    : {
-        verifyCode: "",
-      };
 
   return (
     <Box className={classes.formPageRoot}>
