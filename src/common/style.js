@@ -403,7 +403,7 @@ const drawerStyle = makeStyles((theme) => ({
     },
   },
   SubHeaderRootWithoutAuth: {
-    minHeight: "70px",
+    // minHeight: "70px",
     // width: "100%!important",
     display: "flex",
     alignContent: "center",
