@@ -24,7 +24,6 @@ import JoinCall from "../pages/user/JoinCall";
 import JoinCallWithToken from "../pages/user/JoinCallWithToken";
 import Login from "../pages/user/Login";
 import ResetPassword from "../pages/user/ResetPassword";
-import SignUp from "../pages/user/SignUp";
 import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import ConnectPage from "./connectPage/ConnectPage";
 import Panel from "./panel/Panel";
@@ -177,7 +176,6 @@ const Index = () => {
                           path={`/join/:id/:uuid`}
                           element={<JoinCallWithToken />}
                         />
-                        <Route path={`/signup`} element={<SignUp />} />
                         <Route
                           path={`/ActiveAccount`}
                           element={<ActiveAccount />}
