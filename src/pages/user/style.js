@@ -1,7 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import loginBg from "../../assets/images/connectBg.png";
-import connect from "../../assets/images/connect.png";
-import joinBg from "../../assets/images/joinBg.png";
+import joinBg from "../../assets/images/connectBg.jpg";
 
 const loginStyles = makeStyles((theme) => ({
   loginRoot: {

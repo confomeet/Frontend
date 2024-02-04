@@ -1,5 +1,4 @@
-import lilacLogo from "assets/images/lilacLogo.png";
-import lilacLogoWhite from "assets/images/lilacLogoWhite.png";
+import lilacLogo from "assets/images/logo.png";
 import debounce from "lodash.debounce";
 import {
   Reccuringdata,
@@ -31,7 +30,6 @@ window.domain = process.env.PUBLIC_URL;
 
 window.scrollIntoRef = scrollIntoRef;
 window.officialLogo = lilacLogo;
-window.officialWhiteLogo = lilacLogoWhite;
 // window.defualtLang = "ar";
 window.defualtLang = "en";
 
