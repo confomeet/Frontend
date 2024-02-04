@@ -6,7 +6,7 @@ export const themeList = [
       type: "light",
       fontSize: { xs: 12, s: 16, m: 20, lg: 24, xl: 28 },
       colors: {
-        primary: "#3a94f7",
+        primary: "#43C2F2",
         primaryPlus: "#1c232b",
         secondary: "#ecf0f8",
         bgGreen: "#41E2A8",
