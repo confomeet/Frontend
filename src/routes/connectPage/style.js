@@ -73,7 +73,7 @@ const connectStyles = makeStyles((theme) => ({
         opacity: .1,
         bottom: -100,
         right: -90,
-        zIndex: 1,
+        zIndex: -1,
       },
     },
     "& .connect-bg": {
