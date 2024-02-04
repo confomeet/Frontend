@@ -14,7 +14,7 @@ export const coloredTheme = ({ currentTheme, isRTL, isDark }) => {
       },
     },
     globals: currentTheme.elements,
-    typography: { fontFamily: isRTL ? "Cairo" : "Poppins" },
+    ...typographyHeadersConfiguration,
   };
 };
 export const darkTheme = ({ currentTheme, isRTL, isDark }) => {
@@ -38,6 +38,7 @@ export const darkTheme = ({ currentTheme, isRTL, isDark }) => {
       },
     },
     globals: currentTheme.elements,
+    ...typographyHeadersConfiguration,
   };
 };
 
@@ -61,5 +62,25 @@ export const blindTheme = ({ currentTheme, isRTL }) => {
       },
     },
     globals: currentTheme?.elements,
+    ...typographyHeadersConfiguration,
   };
 };
+
+const typographyHeadersConfiguration = {
+  typography: {
+    h1: {
+      fontFamily: "Marmelad",
+      fontSize: "80px",
+      fontWeight: 400,
+      lineHeight: 1.2,
+      textAlign: "center",
+    },
+    h2: {
+      fontFamily: "Marmelad",
+      fontSize: "48px",
+      fontWeight: 400,
+      lineHeight: 1.2,
+      textAlign: "center",
+    }
+  }
+}
