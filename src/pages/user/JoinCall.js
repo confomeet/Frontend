@@ -1,15 +1,15 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import { Box, Button, Hidden, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
 import { getSearchQueries } from "redux/network/functions";
 import loginStyles from "./style";
 
-import { BsCircleFill, BsFillTriangleFill } from "react-icons/bs";
 import { joinByMeetingLink } from "utils";
 import actions from "../../redux/actions";
+import FormPage from "pages/templates/form";
 
 const { joinMeeting, joinMeetingDone } = actions;
 
@@ -90,38 +90,7 @@ function JoinCall() {
   };
 
   return (
-    <Box className={classes.loginRoot}>
-      <Hidden mdDown>
-        <Box className="connect-bg">
-          <Box className="gradient"></Box>
-          <Box className="bordered"></Box>
-          <Box className="image">
-            <span className="corner"></span>
-            <span className="circle">
-              <BsCircleFill />
-            </span>
-            <span className="circle-small">
-              <BsCircleFill />
-            </span>
-            <span className="triangle">
-              <BsFillTriangleFill />
-            </span>
-            <span className="triangle-small">
-              <BsFillTriangleFill />
-            </span>
-            <Typography variant="h2" component="h2">
-              {Object.translate("BUTTONS.JOIN0")}
-            </Typography>
-          </Box>
-        </Box>
-      </Hidden>
-      <Box
-        sx={{ width: "100%" }}
-        className="loginContent d-flex-column center-content"
-      >
-        <Box className="lilacLogo">
-          <img src={`${window.officialLogo}`} alt="lilacLogo" />
-        </Box>
+    <FormPage>
         <Formik
           initialValues={{
             name: name || "",
@@ -134,7 +103,15 @@ function JoinCall() {
           enableReinitialize={true}
         >
           {({ isValid, dirty, values, submitForm }) => (
-            <Form>
+            <Form className={classes.loginRoot}>
+              <Typography
+                component="h2"
+                variant="h2"
+                marginBottom={10}
+              >
+                {Object.translate("PAGES.JOIN")}
+              </Typography>
+
               <Box display="flex" flexDirection="column">
                 {!window.self.JitsiMeetElectron ? (
                   <>
@@ -230,7 +207,7 @@ function JoinCall() {
                   </>
                 )}
 
-                <Box marginY={2} width="65%" margin="40px auto">
+                <Box marginY={10} width="65%" margin="40px auto">
                   <Button
                     variant="contained"
                     disableElevation
@@ -245,8 +222,7 @@ function JoinCall() {
             </Form>
           )}
         </Formik>
-      </Box>
-    </Box>
+      </FormPage>
   );
 }
 
