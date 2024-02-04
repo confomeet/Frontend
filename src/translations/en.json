@@ -253,11 +253,9 @@
   "FULL_SENTENCE": {
     "ADD_PARTICIPANT_BY_EMAIL": "You may add Participants using thier email addresses",
     "ADD_PARTICIPANT_BY_MOBILE": "Or using their mobile number",
-    "U_R_CONNECTED": "You are Connected",
     "FORGET_PASSWORD": "Forget Password?",
     "ENTER_PASSWORD": "Password",
     "RESET_PASSWORD": "Rest Password",
-    "LILAC_MEET": "Lilac Meet",
     "PP": "Public Procecution",
     "CONFIRM_PASSWORD": "Confirm Password",
     "ADD_DETAILS": "Create Meeting",
