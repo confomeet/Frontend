@@ -134,6 +134,7 @@ import {
   MdEventBusy,
   MdOutlineEditCalendar,
 } from "react-icons/md";
+import LeftArrowIcon from "./left-arrow";
 
 const _AiOutlineFullscreenExit = (props) => (
   <AiOutlineFullscreenExit {...props} />
@@ -472,4 +473,5 @@ export {
   _FaPlus as FaPlus,
   _FaArrowRight as FaArrowRight,
   _AiOutlineReload as AiOutlineReload,
+  LeftArrowIcon
 };

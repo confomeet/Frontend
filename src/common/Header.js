@@ -1,5 +1,5 @@
 import mask from "assets/images/mask.png";
-import { HomeIcon, Login, Logout, Notificatios } from "components/icons";
+import { Login, Logout, Notificatios, LeftArrowIcon } from "components/icons";
 import LanguageSwitch from "components/languageSwitch";
 import ListComponent from "components/list/List";
 import {
@@ -124,7 +124,7 @@ const Header = () => {
                     sessionStorage.removeItem("OTP_INFO");
                   }}
                 >
-                  <HomeIcon />
+                  <LeftArrowIcon />
                 </IconButton>
               </ToolTip>
             )}

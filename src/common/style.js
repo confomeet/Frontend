@@ -66,7 +66,13 @@ const drawerStyle = makeStyles((theme) => ({
       marginBottom: "12px",
     },
     "& button": {
-      padding: "12px 16px!important",
+      width: "56px",
+      height: "56px",
+      padding: "7px 7px!important",
+      "& svg": {
+        width: "100%",
+        height: "100%",
+      },
     },
   },
   userTypoHeader: {
