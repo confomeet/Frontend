@@ -15,7 +15,7 @@ function FormPage({children}) {
   return (
     <Box className={classes.formPageRoot}>
       <Box className=" left-pane ">
-        <Box class=" content ">
+        <Box className=" content ">
           {<AppNameBanner className=" item "/>}
         </Box>
       </Box>
