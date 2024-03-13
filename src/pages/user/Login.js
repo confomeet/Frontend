@@ -28,7 +28,7 @@ import FormPage from "../templates/form";
 
 const { logIn, verifyOtp } = actions;
 
-function OtpLogin() {
+function Login() {
   const classes = loginStyles();
   const {
     settingsReducer: { settings },
@@ -313,4 +313,4 @@ function OtpLogin() {
   );
 }
 
-export default OtpLogin;
+export default Login;

@@ -26,7 +26,7 @@ import ResetPassword from "../pages/user/ResetPassword";
 import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import ConnectPage from "./connectPage/ConnectPage";
 import Panel from "./panel/Panel";
-import OtpLogin from "pages/user/OtpLogin";
+import Login from "pages/user/Login";
 const { closeSideMenu, setHeaderPageTitle, getCountries, getCountriesDone } =
   actions;
 
@@ -168,7 +168,7 @@ const Index = () => {
                           }
                         ></Route>
                         <Route path={`/`} element={<ConnectPage />} />
-                        <Route path={`/login`} element={<OtpLogin />} />
+                        <Route path={`/login`} element={<Login />} />
                         <Route path={`/join`} element={<JoinCall />} />
                         <Route
                           path={`/join/:id/:uuid`}
