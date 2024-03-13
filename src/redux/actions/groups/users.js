@@ -23,7 +23,6 @@ export default {
   ...createAction("COMPLETE_DELETE_USER", "data"),
 
   ...createAction("LOG_IN", "body"),
-  ...createAction("LOG_IN_DONE", "data"),
 
   ...createAction("FORGOT_PASSWORD", "data"),
   ...createAction("FORGOT_PASSWORD_DONE", "data"),
@@ -58,7 +57,6 @@ export default {
   ...createAction("EDIT_PASSWORD_DONE", "data"),
 
   ...createAction("VERIFY_OTP", "body"),
-  ...createAction("VERIFY_OTP_DONE", "data"),
 
   ...createAction("GET_PROFILE_INFO"),
   ...createAction("GET_PROFILE_INFO_DONE", "data"),

@@ -44,25 +44,6 @@ export const handleEceptionErrors = async (obj) => {
   return;
 };
 
-export const handleApiResponse = async (response, url, OK = false) => {
-  let alertValue;
-  if (response && Object.keys(response).length) {
-    let msg = "";
-    response.message.map((m) => (msg += `${m}`));
-
-    if (msg)
-      alertValue = await dispatchSetAlertObject({
-        icon: response.id > 0 ? "success" : "error",
-        title: msg,
-        hasCancelBtn: false,
-      });
-
-    if (response.id > 0) return response.result;
-  }
-  if (url) window.location.href = url;
-  if (alertValue) return "";
-};
-
 export const getSearchQueries = () => {
   let obj = {};
   let searchParams = window.location.search;

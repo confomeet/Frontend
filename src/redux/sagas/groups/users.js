@@ -64,7 +64,6 @@ const {
   EDIT_PASSWORD,
   editPasswordDone,
   VERIFY_OTP,
-  verifyOtpDone,
   GET_PROFILE_INFO,
   getProfileInfoDone,
   GET_PROFILE_IMG,

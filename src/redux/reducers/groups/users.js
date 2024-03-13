@@ -17,7 +17,6 @@ const {
   DELETE_USER,
   COMPLETE_DELETE_USER,
   LOG_IN,
-  LOG_IN_DONE,
   SIGN_UP,
   SIGN_UP_DONE,
   FORGOT_PASSWORD,
@@ -38,10 +37,7 @@ const {
   SEARCH_USERS_DONE,
   EDIT_PASSWORD,
   EDIT_PASSWORD_DONE,
-  VERIFY_USER_CREDENTIALS,
-  VERIFY_USER_CREDENTIALS_DONE,
   VERIFY_OTP,
-  VERIFY_OTP_DONE,
   GET_PROFILE_INFO,
   GET_PROFILE_INFO_DONE,
   GET_PROFILE_IMG,
@@ -179,25 +175,6 @@ export const isDeletingUser = (state = false, action) => {
 export const DeletedUser = (state = {}, action) => {
   switch (action.type) {
     case COMPLETE_DELETE_USER:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
-export const logIn = (state = false, action) => {
-  switch (action.type) {
-    case LOG_IN:
-      return true;
-    case LOG_IN_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const logInDone = (state = {}, action) => {
-  switch (action.type) {
-    case LOG_IN_DONE:
       return action.data;
     default:
       return state;
@@ -399,44 +376,6 @@ export const editPasswordComplete = (state = {}, action) => {
   }
 };
 
-export const isVerifyingUserCredentials = (state = false, action) => {
-  switch (action.type) {
-    case VERIFY_USER_CREDENTIALS:
-      return true;
-    case VERIFY_USER_CREDENTIALS_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const verifyUserCredentialsComplete = (state = {}, action) => {
-  switch (action.type) {
-    case VERIFY_USER_CREDENTIALS_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
-export const isVerifyingOTP = (state = false, action) => {
-  switch (action.type) {
-    case VERIFY_OTP:
-      return true;
-    case VERIFY_OTP_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const verifyOTPComplete = (state = {}, action) => {
-  switch (action.type) {
-    case VERIFY_OTP_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 export const isGettingProfileInfo = (state = false, action) => {
   switch (action.type) {
     case GET_PROFILE_INFO:
@@ -526,8 +465,6 @@ export default combineReducers({
   EditedUser,
   isDeletingUser,
   DeletedUser,
-  logIn,
-  logInDone,
   forgotPassword,
   forgotPasswordDone,
   resetPassword,
@@ -548,10 +485,6 @@ export default combineReducers({
   searchUsersComplete,
   isEditingPassword,
   editPasswordComplete,
-  isVerifyingUserCredentials,
-  verifyUserCredentialsComplete,
-  isVerifyingOTP,
-  verifyOTPComplete,
   isGettingProfileInfo,
   getProfileInfoComplete,
   isGettingProfileImg,
