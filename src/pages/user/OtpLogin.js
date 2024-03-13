@@ -26,7 +26,7 @@ import actions from "../../redux/actions";
 import loginStyles from "./style";
 import FormPage from "../templates/form";
 
-const { verifyUserCredentials, verifyOtp } = actions;
+const { logIn, verifyOtp } = actions;
 
 function OtpLogin() {
   const classes = loginStyles();
@@ -71,7 +71,7 @@ function OtpLogin() {
     if (!isVerified) {
       if (!values.email || !values.pasword) return;
       window.dispatch(
-        verifyUserCredentials({
+        logIn({
           body: {
             email: values.email,
             password: values.pasword,
@@ -119,7 +119,7 @@ function OtpLogin() {
     if (!otpUserInfo?.email || !otpUserInfo?.password) return;
     const currentIp = ip.IPv4;
     window.dispatch(
-      verifyUserCredentials({
+      logIn({
         body: {
           email: otpUserInfo?.email,
           password: otpUserInfo?.password,

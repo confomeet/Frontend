@@ -118,6 +118,7 @@ const settings = (state = initialState, action) => {
       };
 
     case ACTION_TYPES.SET_AUTH_USER:
+      localStorage.setItem("profile", JSON.stringify(action.authUser));
       return {
         ...state,
         authUser: action.authUser,

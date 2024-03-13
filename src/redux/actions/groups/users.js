@@ -22,7 +22,7 @@ export default {
   ...createAction("DELETE_USER", "body", "id"),
   ...createAction("COMPLETE_DELETE_USER", "data"),
 
-  ...createAction("LOG_IN", "data", "IP", "remember", "lang"),
+  ...createAction("LOG_IN", "body"),
   ...createAction("LOG_IN_DONE", "data"),
 
   ...createAction("FORGOT_PASSWORD", "data"),
@@ -56,9 +56,6 @@ export default {
 
   ...createAction("EDIT_PASSWORD", "body"),
   ...createAction("EDIT_PASSWORD_DONE", "data"),
-
-  ...createAction("VERIFY_USER_CREDENTIALS", "body"),
-  ...createAction("VERIFY_USER_CREDENTIALS_DONE", "data"),
 
   ...createAction("VERIFY_OTP", "body"),
   ...createAction("VERIFY_OTP_DONE", "data"),

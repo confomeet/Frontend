@@ -46,15 +46,6 @@ export const deleteExistingUser = async (body, id) =>
     body,
   });
 
-export const logIn = async (data, IP = "0", lang) =>
-  await postData({
-    endpoint: "/v1/User/signIn",
-    body: data,
-    customHeaders: { IP },
-    disableLoader: false,
-    disableSwal: true,
-  });
-
 export const resetPassword = async (data) =>
   await postData({
     endpoint: "/v1/user/ResetPassword",
@@ -127,9 +118,9 @@ export const editPasswordReq = async (body) =>
     disableSwal: false,
   });
 
-export const verifyUserCredentialsReq = async (body) =>
+export const logIn = async (body) =>
   await postData({
-    endpoint: "/v1/User/VerifyUserCredentials",
+    endpoint: "/v1/User/Login",
     body,
     disableLoader: false,
     disableSwal: false,

@@ -16,7 +16,6 @@ import {
   getUserByIdReq,
   searchUsersReq,
   editPasswordReq,
-  verifyUserCredentialsReq,
   verifyOtpReq,
   getProfileInfoReq,
   getProfileImgReq,
@@ -42,7 +41,6 @@ const {
   DELETE_USER,
   completeDeleteUser,
   LOG_IN,
-  logInDone,
   setAuthUser,
   SIGN_UP,
   signUpDone,
@@ -65,8 +63,6 @@ const {
   searchUsersDone,
   EDIT_PASSWORD,
   editPasswordDone,
-  VERIFY_USER_CREDENTIALS,
-  verifyUserCredentialsDone,
   VERIFY_OTP,
   verifyOtpDone,
   GET_PROFILE_INFO,
@@ -74,6 +70,7 @@ const {
   GET_PROFILE_IMG,
   getProfileImg,
   getProfileImgDone,
+  clearAuthUser,
 } = actions;
 
 function* performConfirmAccount({ id, key }) {
@@ -233,27 +230,6 @@ function* performDeleteUser({ body, id }) {
 
 export function* watchDeleteUser() {
   yield takeLatest(DELETE_USER, performDeleteUser);
-}
-
-function* performSignIn(action) {
-  try {
-    let data = action.data;
-    const result = yield call(logIn, data, action.IP, action.lang);
-    if (!result.networkSuccess) {
-      yield put(logInDone({ data: {} }));
-    } else if (result.data) {
-      yield put(logInDone({ data: result.data }));
-      yield put(setAuthUser({ authUser: result.data }));
-      localStorage.setItem("profile", JSON.stringify(result.data));
-    }
-  } catch {
-    yield put(logInDone({ data: {} }));
-    return;
-  }
-}
-
-export function* watchLogIn() {
-  yield takeLatest(LOG_IN, performSignIn);
 }
 
 function* performSignUp(action) {
@@ -431,47 +407,52 @@ export function* watchEditPassword() {
   yield takeLatest(EDIT_PASSWORD, performEditPassword);
 }
 
-function* performVerifyUserCredentials({ body }) {
-  let resultData;
+function* performLogIn({ body }) {
   try {
-    const result = yield call(verifyUserCredentialsReq, body);
-    resultData = result.networkSuccess ? result.data : {};
-    if (result.networkSuccess)
+    yield put(clearAuthUser());
+    const result = yield call(logIn, body);
+    const api_result = result.data ?? {};
+    if (!result.networkSuccess || !api_result) {
+      sessionStorage.removeItem("OTP_INFO");
+      console.error("Network error during perform log in");
+    } else if (api_result.code == 200) {
+      yield put(setAuthUser({ authUser: api_result.result }));
+      return;
+    }
+    else if (api_result.code == 1001) {
       sessionStorage.setItem(
         "OTP_INFO",
         JSON.stringify({
-          email: body?.email,
-          password: body?.password,
-          userId: resultData?.id,
+          userId: api_result.result.userId,
         })
       );
-    else {
+      // Cannot use clearAuthUser() here because it will clean sessionStorage["OTP_INFO"]
+      yield put(setAuthUser({ authUser: null }));
+      return;
+    } else {
       sessionStorage.removeItem("OTP_INFO");
     }
   } catch (e) {
-    resultData = {};
+    console.error("Failed to process logIn response: " + e.message);
   }
-  yield put(verifyUserCredentialsDone({ data: resultData }));
+  yield put(clearAuthUser());
 }
 
-export function* watchVerifyUserCredentials() {
-  yield takeLatest(VERIFY_USER_CREDENTIALS, performVerifyUserCredentials);
+export function* watchLogIn() {
+  yield takeLatest(LOG_IN, performLogIn);
 }
 
 function* performVerifyOTP({ body }) {
-  let resultData;
   try {
     const result = yield call(verifyOtpReq, body);
-    resultData = result.networkSuccess ? result.data : {};
+    const api_result = result.data ?? {};
     if (result.networkSuccess) {
       sessionStorage.removeItem("OTP_INFO");
-      yield put(setAuthUser({ authUser: result.data }));
-      localStorage.setItem("profile", JSON.stringify(result.data));
+      yield put(setAuthUser({ authUser: api_result.result }));
     }
   } catch (e) {
-    resultData = {};
+    console.error("Failed to process verify OTP response: " + e.message);
   }
-  yield put(verifyOtpDone({ data: resultData }));
 }
 
 export function* watchVerifyOTP() {
