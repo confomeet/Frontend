@@ -22,7 +22,6 @@ import ActiveAccount from "../pages/user/ActiveAccount";
 import ForgetPassword from "../pages/user/ForgetPassword";
 import JoinCall from "../pages/user/JoinCall";
 import JoinCallWithToken from "../pages/user/JoinCallWithToken";
-import Login from "../pages/user/Login";
 import ResetPassword from "../pages/user/ResetPassword";
 import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import ConnectPage from "./connectPage/ConnectPage";
@@ -169,7 +168,6 @@ const Index = () => {
                           }
                         ></Route>
                         <Route path={`/`} element={<ConnectPage />} />
-                        <Route path={`/oldLogin`} element={<Login />} />
                         <Route path={`/login`} element={<OtpLogin />} />
                         <Route path={`/join`} element={<JoinCall />} />
                         <Route
