@@ -2,17 +2,15 @@ import { MailOutlineIcon } from "components/icons";
 import {
   Box,
   Button,
-  Hidden,
   InputAdornment,
-  Typography,
 } from "components/muiComponents";
 import { Field, Form, Formik } from "formik";
 import { TextField } from "formik-mui";
-import { BsCircleFill, BsFillTriangleFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import actions from "../../redux/actions";
 import loginStyles from "./style";
+import FormPage from "../templates/form";
 
 const { forgotPassword } = actions;
 
@@ -46,79 +44,46 @@ function ForgetPassword() {
   };
 
   return (
-    <Box className={classes.loginRoot}>
-      <Hidden mdDown>
-        <Box className="connect-bg">
-          <Box className="gradient"></Box>
-          <Box className="bordered"></Box>
-          <Box className="image">
-            <span className="corner"></span>
-            <span className="circle">
-              <BsCircleFill />
-            </span>
-            <span className="circle-small">
-              <BsCircleFill />
-            </span>
-            <span className="triangle">
-              <BsFillTriangleFill />
-            </span>
-            <span className="triangle-small">
-              <BsFillTriangleFill />
-            </span>
-            <Typography variant="h2" component="h2">
-              {Object.translate("FULL_SENTENCE.RESET_PASSWORD")}
-            </Typography>
-          </Box>
-        </Box>
-      </Hidden>
-      <Box
-        sx={{ width: "100%" }}
-        className="loginContent d-flex-column center-content"
+    <FormPage formName={Object.translate("PAGES.FORGETPASSWORD")}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={onSubmit}
+        validationSchema={validationSchema}
       >
-        <Box className="lilacLogo d-flex center-content">
-          <img src={`${window.officialLogo}`} alt="lilacLogo" />
-        </Box>
-
-        <Formik
-          initialValues={initialValues}
-          onSubmit={onSubmit}
-          validationSchema={validationSchema}
-        >
-          {({ isValid, dirty, submitForm }) => (
-            <Form>
-              <Box display="flex" flexDirection="column">
-                <Field
-                  component={TextField}
-                  className="input"
-                  name="email"
-                  type="email"
-                  variant="standard"
-                  placeholder={Object.translate("LABEL.EMAIL")}
-                  InputProps={{
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <MailOutlineIcon />
-                      </InputAdornment>
-                    ),
-                    autoComplete: "off",
-                  }}
-                />
-                <Box marginY={2}>
-                  <Button
-                    variant="contained"
-                    className="submitBtn"
-                    onClick={submitForm}
-                    disabled={!isValid || !dirty}
-                  >
-                    {Object.translate("LABEL.SUBMIT")}
-                  </Button>
-                </Box>
+        {({ isValid, dirty, submitForm }) => (
+          <Form className={classes.loginRoot}>
+            <Box display="flex" flexDirection="column">
+              <Field
+                component={TextField}
+                className="input"
+                name="email"
+                type="email"
+                variant="standard"
+                placeholder={Object.translate("LABEL.EMAIL")}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MailOutlineIcon />
+                    </InputAdornment>
+                  ),
+                  autoComplete: "off",
+                }}
+              />
+              <Box marginY={2}>
+                <Button
+                  variant="contained"
+                  className="submitBtn"
+                  onClick={submitForm}
+                  disabled={!isValid || !dirty}
+                >
+                  {Object.translate("LABEL.SUBMIT")}
+                </Button>
               </Box>
-            </Form>
-          )}
-        </Formik>
-      </Box>
-    </Box>
+            </Box>
+          </Form>
+        )}
+      </Formik>
+    </FormPage>
   );
 }
 

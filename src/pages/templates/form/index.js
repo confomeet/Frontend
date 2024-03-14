@@ -1,12 +1,13 @@
 import {
   Box,
   Container,
+  Typography,
 } from "components/muiComponents";
 import { useSelector } from "react-redux";
 import formPageStyles from "./style";
 import AppNameBanner from "../../../components/appNameBanner";
 
-function FormPage({children}) {
+function FormPage({children, formName}) {
   const classes = formPageStyles();
   const {
     settingsReducer: { settings },
@@ -24,10 +25,17 @@ function FormPage({children}) {
           sx={{
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "start",
             alignItems: "center",
             height: "100%",
           }}>
+          <Typography
+            component="h2"
+            variant="h2"
+            sx= {{ marginY: "1em" }}
+          >
+            {formName}
+          </Typography>
          {children}
         </Container>
       </Box>

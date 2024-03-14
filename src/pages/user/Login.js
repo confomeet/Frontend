@@ -170,7 +170,7 @@ function Login() {
   }, [sessionStorage.getItem("OTP_INFO")]);
 
   return (
-    <FormPage>
+    <FormPage formName={Object.translate("PAGES.FORGETPASSWORD")}>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
@@ -179,14 +179,6 @@ function Login() {
       >
         {(formik) => (
           <Form className={classes.loginRoot}>
-              <Typography
-                component="h2"
-                variant="h2"
-                marginBottom={10}
-              >
-                {Object.translate("PAGES.SIGNIN")}
-              </Typography>
-
               {!isVerified ? (
                 <>
                   <TextField
@@ -285,7 +277,7 @@ function Login() {
                   />
                 </Box>
               )}
-              <Box marginY={10}>
+              <Box marginY="4em">
                 <Button
                   variant="contained"
                   className="submitBtn"
