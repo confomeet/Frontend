@@ -129,7 +129,8 @@ const drawerStyle = makeStyles((theme) => ({
   rootMainAppBarWithoutAuth: {
     height: 80,
     width: "100%!important",
-    backgroundColor: `${theme.palette.background.default}7`,
+    // backgroundColor: `${theme.palette.background.default}`,
+    backgroundColor: "#0E3663",
     backdropFilter: "blur(20px)",
     justifyContent: "start",
     "& svg": {

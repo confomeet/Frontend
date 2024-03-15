@@ -596,9 +596,6 @@ button {
 }
 
 @media screen and (max-width: 600px) {
-  .seperateBox {
-    padding: 8px !important;
-  }
   .rdrMonth {
     width: 100%;
   }

@@ -72,7 +72,7 @@ const Header = () => {
       open={sideMenuToggle}
       isRTL={isRTL}
       drawerWidth={drawerWidth}
-      sx={{ boxShadow: "none" }}
+      sx={{ boxShadow: "none", backgroundColor: "#0E3663", }}
     >
       <Container maxWidth="false">
         <Toolbar

@@ -11,10 +11,8 @@ const AppBar = styled(MuiAppBar, {
   };
 
   let connectPageStyle = {
-    backgroundColor: "transparent!important",
     borderBottom: "none!important",
     backdropFilter: "unset!important",
-    backgroundColor: "transparent!important",
     "& .language ": {
       width: 150,
       height: 50,
@@ -50,7 +48,6 @@ const AppBar = styled(MuiAppBar, {
   };
   let outerPageStyle = {
     backdropFilter: "unset!important",
-    backgroundColor: "transparent!important",
     borderBottom: "none!important",
     "& .logo ": {
       display: "none",

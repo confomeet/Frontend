@@ -1,6 +1,7 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { jssPreset, StylesProvider } from "@mui/styles";
+import Stack from '@mui/material/Stack';
 import Header from "common/Header";
 import MiniSideMenu from "common/MiniSideMenu";
 import SubHeader from "common/SubHeader";
@@ -14,7 +15,7 @@ import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import actions from "redux/actions";
 import { connectSignalR } from "redux/signalR";
 import { getModifiedCountries } from "utils";
-import { Box, Container, Paper } from "../components/muiComponents";
+import { Box, Container } from "../components/muiComponents";
 import Spinner from "../components/shared/Spinner";
 import AppVersion from "../pages/appVersion/index";
 import Meet from "../pages/meet/Meet";
@@ -27,6 +28,7 @@ import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import ConnectPage from "./connectPage/ConnectPage";
 import Panel from "./panel/Panel";
 import Login from "pages/user/Login";
+import useStyles from "./style";
 const { closeSideMenu, setHeaderPageTitle, getCountries, getCountriesDone } =
   actions;
 
@@ -40,6 +42,7 @@ const Index = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const styles = useStyles();
   window.navigateTo = navigate;
   window.currentLocation = location;
   window.navigateToDefault = () => window.navigateTo("/panel");
@@ -96,105 +99,88 @@ const Index = () => {
     window.dispatch(setHeaderPageTitle({ pageTitle }));
     switchExternal(testJoinPage(location.pathname));
   }, [location]);
-  let widthStyle;
-  var userAgent = navigator.userAgent;
-  var isFirefox = userAgent.indexOf("Firefox") > -1;
-  var isWebKit = userAgent.indexOf("AppleWebKit") > -1;
-  var isOpera = userAgent.indexOf("OPR") > -1;
-  if (authUser && window.innerWidth >= 700 && window.innerWidth <= 880) {
-    widthStyle = { width: "calc(100% - 85px)" };
-  } else {
-    widthStyle = {
-      width: authUser
-        ? isFirefox
-          ? "-moz-available"
-          : isWebKit
-          ? "-webkit-fill-available"
-          : isOpera
-          ? "-o-fill-available"
-          : "-webkit-fill-available"
-        : "100vw",
-    };
-  }
+  // let widthStyle;
+  // var userAgent = navigator.userAgent;
+  // var isFirefox = userAgent.indexOf("Firefox") > -1;
+  // var isWebKit = userAgent.indexOf("AppleWebKit") > -1;
+  // var isOpera = userAgent.indexOf("OPR") > -1;
+  // if (authUser && window.innerWidth >= 700 && window.innerWidth <= 880) {
+  //   widthStyle = { width: "calc(100% - 85px)" };
+  // } else {
+  //   widthStyle = {
+  //     width: authUser
+  //       ? isFirefox
+  //         ? "-moz-available"
+  //         : isWebKit
+  //         ? "-webkit-fill-available"
+  //         : isOpera
+  //         ? "-o-fill-available"
+  //         : "-webkit-fill-available"
+  //       : "100vw",
+  //   };
+  // }
   return (
     <StylesProvider jss={jss}>
       <ThemeProvider theme={materialTheme}>
         <CssBaseline />
-        <Container sx={{ height: "100%" }} disableGutters maxWidth="false">
-          <Paper
-            className="main-content-wrap d-flex-column"
-            elevation={0}
-            dir={isRTL ? "rtl" : "ltr"}
-            sx={{ height: "100%" }}
-          >
-            <Suspense
-              fallback={<div className="loading" />}
-              sx={{ height: "100%" }}
-            >
-              {loading.spinnerToggle ? <Spinner /> : null}
-              <Box display="flex" sx={{ height: "100%" }}>
-                <PhraseLoader />
-                {authUser && !isExternal && <MiniSideMenu />}
-                <Box style={widthStyle} className="blueBox">
-                  {!isExternal && <Header />}
-                  <Box
-                    style={{
-                      width: "-webkit-fill-available!important",
-                      maxWidth: "-webkit-fill-available!important",
-                      height: "100%",
-                    }}
-                  >
-                    {!isExternal && <SubHeader />}
-                    <Box
-                      className="seperateBox"
-                      style={{
-                        flex: "auto",
-                        display: "flex",
-                        height: "100%",
-                        // padding: authUser ? "0 20px" : "0!important",
-                        maxWidth: authUser
-                          ? "-webkit-fill-available!important"
-                          : "false",
-                      }}
-                    >
-                      <Routes>
-                        <Route
-                          path="/panel/*"
-                          element={
-                            <RestrictedRoute
-                              authUser={authUser}
-                              Component={Panel}
-                            />
-                          }
-                        ></Route>
-                        <Route path={`/`} element={<ConnectPage />} />
-                        <Route path={`/login`} element={<Login />} />
-                        <Route path={`/join`} element={<JoinCall />} />
-                        <Route
-                          path={`/join/:id/:uuid`}
-                          element={<JoinCallWithToken />}
-                        />
-                        <Route
-                          path={`/ActiveAccount`}
-                          element={<ActiveAccount />}
-                        />
-                        <Route
-                          path={`/ResetPassword`}
-                          element={<ResetPassword />}
-                        />
-                        <Route
-                          path={`/ForgetPassword`}
-                          element={<ForgetPassword />}
-                        />
-                        <Route path={`/AppVersion`} element={<AppVersion />} />
-                        <Route path={`/Lilac`} element={<Meet />} />
-                      </Routes>
-                    </Box>
-                  </Box>
-                </Box>
-              </Box>
-            </Suspense>
-          </Paper>
+        <Container
+          dir={isRTL ? "rtl" : "ltr"}
+          sx={{ height: "100%" }}
+          disableGutters
+          maxWidth="false"
+          className="d-flex-column"
+        >
+          {loading.spinnerToggle ? <Spinner /> : null}
+          <PhraseLoader />
+          <Stack direction="row" sx={{ height: "100%" }}>
+            {authUser && !isExternal && <MiniSideMenu />}
+            <Stack direction="column" sx={{ width: "100%" }}>
+              {authUser && !isExternal && <Header />}
+              {authUser && !isExternal && <SubHeader />}
+              <Container
+                className="seperateBox"
+                maxWidth="false"
+                sx={{
+                  flex: "auto",
+                  display: "flex",
+                  alignItems: "stretch",
+                }}
+              >
+                <Routes>
+                  <Route
+                    path="/panel/*"
+                    element={
+                      <RestrictedRoute
+                        authUser={authUser}
+                        Component={Panel}
+                      />
+                    }
+                  ></Route>
+                  <Route path={`/`} element={<ConnectPage />} />
+                  <Route path={`/login`} element={<Login />} />
+                  <Route path={`/join`} element={<JoinCall />} />
+                  <Route
+                    path={`/join/:id/:uuid`}
+                    element={<JoinCallWithToken />}
+                  />
+                  <Route
+                    path={`/ActiveAccount`}
+                    element={<ActiveAccount />}
+                  />
+                  <Route
+                    path={`/ResetPassword`}
+                    element={<ResetPassword />}
+                  />
+                  <Route
+                    path={`/ForgetPassword`}
+                    element={<ForgetPassword />}
+                  />
+                  <Route path={`/AppVersion`} element={<AppVersion />} />
+                  <Route path={`/Lilac`} element={<Meet />} />
+                </Routes>
+              </Container>
+            </Stack>
+          </Stack>
         </Container>
       </ThemeProvider>
     </StylesProvider>

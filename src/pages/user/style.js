@@ -7,16 +7,6 @@ const loginStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     zIndex: "3",
-    "& .white": {
-      color: theme.palette.background.default,
-    },
-    "& .blue": {
-      color: theme.globals.colors.bgBlue,
-    },
-    "& form": {
-      width: "30vw",
-      minWidth: 400,
-    },
     "& .input": {
       margin: theme.spacing(2.5, 0),
 
@@ -81,23 +71,6 @@ const loginStyles = makeStyles((theme) => ({
       backgroundColor: `${theme.globals.colors.disabled}!important`,
       color: theme.globals.colors.secondary,
     },
-    "& .loginContent": {
-      flex: "auto",
-      height: "100%",
-      backgroundColor: "#fff",
-      "& .lilacLogo": {
-        width: 250,
-      },
-      "& .link": {
-        fontSize: theme.globals.fontSize.s,
-        borderRadius: "65px",
-        color: theme.globals.colors.bgGreen,
-      },
-      "& svg": {
-        color: "#B4B4B4",
-      },
-    },
-
     "& .PhoneInput": {
       borderBottom: `1px solid ${theme.palette.secondary.dark}`,
       marginBottom: "0",
@@ -113,32 +86,12 @@ const loginStyles = makeStyles((theme) => ({
         color: theme.globals.colors.textLight,
       },
     },
-    [theme.breakpoints.down(1100)]: {
-      "& form ": {
-        width: "80%",
-        minWidth: 300,
-      },
-      // "&:before": {
-      //   top: "-170px",
-      //   right: "-190px",
-      //   width: "300px",
-      //   border: `50px solid ${theme.globals.colors.success}`,
-      //   height: "300px",
-      //   content: '""',
-      //   position: "absolute",
-      //   borderRadius: "50%",
-      // },
-      "& .lilacLogo ": {
-        width: "150px!important",
-        // marginTop: 70,
-      },
-      "& .submitBtn": {
-        fontSize: theme.globals.fontSize.s - 2,
-      },
-      "& .MuiFormControlLabel-root": {
-        margin: "0!important",
-        fontSize: `${theme.globals.fontSize.s - 2}px!important`,
-      },
+    "@media (min-width: 430px)": {
+      width: "30vw",
+      minWidth: "350px",
+    },
+    "@media (max-width: 429px)": {
+      width: "80%",
     },
   }
 }));

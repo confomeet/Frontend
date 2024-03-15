@@ -170,7 +170,7 @@ function Login() {
   }, [sessionStorage.getItem("OTP_INFO")]);
 
   return (
-    <FormPage formName={Object.translate("PAGES.FORGETPASSWORD")}>
+    <FormPage formName={Object.translate("PAGES.SIGNIN")}>
       <Formik
         initialValues={initialValues}
         onSubmit={onSubmit}
