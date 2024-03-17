@@ -126,54 +126,6 @@ const drawerStyle = makeStyles((theme) => ({
       border: "none",
     },
   },
-  rootMainAppBarWithoutAuth: {
-    height: 80,
-    width: "100%!important",
-    // backgroundColor: `${theme.palette.background.default}`,
-    backgroundColor: "#0E3663",
-    backdropFilter: "blur(20px)",
-    justifyContent: "start",
-    "& svg": {
-      color: "#fff",
-      [theme.breakpoints.down("900")]: {
-        color: theme.globals.colors.primary,
-      },
-    },
-    " & .MuiIconButton-sizeLarge svg": {
-      fontSize: theme.globals.fontSize.xs * 2,
-    },
-    "& .logo": {
-      padding: theme.spacing(4),
-      borderTop: `1px solid ${theme.globals.colors.borderPrimary}`,
-      position: "relative",
-    },
-    "& .pageTitle": {
-      display: "none",
-    },
-
-    "& .logo": {
-      width: 140,
-    },
-    "& .langText": {
-      margin: "0 10px!important",
-      [theme.breakpoints.down("sm")]: {
-        display: "none",
-      },
-    },
-    [theme.breakpoints.down("sm")]: {
-      backgroundColor: "transparent!important",
-      height: 0,
-      border: "none",
-      "& .MuiContainer-root ": {
-        padding: 0,
-        position: "relative",
-      },
-
-      "& .logo": {
-        display: "none",
-      },
-    },
-  },
   SubBoxHeader: {
     width: "100%!important",
     zIndex: "2",
@@ -383,40 +335,6 @@ const drawerStyle = makeStyles((theme) => ({
     margin: "0 20px",
     [theme.breakpoints.down("sm")]: {
       margin: "70px 8px 0",
-    },
-    "& .pageTitle": {
-      color: theme.globals.colors.textDark,
-      fontWeight: 600,
-      display: "flex",
-      alignContent: "center",
-      justifyContent: "center",
-      margin: "0 24px",
-      whiteSpace: "nowrap",
-
-      [theme.breakpoints.down("sm")]: {
-        display: "none",
-      },
-      [theme.breakpoints.between("sm", "md")]: {
-        margin: "0 24%",
-      },
-    },
-    "& .MuiButton-startIcon": {
-      marginRight: "8px!important",
-      marginLeft: "8px!important",
-      [theme.breakpoints.down("sm")]: {
-        marginRight: "4px!important",
-        marginLeft: "4px!important",
-      },
-    },
-  },
-  SubHeaderRootWithoutAuth: {
-    // minHeight: "70px",
-    // width: "100%!important",
-    display: "flex",
-    alignContent: "center",
-
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: "200px",
     },
     "& .pageTitle": {
       color: theme.globals.colors.textDark,
