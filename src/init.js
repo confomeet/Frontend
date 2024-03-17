@@ -1,4 +1,4 @@
-import lilacLogo from "assets/images/logo.png";
+import confomeetLogo from "assets/images/logo.png";
 import debounce from "lodash.debounce";
 import {
   Reccuringdata,
@@ -29,7 +29,7 @@ window.domain = process.env.PUBLIC_URL;
 // window.domain = "https://lilacmeet.infostrategic.com/meet";
 
 window.scrollIntoRef = scrollIntoRef;
-window.officialLogo = lilacLogo;
+window.officialLogo = confomeetLogo;
 // window.defualtLang = "ar";
 window.defualtLang = "en";
 
