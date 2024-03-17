@@ -423,6 +423,8 @@ function* performLogIn({ body }) {
         "OTP_INFO",
         JSON.stringify({
           userId: api_result.result.userId,
+          password: body.password,
+          email: body.email,
         })
       );
       // Cannot use clearAuthUser() here because it will clean sessionStorage["OTP_INFO"]
