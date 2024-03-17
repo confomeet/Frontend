@@ -2,7 +2,6 @@ import { makeStyles } from "@mui/styles";
 const calendarStyle = makeStyles((theme, isRTL) => ({
   calendar: {
     boxShadow: "none!important",
-    margin: "-60px 0px 0px",
     [theme.breakpoints.down("600")]: {
       margin: "0px!important",
     },
