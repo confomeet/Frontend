@@ -17,7 +17,7 @@ root.render(
       <link rel="icon" href={`${process.env.PUBLIC_URL}/${"favicon.ico"}`} />
       <link
         rel="apple-touch-icon"
-        href={`${process.env.PUBLIC_URL}/${"newLogo.png"}`}
+        href={`${process.env.PUBLIC_URL}/logo.png`}
       />
     </Helmet>
     <App />
