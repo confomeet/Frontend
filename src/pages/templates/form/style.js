@@ -39,6 +39,21 @@ const formPageStyles = makeStyles((theme) => ({
         },
       }
     },
+    "& .item": {
+      "@media (max-width: 389px)": {
+        height: "43px",
+      },
+      "@media (min-width: 390px) and (max-width: 429px)": {
+        height: "58px",
+      },
+      "@media (min-width: 430px) and (max-width: 744px)": {
+        height: "76px",
+      },
+      "@media (min-width: 745px)": {
+        height: "96px",
+      },
+      marginBottom: "1rem",
+    },
    "& .corner-circle-transparent": {
       position: "relative",
       overflow: "hidden",

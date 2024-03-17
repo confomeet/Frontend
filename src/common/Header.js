@@ -19,6 +19,7 @@ import { useSelector } from "react-redux";
 import actions from "redux/actions";
 import style from "./style";
 import ToolTip from "../components/toolTip/ToolTip";
+import AppNameBanner from "components/appNameBanner";
 
 const { getNotifications, clearAuthUser } = actions;
 
@@ -196,9 +197,7 @@ const Header = () => {
               <LanguageSwitch />
             </ToolTip> */}
           </Box>
-          <Box className="logo d-flex center-content">
-            <img alt="logo" src={`${window.officialLogo}`} />
-          </Box>
+          <AppNameBanner className="logo" color="#000" variant="h3"/>
         </Toolbar>
       </Container>
     </AppBar>

@@ -97,15 +97,9 @@ const drawerStyle = makeStyles((theme) => ({
       fontSize: theme.globals.fontSize.xs * 2,
     },
     "& .logo": {
-      width: "150px",
-      "& > img": {
-        height: "100%",
-      },
-      [theme.breakpoints.down("sm")]: {
-        marginInlineEnd: "16px",
-      },
-      [theme.breakpoints.between("600", "1024")]: {
-        width: "100px",
+      height: "30px",
+      "@media (max-width: 429px)": {
+        display: "none",
       },
     },
     "& .pageTitle": {

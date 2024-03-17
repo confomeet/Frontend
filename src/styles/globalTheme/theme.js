@@ -72,13 +72,25 @@ const typographyHeadersConfiguration = {
       fontFamily: "Marmelad",
       fontSize: "80px",
       fontWeight: 400,
-      lineHeight: 1.2,
+      lineHeight: "1.2em",
       textAlign: "center",
+      "@media (max-width: 389px)": {
+        fontSize: "36px",
+      },
+      "@media (min-width: 390px) and (max-width: 429px)": {
+        fontSize: "48px",
+      },
+      "@media (min-width: 430px) and (max-width: 744px)": {
+        fontSize: "64px",
+      },
+      "@media (min-width: 745px)": {
+        fontSize: "80px",
+      }
     },
     h2: {
       fontFamily: "Marmelad",
       fontWeight: 400,
-      lineHeight: 1.2,
+      lineHeight: "1.2em",
       textAlign: "center",
       "@media (max-width: 359px)": {
         fontSize: "32px"
@@ -92,6 +104,23 @@ const typographyHeadersConfiguration = {
       "@media (min-width: 745px)": {
         fontSize: "48px",
       },
+    },
+    h3: {
+      fontFamily: "Marmelad",
+      fontWeight: 500,
+      lineHeight: "1.2em",
+      "@media (max-width: 744px)": {
+        fontSize: "20px",
+      },
+      "@media (min-width: 745px)": {
+        fontSize: "24px"
+      },
+    },
+    "primary": {
+      fontFamily: "Noto Sans",
+      fontWeight: 400,
+      lineHeight: 1.2,
+      fontSize: "14px",
     }
   }
 }
