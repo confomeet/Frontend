@@ -34,7 +34,7 @@ const formPageStyles = makeStyles((theme) => ({
         "@media (min-width: 390px) and (max-width: 744px)": {
           margin: "20px 0 0 10px",
         },
-        "@media (min-width: 745px) and (max-width: 1279px)": {
+        "@media (min-width: 745px)": {
           margin: "25px 0 0 35px",
         },
       }
@@ -64,14 +64,14 @@ const formPageStyles = makeStyles((theme) => ({
         },
       },
     },
-    "@media (min-width: 745px)": {
+    "@media (min-width: 1200px)": {
       flexDirection: "row",
       "& .left-pane": {
         minWidth: "566px",
         paddingRight: "28px",
       }
     },
-    "@media (max-width: 744px)": {
+    "@media (max-width: 1199px)": {
       flexDirection: "column",
       "& .left-pane": {
         paddingBottom: "24px",
