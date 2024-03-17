@@ -134,7 +134,11 @@ const Index = () => {
           <PhraseLoader />
           <Stack direction="row" sx={{ height: "100%" }}>
             {authUser && !isExternal && <MiniSideMenu />}
-            <Stack direction="column" sx={{ width: "100%" }}>
+            <Stack direction="column" sx={{
+              width: "100%",
+              overflowY: "auto",
+            }}
+            >
               {authUser && !isExternal && <Header />}
               {authUser && !isExternal && <SubHeader />}
               <Container
