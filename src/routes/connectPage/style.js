@@ -12,10 +12,6 @@ const connectStyles = makeStyles((theme) => ({
     marginTop: "-200px",
     fontFamily: "Marmelad",
     color: theme.palette.background.default,
-    "& h1": {
-      fontSize: "70px",
-      fontWeight: "400",
-    },
     "& img": {
         aspectRatio: "1/1",
         maxHeight: "70px",
@@ -23,45 +19,65 @@ const connectStyles = makeStyles((theme) => ({
     "& .buttons-container": {
       justifyContent: "end",
       marginTop: "10vh",
-      "& >div": {
-        alignItems: "end",
-      },
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "end",
       "& a": {
-        marginRight: "calc(-185px / 2)",
-        maxWidth: "545px",
+        position: "relative",
+        "&:hover": {
+          cursor: "default",
+        },
         "&:last-child": {
-          marginRight: "calc(185px / 2 + 15px)",  // margin for alignment + margin for some space between items
-          marginTop: "calc(15px)",  // margin for some space between items
+          marginTop: "15px",  // margin for some space between items
+          "@media (min-width: 745px)": {
+            marginRight: "calc(185px / 2 + 15px)",  // margin for alignment + margin for some space between items
+          },
+        },
+        "@media (min-width: 745px)": {
+          marginRight: "calc(-185px / 2)",
         }
-      }
+      },
     },
     "& .button-shape": {
       transition: "all 0.5s ease",
-      width: 545,
+      width: 400,
       height: 185,
       justifyContent: "center",
-      position: "relative",
-      "&:before": {
-        content: `""`,
-        display: "block",
-        height: "100%",
-        width: "100%",
-        transform: "matrix(1, 0, -1, 1, 0, 0)",
-        border: "2px #fff solid",
-        borderRight: "none",
-        borderTop: "none",
+      transform: "matrix(1, 0, -1, 1, 0, 0)",
+      border: "2px #fff solid",
+      borderRight: "none",
+      borderTop: "none",
+      background: "radial-gradient(ellipse at top 0% left 100%, transparent 68%, #fff5)",
+      "&:hover": {
+        transform: "matrix(1, 0, -1.5, 1, 48, 0)",
+        cursor: "pointer",
       },
+      "@media (max-width: 429px)": {
+        width: "250px",
+        height: "100px",
+      },
+      "@media (min-width: 430px) and (max-width: 744px)": {
+        width: "320px",
+        height: "125px",
+      },
+      "@media (min-width: 745px)": {
+        width: "400px",
+        height: "185px",
+      }
     },
     "& .button-text": {
       wordBreak: "break-word",
       display: "block",
       position: "absolute",
       bottom: "10%",
-      left: "5%",
+      left: "8%",
       textAlign: "center",
       color: "#fff",
-      fontSize: "48px",
       flexShrink: 0,
+      "@media (max-width: 430px)": {
+        "fontSize": "24px",
+        left: "12%",
+      }
     },
     "& .corner-circle-transparent": {
       "&:after": {
@@ -89,54 +105,10 @@ const connectStyles = makeStyles((theme) => ({
     },
 
     "& .inner-container": {
+      paddingTop: "1%",
       flexFlow: "column nowrap",
       marginTop: "200px",
       height: "100%"
-    },
-    [theme.breakpoints.down("md")]: {
-      "& .buttons-container": {
-        "& .app-name img": { maxHeight: "3.5rem" },
-        justifyContent: "end",
-        "& .button-text": { fontSize: "3.5rem" },
-        "& >div": {
-          "& a": {
-            marginRight: 0,
-            "&:last-child": {
-              marginRight: 0,
-            }
-          },
-          "& .button-shape": {
-            width: "450px",
-          }
-        },
-      }
-    },
-    [theme.breakpoints.down("sm")]: {
-      "& .app-name": {
-        "& img": { maxHeight: "3rem" },
-        "& h1": { fontSize: "3rem" },
-      },
-      " & .inner-container .buttons-container": {
-        marginTop: "30px",
-        justifyContent: "center",
-        "& >div": {
-          alignItems: "center",
-          "& .button-shape": {
-            width: "100%",
-            minWidth: "140px!important",
-            maxHeight: "50px!important",
-            transform: "none!important",
-            display: "block",
-            "&:before": {
-              display: "none",
-            },
-            "& .button-text": {
-              fontSize: "32px",
-              position: "static",
-            },
-          },
-        },
-      },
     },
   },
 }));

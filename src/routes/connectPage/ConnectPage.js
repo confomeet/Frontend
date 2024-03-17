@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import actions from "redux/actions";
 import { Box, Container, Typography } from "../../components/muiComponents";
 import connectStyles from "./style";
+import AppNameBanner from "components/appNameBanner";
 
 const { closeSideMenu } = actions;
 
@@ -24,37 +25,26 @@ function ConnectPage() {
               sx={{ width: "100%", height: "100%" }}
               className=" inner-container d-flex "
             >
-              <Box className=" app-name d-flex-column center-content ">
-                <Box className=" d-flex ">
+              <AppNameBanner />
+              <Box className="buttons-container">
+                <Link to="/login" className="link">
                   <Typography
-                    variant="h1"
-                    component="h1"
-                  >
-                    Conf
+                    variant="h2"
+                    className="button-text"
+                    >
+                      {Object.translate("BUTTONS.SIGNIN")}
                   </Typography>
-                  <img src="/meet/logo.png"/>
+                  <div className="button-shape"></div>
+                </Link>
+                <Link to="/join">
                   <Typography
-                    component="h1"
-                    variant="h1"
+                    variant="h2"
+                    className="button-text"
                   >
-                   Meet
+                    {Object.translate("BUTTONS.JOIN")}
                   </Typography>
-                </Box>
-              </Box>
-
-              <Box className=" buttons-container d-flex ">
-                <Box className=" d-flex-column ">
-                  <Link to="/login">
-                    <div className=" button-shape d-flex ">
-                      <span className=" button-text ">{Object.translate("BUTTONS.SIGNIN")}</span>
-                    </div>
-                  </Link>
-                  <Link to="/join">
-                    <div className=" button-shape ">
-                      <span className=" button-text ">{Object.translate("BUTTONS.JOIN")}</span>
-                    </div>
-                  </Link>
-                </Box>
+                  <div className="button-shape"></div>
+                </Link>
               </Box>
             </Box>
           </Box>

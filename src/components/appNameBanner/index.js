@@ -6,7 +6,7 @@ import appNameBannerStyles from "./style";
 
 export default function AppNameBanner({className}) {
   const classes = appNameBannerStyles();
-  className = className ? "" : className + " ";
+  className = className ? className + " " : "";
   return (
     <Box className={className + classes.appNameBanner}>
       <h1>Conf</h1>
