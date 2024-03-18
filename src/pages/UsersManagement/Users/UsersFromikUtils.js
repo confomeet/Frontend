@@ -9,6 +9,7 @@ export const usersInitialValues = {
   profileStatus: 0,
   roles: [],
   userGroups: [],
+  enable2FA: false,
 };
 export const usersGroupsInitialValues = {
   groupName: "",

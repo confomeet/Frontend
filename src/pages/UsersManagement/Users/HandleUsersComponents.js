@@ -11,6 +11,9 @@ import PrimaryButton from "videoComponents/buttonsGeneral/PrimaryButton";
 import SecondaryButton from "videoComponents/buttonsGeneral/SecondaryButton";
 import { useStyles } from "../../../styles/generalStyle";
 import { userStyle } from "./style";
+import { FormikCheckboxWithLabel } from "FormikComponents/FormikMui";
+import { Field } from "formik";
+import { FormControlLabel, Checkbox } from "@mui/material";
 let timeout;
 
 const HandleUsersComponents = (props) => {
@@ -148,6 +151,21 @@ const HandleUsersComponents = (props) => {
             await handleInputChange(e, text);
           }}
           filterMultiById={true}
+        />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+      >
+        <FormControlLabel
+          control={(
+            <Checkbox
+              name="enable2FA"
+              onChange={(_, checked) => props.formik.setFieldValue("enable2FA", checked, false)}
+              defaultChecked={props.formik.values.enable2FA}
+            />)}
+          label={Object.translate("LABEL.ENABLE_2FA")}
         />
       </Grid>
       <Grid

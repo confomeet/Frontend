@@ -468,7 +468,8 @@
     "DISPLAYNAME": "Name",
     "HOST": "Host",
     "PORT": "Port",
-    "DOWNLOAD": "Download"
+    "DOWNLOAD": "Download",
+    "ENABLE_2FA": "Enable two factor authentication"
   },
   "WARNING": {
     "REQUIRED": "Required",
