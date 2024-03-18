@@ -71,15 +71,6 @@ const loginStyles = makeStyles((theme) => ({
       backgroundColor: `${theme.globals.colors.disabled}!important`,
       color: theme.globals.colors.secondary,
     },
-    "& .PhoneInput": {
-      borderBottom: `1px solid ${theme.palette.secondary.dark}`,
-      marginBottom: "0",
-      "& .PhoneInputInput": {
-        fontSize: theme.globals.fontSize.s,
-        border: "none",
-        outline: "none",
-      },
-    },
     "& .MuiFormControlLabel-root": {
       color: theme.globals.colors.textLight,
       "& .MuiCheckbox-root": {

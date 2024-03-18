@@ -182,22 +182,29 @@ export const userStyle = makeStyles((theme, isRTL) => ({
     maxHeight: "50px",
   },
   phoneNumber: {
-    width: "97%",
     borderBottom: "1px solid #A4A4A4",
 
     display: "flex",
     alignItems: "center",
     height: "39px",
-
+    "&.hovered": {
+      borderBottom: "2px solid #000",
+    },
     "& .PhoneInputInput": {
-      margin: "0px 0px 0px",
+      margin: "0px 0px 1px",
+      padding: 0,
       border: "none!important",
+      height: "100%",
+      fontSize: "inherit",
       "&:focus-visible": {
         outline: "none!important",
       },
       "&:hover": {
         border: "none!important",
       },
+    },
+    "& .PhoneInputCountry": {
+      marginBottom: "1px",
     },
   },
   phoneNumberFld: {

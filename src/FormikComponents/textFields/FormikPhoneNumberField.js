@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import PhoneInput, { isPossiblePhoneNumber } from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { Field } from "formik";
 const FormikPhoneNumberField = (props) => {
+  const [hover, setHover] = useState(false);
+  const className = (props.className ?? "") + (hover ? " hovered " : "");
   return (
     <Field
       {...props}
@@ -11,7 +14,7 @@ const FormikPhoneNumberField = (props) => {
       id="phone"
       variant="standard"
       style={{ direction: "ltr" }}
-      className={props.className}
+      className={className}
       onChange={(e) => {
         props.setFieldValue(props.name, e);
         if (e) {
@@ -27,6 +30,8 @@ const FormikPhoneNumberField = (props) => {
       international
       value={props.value}
       label={props.label}
+      onMouseOver={() => setHover(true)}
+      onMouseOut={() => setHover(false)}
     />
   );
 };
