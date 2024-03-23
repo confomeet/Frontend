@@ -120,6 +120,7 @@ export const pProfileStyles = makeStyles((theme) => ({
   infoIcon: {
     fontSize: theme.globals.fontSize.s + 4,
     margin: "0 22px",
+    minWidth: "20px",
     color: "#A3A3A3!important",
     [theme.breakpoints.down("485")]: {
       display: "none",
@@ -139,6 +140,7 @@ export const pProfileStyles = makeStyles((theme) => ({
     },
   },
   inHolder: {
+    overflowX: "auto!important",
     [theme.breakpoints.down("485")]: {
       fontSize: `${theme.globals.fontSize.xs + 2}px!important`,
       overflow: "hidden",

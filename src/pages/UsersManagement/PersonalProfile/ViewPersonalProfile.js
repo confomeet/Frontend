@@ -13,7 +13,7 @@ import { useState } from "react";
 import { pProfileStyles } from "./style";
 import { editProfilePhoto } from "redux/network/users";
 import { useSelector } from "react-redux";
-import { TiGroup } from "components/icons";
+import { TiGroup, TiVideo } from "components/icons";
 import { useEffect } from "react";
 
 export default function ViewPersonalProfile(props) {
@@ -137,6 +137,15 @@ export default function ViewPersonalProfile(props) {
             {Array.isArray(viewData?.userGroups) && viewData?.userGroups
               ? viewData?.userGroups?.map((row) => row?.value)?.join(" , ")
               : ""}
+          </Typography>
+        </Box>
+        <Box className={classes.infoBox}>
+          <TiVideo className={classes.infoIcon} />
+          <Typography className={classes.infoHolder}>
+            {Object.translate("LABEL.CREATE_CONF_LINK")}
+          </Typography>
+          <Typography noWrap="true" className={classes.inHolder}>
+            {viewData?.createConfLink}
           </Typography>
         </Box>
       </Grid>

@@ -469,7 +469,8 @@
     "HOST": "Host",
     "PORT": "Port",
     "DOWNLOAD": "Download",
-    "ENABLE_2FA": "Enable two factor authentication"
+    "ENABLE_2FA": "Enable two factor authentication",
+    "CREATE_CONF_LINK": "Create Meeting"
   },
   "WARNING": {
     "REQUIRED": "Required",

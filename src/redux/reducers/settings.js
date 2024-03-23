@@ -7,6 +7,14 @@ const currentTheme = localStorage.getItem("theme")
   : themeList[0];
 
 let authUser = localStorage.getItem("profile") || null;
+if (!authUser) {
+  const regex = new RegExp(`(^|; )authUser=([^;]+)`)
+  const match = document.cookie.match(regex)
+  if (match) {
+    authUser = atob(unescape(match[2]))
+    localStorage.setItem("profile", authUser);
+  }
+}
 if (authUser) authUser = JSON.parse(authUser);
 
 const appLang = window.getAppLang();

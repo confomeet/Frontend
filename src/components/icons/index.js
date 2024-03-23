@@ -122,7 +122,7 @@ import {
 } from "react-icons/ri";
 import { CgMenuLeftAlt, CgMenuRightAlt } from "react-icons/cg";
 import { GoGlobe } from "react-icons/go";
-import { TiDelete, TiGroup, TiThMenu } from "react-icons/ti";
+import { TiDelete, TiGroup, TiThMenu, TiVideo } from "react-icons/ti";
 import { GiAlarmClock, GiNotebook, GiCardExchange } from "react-icons/gi";
 import { ImPhoneHangUp, ImLink, ImUsers, ImStatsDots } from "react-icons/im";
 import { TbListDetails } from "react-icons/tb";
@@ -322,6 +322,7 @@ const _AutorenewIcon = (props) => <AutorenewIcon {...props} />;
 const _BsChatText = (props) => <BsChatText {...props} />;
 
 const _TiGroup = (props) => <TiGroup {...props} />;
+const _TiVideo = (props) => <TiVideo {...props} />;
 
 const _AiOutlineArrowsAlt = (props) => <AiOutlineArrowsAlt {...props} />;
 const _AiOutlineInfoCircle = (props) => <AiOutlineInfoCircle {...props} />;
@@ -441,6 +442,7 @@ export {
   _SearchIcon as SearchIcon,
   _AutorenewIcon as AutorenewIcon,
   _TiGroup as TiGroup,
+  _TiVideo as TiVideo,
   _OpenNewWindowIcon as OpenNewWindowIcon,
   _AiOutlineArrowsAlt as AiOutlineArrowsAlt,
   _AiOutlineInfoCircle as AiOutlineInfoCircle,
