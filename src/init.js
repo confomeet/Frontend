@@ -23,7 +23,7 @@ import {
 } from "./utils";
 
 window.domain = process.env.PUBLIC_URL;
-window.domain = 'https://localhost:4400'
+
 // window.domain = `https://localhost:7167`;
 
 // window.domain = `https://callpp.infostrategic.com/meet`;
