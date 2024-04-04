@@ -23,6 +23,7 @@ export default {
   ...createAction("COMPLETE_DELETE_USER", "data"),
 
   ...createAction("LOG_IN", "body"),
+  ...createAction("LOG_IN_WITH_PROVIDER", "body"),
 
   ...createAction("FORGOT_PASSWORD", "data"),
   ...createAction("FORGOT_PASSWORD_DONE", "data"),
@@ -69,4 +70,7 @@ export default {
 
   ...createAction("GET_PROFILE_IMG", "params"),
   ...createAction("GET_PROFILE_IMG_DONE", "data"),
+
+  ...createAction("GET_AUTH_PROVIDERS"),
+  ...createAction("GET_AUTH_PROVIDERS_DONE", "data"),
 };

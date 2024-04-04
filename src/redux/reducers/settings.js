@@ -10,9 +10,14 @@ let authUser = localStorage.getItem("profile") || null;
 if (!authUser) {
   const regex = new RegExp(`(^|; )authUser=([^;]+)`)
   const match = document.cookie.match(regex)
-  if (match) {
-    authUser = atob(unescape(match[2]))
-    localStorage.setItem("profile", authUser);
+  if (match && match.length >= 3 && match[2]) {
+    try {
+      authUser = atob(unescape(match[2]))
+      localStorage.setItem("profile", authUser);
+    } catch (e) {
+      console.error("Parsing authUser from cookie failed: " + e);
+      authUser = null;
+    }
   }
 }
 if (authUser) authUser = JSON.parse(authUser);
@@ -119,6 +124,8 @@ const settings = (state = initialState, action) => {
       localStorage.removeItem("firebase-token");
       localStorage.removeItem("finger-print");
       localStorage.removeItem("default_view");
+      localStorage.removeItem("NavigateToDefaultOnSignIn");
+      document.cookie = 'authUser=""';
       window.navigateTo("/login");
       return {
         ...state,

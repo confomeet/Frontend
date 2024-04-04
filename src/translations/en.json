@@ -248,7 +248,8 @@
     "DECLINE_CALL": "Decline",
     "BUSY": "Busy",
     "ACCEPT_VISIT": "Accept",
-    "REJECT_VISIT": "Reject"
+    "REJECT_VISIT": "Reject",
+    "SIGN_IN_WITH": "Sign in with "
   },
   "FULL_SENTENCE": {
     "ADD_PARTICIPANT_BY_EMAIL": "You may add Participants using thier email addresses",

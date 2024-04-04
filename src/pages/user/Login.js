@@ -26,14 +26,16 @@ import actions from "../../redux/actions";
 import loginStyles from "./style";
 import FormPage from "../templates/form";
 
-const { logIn, verifyOtp } = actions;
+const { logIn, getAuthProviders, logInWithProvider, verifyOtp } = actions;
 
 function Login() {
   const classes = loginStyles();
   const {
     settingsReducer: { settings },
+    users,
   } = useSelector((state) => state);
 
+  const authProviders = users.getAuthProvidersComplete;
   const { isRTL, authUser } = settings;
   const [showPassword, setShowPassword] = useState(false);
   const [ip, setIP] = useState("0");
@@ -148,6 +150,12 @@ function Login() {
     event.preventDefault();
   };
 
+  const handleSignInWithProvder = (provider) => {
+    window.dispatch(logInWithProvider({
+      body: {provider}
+    }));
+  };
+
   useEffect(() => {
     (async () => {
       var res = await getCurrentUserIP();
@@ -168,6 +176,11 @@ function Login() {
       setIsVerified(false);
     })();
   }, [sessionStorage.getItem("OTP_INFO")]);
+
+  useEffect(() => {
+    if (!authProviders)
+      window.dispatch(getAuthProviders());
+  }, [authProviders]);
 
   return (
     <FormPage formName={Object.translate("PAGES.SIGNIN")}>
@@ -286,6 +299,16 @@ function Login() {
                 >
                   {Object.translate("BUTTONS.SIGNIN")}
                 </Button>
+                {!isVerified && authProviders && authProviders.map(
+                  provider => <Button
+                    variant="contained"
+                    className="submitBtn"
+                    key={provider.name}
+                    sx={{ marginTop: "1em" }}
+                    onClick={() => handleSignInWithProvder(provider)}>
+                      {Object.translate("BUTTONS.SIGN_IN_WITH") + provider.name}
+                  </Button>
+                )}
               </Box>
               {isVerified && (
                 <Box marginY={1}>

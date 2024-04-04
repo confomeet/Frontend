@@ -172,3 +172,11 @@ export const getProfileImgReq = async (params) =>
     disableSwal: true,
     method: "POST",
   });
+
+export const getAuthProviders = async () =>
+  await fetchData({
+    endpoint: "/v1/web/auth/ExternalAuthProviders",
+    disableLoader: true,
+    disableSwal: true,
+    method: "GET"
+  });

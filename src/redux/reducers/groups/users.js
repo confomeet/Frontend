@@ -46,6 +46,7 @@ const {
   GET_SMTP_CONFIG_DONE,
   HANDLE_SMTP_CONFIG,
   HANDLE_SMTP_CONFIG_DONE,
+  GET_AUTH_PROVIDERS_DONE,
 } = actions;
 
 export const isConfirmingAccount = (state = false, action) => {
@@ -450,6 +451,15 @@ export const getProfileImgComplete = (state = {}, action) => {
   }
 };
 
+export const getAuthProvidersComplete = (state = null, action) => {
+  switch (action.type) {
+    case GET_AUTH_PROVIDERS_DONE:
+      return action.data;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   isConfirmingAccount,
   ConfirmedAccount,
@@ -493,4 +503,5 @@ export default combineReducers({
   getSmtpConfigComplete,
   isHandlingSmtpConfig,
   handleSmtpConfigComplete,
+  getAuthProvidersComplete,
 });

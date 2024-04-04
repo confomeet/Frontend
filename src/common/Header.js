@@ -21,7 +21,7 @@ import style from "./style";
 import ToolTip from "../components/toolTip/ToolTip";
 import AppNameBanner from "components/appNameBanner";
 
-const { getNotifications, clearAuthUser } = actions;
+const { getNotifications, clearAuthUser, logOut } = actions;
 
 const Header = () => {
   const classes = style();
@@ -167,6 +167,7 @@ const Header = () => {
                   <IconButton
                     size="large"
                     onClick={() => {
+                      window.dispatch(logOut());
                       window.dispatch(clearAuthUser());
                     }}
                   >
