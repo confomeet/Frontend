@@ -539,9 +539,13 @@ export function* watchGetProfileImg() {
   yield takeLatest(GET_PROFILE_IMG, performGetProfileImg);
 }
 
-function* performLogInWithProvider({ body }) {
-  localStorage.setItem("NavigateToDefaultOnSignIn", "true");
-  window.location.href = body.provider.url;
+function* performLogInWithProvider({ provider, redirectUri }) {
+  if (redirectUri) {
+    redirectUri = "?RedirectUri=" + encodeURI(redirectUri);
+  } else {
+    redirectUri = "";
+  }
+  window.location.href = provider.url + redirectUri;
 }
 
 export function* watchLogInWithProvider() {
@@ -564,8 +568,13 @@ export function* wathGetAuthProviders() {
   yield takeLatest(GET_AUTH_PROVIDERS, performGetAuthProviders)
 }
 
-function* performLogOut() {
-  window.location.href = `${window.domain}/api/v1/web/Auth/LogOut`
+function* performLogOut({ redirectUri }) {
+  if (redirectUri) {
+    redirectUri = "?RedirectUri=" + encodeURI(redirectUri);
+  } else {
+    redirectUri = "";
+  }
+  window.location.href = `${window.domain}/api/v1/web/Auth/LogOut` + redirectUri;
 }
 
 export function* watchLogOut() {

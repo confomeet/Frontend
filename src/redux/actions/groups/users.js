@@ -23,7 +23,7 @@ export default {
   ...createAction("COMPLETE_DELETE_USER", "data"),
 
   ...createAction("LOG_IN", "body"),
-  ...createAction("LOG_IN_WITH_PROVIDER", "body"),
+  ...createAction("LOG_IN_WITH_PROVIDER", "provider", "redirectUri"),
 
   ...createAction("FORGOT_PASSWORD", "data"),
   ...createAction("FORGOT_PASSWORD_DONE", "data"),
@@ -34,7 +34,7 @@ export default {
   ...createAction("SIGN_UP", "data", "IP"),
   ...createAction("SIGN_UP_DONE", "data"),
 
-  ...createAction("LOG_OUT"),
+  ...createAction("LOG_OUT", "redirectUri"),
 
   ...createAction("CONFIRM_USER", "data", "lang"),
   ...createAction("CONFIRM_USER_DONE", "data"),

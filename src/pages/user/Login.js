@@ -152,7 +152,8 @@ function Login() {
 
   const handleSignInWithProvder = (provider) => {
     window.dispatch(logInWithProvider({
-      body: {provider}
+      provider,
+      redirectUri: `${window.domain}/panel`
     }));
   };
 

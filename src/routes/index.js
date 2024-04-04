@@ -99,14 +99,6 @@ const Index = () => {
     window.dispatch(setHeaderPageTitle({ pageTitle }));
     switchExternal(testJoinPage(location.pathname));
   }, [location]);
-  useEffect(() => {
-    console.log("Checking NavigateToDefaultOnSignIn");
-    const redirectUrl = localStorage.getItem("NavigateToDefaultOnSignIn");
-    if (!redirectUrl)
-      return;
-    localStorage.removeItem("NavigateToDefaultOnSignIn");
-    window.navigateToDefault();
-  })
   // let widthStyle;
   // var userAgent = navigator.userAgent;
   // var isFirefox = userAgent.indexOf("Firefox") > -1;

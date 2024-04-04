@@ -1,6 +1,8 @@
 import * as ACTION_TYPES from "../actions/actionTypes";
 import { combineReducers } from "redux";
 import { themeList } from "../../constantData/theme";
+import allActions from "../actions";
+const { logOut } = allActions;
 
 const currentTheme = localStorage.getItem("theme")
   ? JSON.parse(localStorage.getItem("theme"))
@@ -125,8 +127,13 @@ const settings = (state = initialState, action) => {
       localStorage.removeItem("finger-print");
       localStorage.removeItem("default_view");
       localStorage.removeItem("NavigateToDefaultOnSignIn");
-      document.cookie = 'authUser=""';
-      window.navigateTo("/login");
+      document.cookie = 'authUser=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      if (action.performLogOut) {
+        console.log("aciton.performLogOut=true");
+        setTimeout(() => window.dispatch(logOut({redirectUri: window.domain + '/login'})), 0);
+      } else {
+        window.navigateTo("/login");
+      }
       return {
         ...state,
         authUser: null,

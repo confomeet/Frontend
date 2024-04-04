@@ -12,7 +12,7 @@ export default {
   ...createAction(ACTION_TYPES.SET_INVESIGATION_PARTY_ID, "partyId"),
 
   ...createAction(ACTION_TYPES.SET_AUTH_USER, "authUser"),
-  ...createAction(ACTION_TYPES.CLEAR_AUTH_USER),
+  ...createAction(ACTION_TYPES.CLEAR_AUTH_USER, "performLogOut"),
 
   ...createAction(ACTION_TYPES.OPEN_SIDE_MENU),
   ...createAction(ACTION_TYPES.CLOSE_SIDE_MENU),
