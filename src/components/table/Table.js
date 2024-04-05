@@ -567,7 +567,7 @@ export default function FullTabel(props) {
     isRowExpandable: (dataIndex, expandedRows) => {
       return props.isRowExpandable ? props.isRowExpandable(dataIndex) : true;
     },
-    onRowsExpand: (curExpanded, allExpanded, rowsExpanded) => {
+    onRowExpansionChange: (curExpanded, allExpanded) => {
       if (!allExpanded.length) setRowsExpanded([]);
       else setRowsExpanded(curExpanded.map((e) => e.index));
     },
@@ -646,7 +646,6 @@ export default function FullTabel(props) {
       : props.singleRowSelect
       ? "single"
       : "none",
-    responsive: "scrollMaxHeight ",
     fixedHeader: true,
     Delete: true,
 

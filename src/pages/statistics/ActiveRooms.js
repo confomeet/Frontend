@@ -50,7 +50,7 @@ const ActiveRooms = () => {
   return (
     <Grid item xs={6} className="eventsByApp">
       <Typography className="subtitle">
-        <p>{Object.translate("STATISTICS.ACTIVE_ROOMS.TITLE")}</p>
+        {Object.translate("STATISTICS.ACTIVE_ROOMS.TITLE")}
       </Typography>
       <FullTabel
         data={tableData.ROWS}

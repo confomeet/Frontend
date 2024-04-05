@@ -102,7 +102,7 @@ const UsersByStatus = (props) => {
   return (
     <Grid item xs={6} className="eventsByApp">
       <Typography className="subtitle">
-        <p>{Object.translate("STATISTICS.USERS_BY_STATUS.TITLE")}</p>
+        {Object.translate("STATISTICS.USERS_BY_STATUS.TITLE")}
       </Typography>
       <FullTabel
         data={tableData.ROWS}

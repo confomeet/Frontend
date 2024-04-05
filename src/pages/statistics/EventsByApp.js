@@ -49,7 +49,7 @@ const EventsByApp = () => {
   return (
     <Grid item xs={6} className="eventsByApp">
       <Typography className="subtitle">
-        <p>{Object.translate("STATISTICS.EVENTS_BY_APP.TITLE")}</p>
+        {Object.translate("STATISTICS.EVENTS_BY_APP.TITLE")}
       </Typography>
       <FullTabel
         data={tableData.ROWS}

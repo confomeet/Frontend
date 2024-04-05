@@ -36,19 +36,15 @@ export const Styles = makeStyles((theme) => ({
     },
     "& .subtitle ": {
       minHeight: "62px",
-      padding: "10px",
+      padding: "10px 20px",
       display: "flex",
       alignItems: "center",
       marginInlineEnd: "10px",
-      color: `${theme.globals.colors.primary}!important`,
+      color: "#425B73",
       borderBottom: "none",
       whiteSpace: "nowrap",
-      "& p": {
-        margin: "0 10px",
-        color: "#425B73",
-        fontSize: "17px",
-        fontWeight: "bold",
-      },
+      fontSize: "17px",
+      fontWeight: "bold",
     },
     "& .eventsByApp": {
       border: "1px solid rgba(224, 224, 224, 1)",

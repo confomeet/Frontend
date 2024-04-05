@@ -50,8 +50,8 @@ const EventsByStatus = () => {
   return (
     <Grid item xs={6} className="eventsByApp">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Typography className="subtitle" tyle={{ width: "40%" }}>
-          <p>{Object.translate("STATISTICS.EVENTS_BY_STATUS.TITLE")}</p>
+        <Typography className="subtitle">
+          {Object.translate("STATISTICS.EVENTS_BY_STATUS.TITLE")}
         </Typography>
       </Box>
       <FullTabel
