@@ -219,6 +219,7 @@ export default function MiniSideMenu() {
                       <ToolTip
                         title={Object.translate(element.name)}
                         placement="top"
+                        key={i}
                       >
                         <ListItem
                           component={Link}
@@ -269,7 +270,7 @@ export default function MiniSideMenu() {
                   </Collapse>
                 </Box>
               ) : (
-                <ToolTip title={Object.translate(item.name)} placement="top">
+                <ToolTip key={index} title={Object.translate(item.name)} placement="top">
                   <ListItem
                     component={Link}
                     key={index}

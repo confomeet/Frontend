@@ -29,12 +29,10 @@ const PhraseLoader = () => {
       >
         <Alert severity={phraseLoader.severity} icon={false}>
           <Box className={classes.phraseBox}>
-            <Typography className={classes.phraseTypography}>
-              <p className={classes.phrase}>
-                {phraseLoader?.text
-                  ? phraseLoader?.text
-                  : Object.translate("FULL_SENTENCE.GET_DATA_LOADER_PHRASE")}
-              </p>
+            <Typography className={classes.phraseTypography} component="p">
+              {phraseLoader?.text
+                ? phraseLoader?.text
+                : Object.translate("FULL_SENTENCE.GET_DATA_LOADER_PHRASE")}
             </Typography>
             <div className={classes.dotPulse}></div>
           </Box>

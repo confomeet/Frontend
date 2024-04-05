@@ -7,13 +7,10 @@ export const phraseLoaderStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   phraseTypography: {
-    paddingInlineEnd: "30px",
+    paddingInlineEnd: "40px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  },
-  phrase: {
-    margin: "0px 10px",
   },
   dotPulse: {
     position: "relative",

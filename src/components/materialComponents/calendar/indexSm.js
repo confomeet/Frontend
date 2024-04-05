@@ -209,31 +209,6 @@ function Calendar(props) {
         return (
           <Box className={calendarClasses.AppointmentContentBox}>
             <Appointments.AppointmentContent {...restProps}>
-              {/* {data.isStart &&
-                !data.isEnd &&
-                !data.isChunck &&
-                data.subEventCount === 0 &&
-                data.topic && (
-                  <Box className={calendarClasses.isChunckStartBox}>
-                    <i class="fad"></i>
-                    <span className={calendarClasses.isTopic}>
-                      {data.topic}
-                    </span>
-                  </Box>
-                )} */}
-              {/* {data.isStart &&
-                data.isEnd &&
-                !data.isChunck &&
-                data.subEventCount === 0 &&
-                data.topic && (
-                  <Box className={calendarClasses.statusBoxCircul}>
-                    <i class="fad"></i>
-                    <span className={calendarClasses.isTopic}>
-                      {data.topic}
-                    </span>
-                  </Box>
-                )} */}
-
               {data.isStart && data.subEventCount === 0 && data.topic && (
                 <Box
                   className={
@@ -242,13 +217,11 @@ function Calendar(props) {
                       : calendarClasses.statusBox
                   }
                 >
-                  <i class="fad"></i>
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
               {data.subEventCount > 0 && data.topic && (
                 <Box className={calendarClasses.statusBoxCircul}>
-                  <i class="fad"></i>
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
@@ -258,11 +231,6 @@ function Calendar(props) {
               {data.isChunck && data.topic && (
                 <Box className={calendarClasses.ChunckBoxBg}>
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
-                </Box>
-              )}
-              {data.isChunck && data.isEnd && (
-                <Box className={calendarClasses.isChunckBox}>
-                  {data.isChunck && <span></span>}
                 </Box>
               )}
               {data.eventsGroup && (

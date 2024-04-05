@@ -743,7 +743,7 @@ export default function MyMeetings(props) {
               value={cancelEventNote}
               onChange={(e) => setCancelEventNote(e.target.value)}
               style={{ width: "100%", padding: "16px" }}
-              placeHolder={Object.translate("LABEL.NOTE")}
+              placeholder={Object.translate("LABEL.NOTE")}
             />
             <Box
               width="100%"
