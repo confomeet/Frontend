@@ -15,4 +15,13 @@ module.exports = function(app) {
             },
         })
     );
+    app.use(
+        '/meet/directCall',
+        createProxyMiddleware({
+            target: 'http://127.0.0.1:5000',
+            pathRewrite: {
+                '^/meet/directCall': '/directCall',
+            },
+        })
+    );
 }
