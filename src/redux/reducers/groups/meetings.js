@@ -177,25 +177,6 @@ export const getCalendarMeetingsDone = (state = [], action) => {
   }
 };
 
-export const getEventsTypes = (state = false, action) => {
-  switch (action.type) {
-    case GET_EVENTS_TYPES:
-      return true;
-    case GET_EVENTS_TYPES_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const getEventsTypesDone = (state = [], action) => {
-  switch (action.type) {
-    case GET_EVENTS_TYPES_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 export const joinMeetingByUserId = (state = false, action) => {
   switch (action.type) {
     case JOIN_MEETING_BY_USER_ID:
@@ -350,62 +331,6 @@ export const getActiveParticipantsComplete = (state = [], action) => {
   }
 };
 
-export const addingEventsTypes = (state = false, action) => {
-  switch (action.type) {
-    case ADD_EVENTS_TYPES:
-      return true;
-    case ADD_EVENTS_TYPES_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const addEventsTypesComplete = (state = {}, action) => {
-  switch (action.type) {
-    case ADD_EVENTS_TYPES_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
-export const editingEventsTypes = (state = false, action) => {
-  switch (action.type) {
-    case EDIT_EVENTS_TYPES:
-      return true;
-    case EDIT_EVENTS_TYPES_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const editEventsTypesComplete = (state = {}, action) => {
-  switch (action.type) {
-    case EDIT_EVENTS_TYPES_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
-export const deletingEventsTypes = (state = false, action) => {
-  switch (action.type) {
-    case DELETE_EVENTS_TYPES:
-      return true;
-    case DELETE_EVENTS_TYPES_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const deletingEventsTypesComplete = (state = {}, action) => {
-  switch (action.type) {
-    case DELETE_EVENTS_TYPES_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
 export const cancelEvent = (state = false, action) => {
   switch (action.type) {
     case CANCEL_EVENTS:
@@ -438,8 +363,6 @@ export default combineReducers({
   getRelatedUsersDone,
   getCalendarMeetings,
   getCalendarMeetingsDone,
-  getEventsTypes,
-  getEventsTypesDone,
   joinMeetingByUserId,
   joinMeetingByUserIdDone,
   createNewMeeting,
@@ -456,12 +379,6 @@ export default combineReducers({
   gettingActiveRoomListComplete,
   gettingActiveParticipants,
   getActiveParticipantsComplete,
-  addingEventsTypes,
-  addEventsTypesComplete,
-  editingEventsTypes,
-  editEventsTypesComplete,
-  deletingEventsTypes,
-  deletingEventsTypesComplete,
   cancelEvent,
   cancelEventComplete,
 });

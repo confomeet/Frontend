@@ -37,10 +37,4 @@ export const sidebar = [
     link: "/panel/allEvents",
     icon: <CameraVideoFill />,
   },
-  {
-    id: 8,
-    heading: `SIDE_BAR.EVENTS_TYPES`,
-    link: "/panel/eventsTypes",
-    icon: <CameraVideoFill />,
-  },
 ];

@@ -90,7 +90,6 @@
       "EVENTS": "Meetings",
       "TABS": "Side menu Settings",
       "ALLEVENTS": "All Meetings",
-      "EVENTSTYPES": "Meetings Types",
       "PERSONALPROFILE": "My Profile",
       "USERSGROUPS": "Users Groups",
       "SMTP": "SMTP Settings"
@@ -320,7 +319,6 @@
     "USER": "Participant",
     "MAKE_USER": "Make Participant",
     "MAKE_MODERATOR": "Make Moderator",
-    "EVENT_TYPE": "Meeting Type",
     "EMAIL_USERNAME": "Email or Username",
     "EMAIL": "Email",
     "SUBMIT": "Submit",

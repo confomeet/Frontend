@@ -38,13 +38,6 @@ export const calendarMeets = async () =>
     disableSwal: true,
   });
 
-export const eventsTypes = async () =>
-  await fetchData({
-    endpoint: "/v1/Event/Types",
-    disableLoader: false,
-    disableSwal: true,
-  });
-
 export const fetchMeetingLinkByUserId = async ({
   params,
   pathParams: { id, uuid },
@@ -129,31 +122,6 @@ export const getActiveParticipantsReq = async (meetingId, id) =>
   await fetchData({
     endpoint: `/v1/ConfEvent/room/${meetingId}/${id}`,
     disableSwal: true,
-  });
-
-export const addEventsTypesReq = async (body) =>
-  await postData({
-    endpoint: "/v1/Event/AddType",
-    body,
-    disableLoader: true,
-    disableSwal: false,
-  });
-
-export const editEventsTypesReq = async (body, params) =>
-  await postData({
-    endpoint: "/v1/Event/EditEventType",
-    body,
-    params,
-    disableLoader: true,
-    disableSwal: false,
-  });
-
-export const deleteEventsTypesReq = async (id) =>
-  await deleteData({
-    endpoint: `/v1/Event/DeleteEventType`,
-    params: { id },
-    disableLoader: true,
-    disableSwal: false,
   });
 
 export const liberateParticipant = async ({ id }) =>

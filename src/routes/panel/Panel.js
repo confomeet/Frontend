@@ -12,7 +12,6 @@ import TabsSettings from "pages/tabs/TabsSettings";
 import { Box, Container, CssBaseline } from "@mui/material";
 import PersonalProfile from "pages/UsersManagement/PersonalProfile/PersonalProfile";
 import Statistics from "pages/statistics";
-import EventsTypes from "pages/events/eventsTypes/EventsTypes";
 import SmtpProvider from "pages/smtp";
 const { getMyTabs } = actions;
 
@@ -51,7 +50,6 @@ export default function Panel() {
           <Route path="contacts" element={<MyContacts />} />
           <Route path="tabs" element={<TabsSettings />} />
           <Route path="statistics" element={<Statistics />} />
-          <Route path="eventsTypes" element={<EventsTypes />} />
           <Route path="personalProfile" element={<PersonalProfile />} />
           <Route path="smtp" element={<SmtpProvider />} />
         </Routes>

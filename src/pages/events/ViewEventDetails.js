@@ -58,10 +58,6 @@ export default function ViewEventDetails({
   const classes = eventsStyles();
   const [tableData, setTableData] = useState({ ROWS: [], COLUMNS: [] });
   const [selectedObjIds, setSelectedObjIds] = useState([]);
-  const [eventTypes, setEventTypes] = useState([]);
-  const [eventType, setEventType] = useState(
-    selectedObj ? selectedObj.type : null
-  );
   const [activatedAdd, setActivatedAdd] = useState(false);
   const [myContacts, setMyContacts] = useState([]);
   const [existingParti, setExistingParti] = useState(

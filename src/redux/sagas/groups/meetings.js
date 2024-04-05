@@ -1,17 +1,13 @@
 import { call, put, takeLatest } from "redux-saga/effects";
 import actions from "../../actions";
 import {
-  addEventsTypesReq,
   addNewMeeting,
   addNoteToParticipant,
   addParticipantsToMeeting,
   calendarMeets,
   cancelEvent,
-  deleteEventsTypesReq,
   deleteParticipantsReq,
-  editEventsTypesReq,
   editExistingMeeting,
-  eventsTypes,
   fetchEventDetails,
   fetchMeetingLinkByUserId,
   fetchRelatedUsers,
@@ -38,9 +34,6 @@ const {
   getRelatedUsersDone,
   GET_CALENDAR_MEETINGS,
   getCalendarMeetingsDone,
-  GET_EVENTS_TYPES,
-  getEventsTypes,
-  getEventsTypesDone,
   JOIN_MEETING_BY_USER_ID,
   joinMeetingByUserIdDone,
   CREATE_NEW_MEETING,
@@ -57,12 +50,6 @@ const {
   getActiveRoomListDone,
   GET_ACTIVE_PARTICIPANTS,
   getActiveParticipantsDone,
-  ADD_EVENTS_TYPES,
-  addEventsTypesDone,
-  EDIT_EVENTS_TYPES,
-  editEventsTypesDone,
-  DELETE_EVENTS_TYPES,
-  deleteEventsTypesDone,
   CANCEL_EVENTS,
   cancelEventsDone,
 } = actions;
@@ -140,24 +127,6 @@ function* performGetCalendarMeetings(action) {
 
 export function* watchGetCalendarMeetings() {
   yield takeLatest(GET_CALENDAR_MEETINGS, performGetCalendarMeetings);
-}
-
-function* performGetEventsTypes(action) {
-  try {
-    const result = yield call(eventsTypes);
-    if (!result.networkSuccess) {
-      yield put(getEventsTypesDone({ data: [] }));
-    } else {
-      yield put(getEventsTypesDone({ data: result.data }));
-    }
-  } catch {
-    yield put(getEventsTypesDone({ data: [] }));
-    return;
-  }
-}
-
-export function* watchGetEventsTypes() {
-  yield takeLatest(GET_EVENTS_TYPES, performGetEventsTypes);
 }
 
 function* performJoinMeetingByUserId({ params, pathParams, body }) {
@@ -311,55 +280,6 @@ function* performRemindParticipant({ id, body }) {
 
 export function* watchRemindParticipant() {
   yield takeLatest(REMIND_PARTICIPANT, performRemindParticipant);
-}
-
-function* performAddEventsTypes({ body }) {
-  let resultData;
-  try {
-    const result = yield call(addEventsTypesReq, body);
-    resultData = result.networkSuccess ? result.data?.result : {};
-  } catch (e) {
-    resultData = {};
-  }
-  yield put(addEventsTypesDone({ data: resultData }));
-  if (resultData) yield put(getEventsTypes());
-}
-
-export function* watchAddEventsTypes() {
-  yield takeLatest(ADD_EVENTS_TYPES, performAddEventsTypes);
-}
-
-function* performEditEventsTypes({ body, params }) {
-  let resultData;
-  try {
-    const result = yield call(editEventsTypesReq, body, params);
-    resultData = result.networkSuccess ? result.data?.result : {};
-  } catch (e) {
-    resultData = {};
-  }
-  yield put(editEventsTypesDone({ data: resultData }));
-
-  if (!Object.isObjectEmpty(resultData)) yield put(getEventsTypes());
-}
-
-export function* watchEditEventsTypes() {
-  yield takeLatest(EDIT_EVENTS_TYPES, performEditEventsTypes);
-}
-
-function* performDeleteEventsTypes({ id }) {
-  let resultData;
-  try {
-    const result = yield call(deleteEventsTypesReq, id);
-    resultData = result.networkSuccess ? result.data?.result : {};
-  } catch (e) {
-    resultData = {};
-  }
-  yield put(deleteEventsTypesDone({ data: resultData }));
-  if (resultData) yield put(getEventsTypes());
-}
-
-export function* watchDeleteEventsTypes() {
-  yield takeLatest(DELETE_EVENTS_TYPES, performDeleteEventsTypes);
 }
 
 function* performAddNoteToParticipant({ id, body }) {
