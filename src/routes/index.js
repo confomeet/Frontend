@@ -30,7 +30,6 @@ const RestrictedRoute = ({ authUser, Component }) =>
   authUser ? <Component /> : <Navigate to="/login" />;
 
 const Index = () => {
-  console.log("Rendering Index");
   const location = useLocation();
   const navigate = useNavigate();
   window.navigateTo = navigate;
