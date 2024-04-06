@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { handleSubEvebtsFilter } from "redux/network/functions";
-import Calendar from "../../components/materialComponents/calendar/indexSm";
+import Calendar from "../../components/materialComponents/calendar";
 
 function CalendarView({ data, handleSearch, ...props }) {
   const { meetings, allMeetings } = useMemo(

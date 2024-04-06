@@ -8,14 +8,14 @@ import {
   MonthView,
   Scheduler,
   Toolbar,
-  ViewSwitcher,
   WeekView,
 } from "@devexpress/dx-react-scheduler-material-ui";
-import { Box, Button, Dialog, Paper } from "components/muiComponents";
+import { Box, Paper } from "components/muiComponents";
 import { useDidMountEffect } from "hooks";
-import { useSelector } from "react-redux";
-import { Flag } from "components/icons";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import "./Calender.css";
+import { BiCalendarStar, Flag } from "components/icons";
 import {
   getADay,
   getAMonth,
@@ -27,23 +27,74 @@ import {
 } from "utils";
 import GroupEvents from "../../meetingCard/GroupEvents";
 import MeetingCard from "../../meetingCard/MeetingCard";
+import EventsAccordion from "./EventsAccordion";
 import calendarStyle from "./style";
 
+const AppointmentTag = ({ data }) => {
+  const calendarClasses = calendarStyle();
+
+  if (data.isStart && data.subEventCount === 0 && data.topic)
+    return (
+      <Box
+        className={
+          data.isEnd
+            ? calendarClasses.statusBoxCircul
+            : calendarClasses.statusBox
+        }
+      >
+        <span className={calendarClasses.isStart}>{data.orderNo}</span>
+        <span className={calendarClasses.isTopic}> {data.topic}</span>
+        <br />
+      </Box>
+    );
+  if (data.subEventCount > 0 && data.topic)
+    return (
+      <Box className={calendarClasses.statusBoxCircul}>
+        <Flag />
+        <span className={calendarClasses.isTopic}>{data.topic}</span>
+      </Box>
+    );
+
+  if (data.isStart && data.isEnd)
+    return <Box className={calendarClasses.maxWidth}></Box>;
+
+  if (data.isChunck && data.topic)
+    return (
+      <Box className={calendarClasses.ChunckBoxBg}>
+        <span className={calendarClasses.isTopic}>{data.topic}</span>
+      </Box>
+    );
+
+  if (data.isChunck && data.isEnd)
+    return (
+      <Box className={calendarClasses.isChunckBox}>
+        {data.isChunck && <span></span>}
+      </Box>
+    );
+
+  if (data.eventsGroup)
+    return (
+      <Box className={calendarClasses.eventsGroup}>
+        <span> {data.topic}</span>
+      </Box>
+    );
+};
 function Calendar(props) {
+  const isSmallScreen = window.innerWidth <= 600;
   const {
     settingsReducer: {
       settings: { isRTL },
     },
   } = useSelector((state) => state);
 
-  const [data, setData] = useState(handleViewEvents(props.meetings));
+  const [data, setData] = useState([]);
+  const [selectedDateEvents, setSelectedDateEvents] = useState(null);
 
   const [currentViewName, setCurrentViewName] = useState("CALENDAR.MONTH");
   const [currentViewDateRange, setCurrentViewDateRange] = useState({
     startDate: props.startDate,
     endDate: props.endDate,
   });
-
   const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [deletedAppointmentId, setDeletedAppointmentIdState] =
     useState(undefined);
@@ -69,15 +120,6 @@ function Calendar(props) {
     setConfirmationVisible(!confirmationVisible);
   };
 
-  const commitDeletedAppointment = () => {
-    let nextData = data.filter(
-      (appointment) => appointment.id !== deletedAppointmentId
-    );
-    setData(nextData);
-    setDeletedAppointmentId(null);
-    toggleConfirmationVisible();
-  };
-
   const commitChanges = ({ added, changed, deleted }) => {
     let newData = data;
     if (added) {
@@ -100,17 +142,65 @@ function Calendar(props) {
 
     setData(newData);
   };
-
+  const handleDateEventsChange = (data) => (event) => {
+    setSelectedDateEvents(data);
+    window.scrollIntoRef(event, "#events-accordion", "start");
+  };
   const AppointmentContent = ({ ...restProps }) => {
     const { data } = restProps;
     if (!data) return;
+    if (isSmallScreen)
+      return (
+        <Box className={calendarClasses.reminderBox}>
+          <BiCalendarStar onClick={handleDateEventsChange(data)} />
+        </Box>
+      );
     switch (currentViewName) {
       case "CALENDAR.DAY":
+        return (
+          <Appointments.AppointmentContent {...restProps}>
+            <AppointmentTag data={data} />
+          </Appointments.AppointmentContent>
+        );
       case "CALENDAR.WEEK":
         return (
           <Appointments.AppointmentContent {...restProps}>
-            {data.topic && (
-              <Box className={calendarClasses.statusBox}>{data.topic}</Box>
+            {data.isStart && data.subEventCount === 0 && data.topic && (
+              <Box
+                className={
+                  data.isEnd
+                    ? calendarClasses.statusBoxCircul
+                    : calendarClasses.statusBox
+                }
+              >
+                <span className={calendarClasses.isStart}>{data.orderNo}</span>
+                <span className={calendarClasses.isTopic}> {data.topic}</span>
+                <br />
+              </Box>
+            )}
+            {data.subEventCount > 0 && data.topic && (
+              <Box className={calendarClasses.statusBoxCircul}>
+                <Flag />
+                <span className={calendarClasses.isTopic}>{data.topic}</span>
+              </Box>
+            )}
+            {data.isStart && data.isEnd && (
+              <Box className={calendarClasses.maxWidth}></Box>
+            )}
+            {data.isChunck && data.topic && (
+              <Box className={calendarClasses.ChunckBoxBg}>
+                <span className={calendarClasses.isTopic}>{data.topic}</span>
+              </Box>
+            )}
+            {data.isChunck && data.isEnd && (
+              <Box className={calendarClasses.isChunckBox}>
+                {data.isChunck && <span></span>}
+              </Box>
+            )}
+            {data.eventsGroup && (
+              <Box className={calendarClasses.eventsGroup}>
+                <span> {data.topic}</span>
+              </Box>
             )}
           </Appointments.AppointmentContent>
         );
@@ -127,15 +217,11 @@ function Calendar(props) {
                       : calendarClasses.statusBox
                   }
                 >
-                  <span className={calendarClasses.isStart}>
-                    {data.orderNo}
-                  </span>
-                  <span className={calendarClasses.isTopic}> {data.topic}</span>
+                  <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
               {data.subEventCount > 0 && data.topic && (
                 <Box className={calendarClasses.statusBoxCircul}>
-                  <Flag />
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
@@ -145,11 +231,6 @@ function Calendar(props) {
               {data.isChunck && data.topic && (
                 <Box className={calendarClasses.ChunckBoxBg}>
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
-                </Box>
-              )}
-              {data.isChunck && data.isEnd && (
-                <Box className={calendarClasses.isChunckBox}>
-                  {data.isChunck && <span></span>}
                 </Box>
               )}
               {data.eventsGroup && (
@@ -168,6 +249,7 @@ function Calendar(props) {
 
   const Content = (data) => {
     if (!data) return null;
+    if (isSmallScreen) return null;
 
     if (data.appointmentData.eventsGroup)
       return <GroupEvents {...props} data={data.appointmentData.eventsGroup} />;
@@ -183,7 +265,7 @@ function Calendar(props) {
   const viewCommonProps = {
     startDayHour,
     endDayHour,
-    cellDuration: 120,
+    cellDuration: 60,
   };
 
   const onCurrentDateChange = (date) =>
@@ -209,12 +291,34 @@ function Calendar(props) {
     }
   };
 
+  const TimeTableCell = ({ onDoubleClick, ...cellProps }) => {
+    return (
+      <MonthView.TimeTableCell
+        {...cellProps}
+        onDoubleClick={() => {
+          if (
+            cellProps?.today ||
+            new Date(cellProps?.startDate).getTime() > new Date().getTime()
+          )
+            props.setCalendarCellClickData(cellProps);
+        }}
+      />
+    );
+  };
+
   useEffect(() => {
     if (currentViewName === "CALENDAR.MONTH") {
-      setData(handleViewEvents(props.meetings));
+      setData(
+        handleViewEvents(
+          props.meetings,
+          isSmallScreen ? 0 : 2,
+          props.allMeetings
+        )
+      );
       return;
     }
-    setData(handleViewEvents(props.meetings, 100));
+
+    setData(handleViewEvents(props.meetings, 100, props.allMeetings));
   }, [props.meetings]);
 
   useDidMountEffect(
@@ -237,7 +341,13 @@ function Calendar(props) {
   }, [props.startDate, props.endDate]);
 
   return (
-    <Paper className={calendarClasses.calendar}>
+    <Paper
+      className={
+        currentViewName === "CALENDAR.MONTH"
+          ? calendarClasses.calendar
+          : calendarClasses.DayWeekCalendar
+      }
+    >
       <Scheduler
         locale={isRTL ? "ar-AE" : "en-US"}
         data={data}
@@ -261,6 +371,7 @@ function Calendar(props) {
           {...viewCommonProps}
           name={"CALENDAR.MONTH"}
           displayName={Object.translate("CALENDAR.MONTH")}
+          timeTableCellComponent={TimeTableCell}
         />
         <WeekView
           {...viewCommonProps}
@@ -274,38 +385,22 @@ function Calendar(props) {
         />
         <EditRecurrenceMenu />
         <Appointments appointmentContentComponent={AppointmentContent} />
-        <AppointmentTooltip
-          contentComponent={Content}
-          commandButtonComponent={AppointmentTooltip.CommandButton}
-          showCloseButton
-        />
+        {!isSmallScreen && (
+          <AppointmentTooltip
+            contentComponent={Content}
+            commandButtonComponent={AppointmentTooltip.CommandButton}
+            showCloseButton
+          />
+        )}
         <Toolbar />
         <DateNavigator />
-        <ViewSwitcher />
       </Scheduler>
-      <Dialog
-        open={confirmationVisible}
-        title={"Delete Appointment"}
-        contentText={"Are you sure you want to delete this appointment?"}
-        actions={
-          <>
-            <Button
-              onClick={toggleConfirmationVisible}
-              color="primary"
-              variant="outlined"
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={commitDeletedAppointment}
-              color="secondary"
-              variant="outlined"
-            >
-              Delete
-            </Button>
-          </>
-        }
-      ></Dialog>
+      <EventsAccordion
+        events={selectedDateEvents}
+        isSmallScreen={isSmallScreen}
+        {...props}
+      />
+      <div id="events-accordion" />
     </Paper>
   );
 }
