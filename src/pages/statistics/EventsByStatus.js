@@ -66,6 +66,7 @@ const EventsByStatus = () => {
           setPageSize(pageSize);
           setPageIndex(pageIndex - 1 > 0 ? pageIndex - 1 : 1);
         }}
+        customFooter={() => null}
       />
     </Grid>
   );
