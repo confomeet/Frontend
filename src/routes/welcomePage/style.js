@@ -2,14 +2,13 @@ import { makeStyles } from "@mui/styles";
 import loginBg from "../../assets/images/connectBg.jpg";
 import logoBg from "../../assets/images/logo.png";
 
-const connectStyles = makeStyles((theme) => ({
-  loginRoot: {
+const welcomeStyles = makeStyles((theme) => ({
+  WelcomePage: {
     width: "100%",
+    height: "100%",
     zIndex: "3",
-    position: "relative",
     overflow: "hidden",
     display: "flex",
-    marginTop: "-200px",
     fontFamily: "Marmelad",
     color: theme.palette.background.default,
     "& img": {
@@ -22,6 +21,7 @@ const connectStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "column",
       alignItems: "end",
+      overflow: "hidden",
       "& a": {
         position: "relative",
         "&:hover": {
@@ -103,13 +103,6 @@ const connectStyles = makeStyles((theme) => ({
         width: "94%",
       },
     },
-
-    "& .inner-container": {
-      paddingTop: "1%",
-      flexFlow: "column nowrap",
-      marginTop: "200px",
-      height: "100%"
-    },
   },
 }));
-export default connectStyles;
+export default welcomeStyles;

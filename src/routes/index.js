@@ -1,21 +1,16 @@
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { jssPreset, StylesProvider } from "@mui/styles";
-import Stack from '@mui/material/Stack';
-import Header from "common/Header";
-import MiniSideMenu from "common/MiniSideMenu";
-import SubHeader from "common/SubHeader";
 import PhraseLoader from "components/Alerts/PhraseLoader";
 import { create } from "jss";
 import rtl from "jss-rtl";
-import { Suspense, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import actions from "redux/actions";
 import { connectSignalR } from "redux/signalR";
-import { getModifiedCountries } from "utils";
-import { Box, Container } from "../components/muiComponents";
+import { Box } from "../components/muiComponents";
 import Spinner from "../components/shared/Spinner";
 import AppVersion from "../pages/appVersion/index";
 import Meet from "../pages/meet/Meet";
@@ -25,21 +20,18 @@ import JoinCall from "../pages/user/JoinCall";
 import JoinCallWithToken from "../pages/user/JoinCallWithToken";
 import ResetPassword from "../pages/user/ResetPassword";
 import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
-import ConnectPage from "./connectPage/ConnectPage";
+import WelcomePage from "./welcomePage";
 import Panel from "./panel/Panel";
 import Login from "pages/user/Login";
-const { closeSideMenu, setHeaderPageTitle, getCountries, getCountriesDone } =
-  actions;
+import { disconnect } from "redux/signalR/Connection";
+const { getCountries, setHeaderPageTitle } = actions;
 
 const RestrictedRoute = ({ authUser, Component }) =>
   authUser ? <Component /> : <Navigate to="/login" />;
 
-const testJoinPage = (path = "") =>
-  /join\/[0-9]+\/[a-z A-Z 0-9 \-]+/.test(path.toLowerCase());
-
 const Index = () => {
+  console.log("Rendering Index");
   const location = useLocation();
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   window.navigateTo = navigate;
   window.currentLocation = location;
@@ -48,13 +40,11 @@ const Index = () => {
   const {
     settingsReducer: { settings },
     loading,
-    common,
   } = useSelector((state) => state);
-  const { isRTL, isDark, authUser } = settings;
+  const { isDark, authUser } = settings;
 
   const theme = isDark ? darkTheme(settings) : coloredTheme(settings);
   const materialTheme = createTheme(theme);
-  const [isExternal, switchExternal] = useState(true);
 
   const getCurrentPageTitle = (pathname) => {
     let pageTitle = ["PAGES"];
@@ -79,91 +69,58 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const data = getModifiedCountries(common.AllCountries, isRTL);
-    window.dispatch(getCountriesDone({ data }));
-  }, [isRTL]);
-
-  useEffect(() => {
-    (async () => await connectSignalR(authUser))();
-  }, [authUser]);
-
-  useEffect(() => {
-    if (authUser) return;
-    dispatch(closeSideMenu());
+    if (authUser)
+      (async () => await connectSignalR(authUser))();
+    else
+      (async () => await disconnect())();
   }, [authUser]);
 
   useEffect(() => {
     const pageTitle = getCurrentPageTitle(location.pathname);
     window.dispatch(setHeaderPageTitle({ pageTitle }));
-    switchExternal(testJoinPage(location.pathname));
   }, [location]);
   return (
     <StylesProvider jss={jss}>
       <ThemeProvider theme={materialTheme}>
         <CssBaseline />
-        <Container
-          dir={isRTL ? "rtl" : "ltr"}
-          sx={{ height: "100%" }}
-          disableGutters
-          maxWidth="false"
-          className="d-flex-column"
+        <Box
+          sx={{ height: "100vh", width: "100vw" }}
         >
           {loading.spinnerToggle ? <Spinner /> : null}
           <PhraseLoader />
-          <Stack direction="row" sx={{ height: "100%" }}>
-            {authUser && !isExternal && <MiniSideMenu />}
-            <Stack direction="column" sx={{
-              width: "100%",
-              overflowY: "auto",
-            }}
-            >
-              {authUser && !isExternal && <Header />}
-              {authUser && !isExternal && <SubHeader />}
-              <Container
-                className="seperateBox"
-                maxWidth="false"
-                sx={{
-                  flex: "auto",
-                  display: "flex",
-                  alignItems: "stretch",
-                }}
-              >
-                <Routes>
-                  <Route
-                    path="/panel/*"
-                    element={
-                      <RestrictedRoute
-                        authUser={authUser}
-                        Component={Panel}
-                      />
-                    }
-                  ></Route>
-                  <Route path={`/`} element={<ConnectPage />} />
-                  <Route path={`/login`} element={<Login />} />
-                  <Route path={`/join`} element={<JoinCall />} />
-                  <Route
-                    path={`/join/:id/:uuid`}
-                    element={<JoinCallWithToken />}
-                  />
-                  <Route
-                    path={`/ActiveAccount`}
-                    element={<ActiveAccount />}
-                  />
-                  <Route
-                    path={`/ResetPassword`}
-                    element={<ResetPassword />}
-                  />
-                  <Route
-                    path={`/ForgetPassword`}
-                    element={<ForgetPassword />}
-                  />
-                  <Route path={`/AppVersion`} element={<AppVersion />} />
-                  <Route path={`/Lilac`} element={<Meet />} />
-                </Routes>
-              </Container>
-            </Stack>
-          </Stack>
-        </Container>
+          <Routes>
+            <Route
+              path="/panel/*"
+              element={
+                <RestrictedRoute
+                  authUser={authUser}
+                  Component={Panel}
+                />
+              }
+            ></Route>
+            <Route path={`/`} element={<WelcomePage />} />
+            <Route path={`/login`} element={<Login />} />
+            <Route path={`/join`} element={<JoinCall />} />
+            <Route
+              path={`/join/:id/:uuid`}
+              element={<JoinCallWithToken />}
+            />
+            <Route
+              path={`/ActiveAccount`}
+              element={<ActiveAccount />}
+            />
+            <Route
+              path={`/ResetPassword`}
+              element={<ResetPassword />}
+            />
+            <Route
+              path={`/ForgetPassword`}
+              element={<ForgetPassword />}
+            />
+            <Route path={`/AppVersion`} element={<AppVersion />} />
+            <Route path={`/Lilac`} element={<Meet />} />
+          </Routes>
+          </Box>
       </ThemeProvider>
     </StylesProvider>
   );

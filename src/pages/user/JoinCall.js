@@ -89,7 +89,7 @@ function JoinCall() {
   };
 
   return (
-    <FormPage>
+    <FormPage formName={Object.translate("PAGES.JOIN")}>
         <Formik
           initialValues={{
             name: name || "",
@@ -103,14 +103,6 @@ function JoinCall() {
         >
           {({ isValid, dirty, values, submitForm }) => (
             <Form className={classes.loginRoot}>
-              <Typography
-                component="h2"
-                variant="h2"
-                marginBottom={10}
-              >
-                {Object.translate("PAGES.JOIN")}
-              </Typography>
-
               <Box display="flex" flexDirection="column">
                 {!window.self.JitsiMeetElectron ? (
                   <>

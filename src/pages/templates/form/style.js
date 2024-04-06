@@ -9,8 +9,11 @@ const formPageStyles = makeStyles((theme) => ({
     position: "relative",
     display: "flex",
     zIndex: "3",
-    background: "linear-gradient(180deg, #FFFFFF 82.39%, #441276 150.39%)",
+    overflow: "scroll",
     alignItems: "stretch",
+    "& >*": {
+      minWidth: "350px",
+    },
     "& .left-pane": {
       background: "#0E366324",
       flex: "0 0 auto",
@@ -55,19 +58,21 @@ const formPageStyles = makeStyles((theme) => ({
       marginBottom: "1rem",
     },
    "& .corner-circle-transparent": {
-      position: "relative",
+      width: "100%",
+      height: "100%",
+      position: "absolute",
       overflow: "hidden",
-      "&:after": {
+      "& >*": {
+        position: "absolute",
+        overflowX: "hidden",
         background: `url(${logo}) no-repeat`,
         backgroundSize: "contain",
-        position: "absolute",
-        content: '""',
-        opacity: .1,
-        zIndex: 1,
+        opacity: 0.1,
 
         "@media(min-width: 431px)": {
           width: "750px",
           height: "750px",
+          // bottom: "0",
           bottom: "-450px",
           right: "-300px",
         },
@@ -77,7 +82,7 @@ const formPageStyles = makeStyles((theme) => ({
           bottom: "-170px",
           right: "-120px",
         },
-      },
+      }
     },
     "@media (min-width: 1200px)": {
       flexDirection: "row",

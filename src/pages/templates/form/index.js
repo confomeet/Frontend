@@ -46,13 +46,15 @@ function FormPage({children, formName}) {
         </Stack>
       </Box>
       <Container
-        className="corner-circle-transparent"
-        sx={{
+          maxWidth="false"
+          sx={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "start",
           alignItems: "center",
-          height: "100%",
+          flex: "1 1 fit-content",
+          background: "linear-gradient(180deg, #FFFFFF 82.39%, #441276 150.39%)",
+          position: "relative",
         }}>
         <Typography
           component="h2"
@@ -62,8 +64,8 @@ function FormPage({children, formName}) {
           {formName}
         </Typography>
         {children}
+        <Box className="corner-circle-transparent"><Box /></Box>
       </Container>
-
     </Box>
   );
 }

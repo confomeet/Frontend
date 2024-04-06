@@ -77,9 +77,11 @@ const loginStyles = makeStyles((theme) => ({
         color: theme.globals.colors.textLight,
       },
     },
-    "@media (min-width: 430px)": {
-      width: "30vw",
-      minWidth: "350px",
+    "@media (min-width: 800px)": {
+      width: "40vw",
+    },
+    "@media (min-width: 430px) and (max-width: 799px)": {
+      width: "60vw",
     },
     "@media (max-width: 429px)": {
       width: "80%",
