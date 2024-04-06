@@ -105,37 +105,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
         padding: "4px 0",
       },
     },
-
-    "& .date-range": {
-      borderBottom: "1px solid #a4a4a4",
-      maxHeight: "23px",
-      [theme.breakpoints.down("md")]: {
-        margin: theme.spacing(0, 1, 1, 0),
-      },
-
-      "& .MuiInput-root ": {
-        fontSize: theme.globals.fontSize.s - 2,
-        color: `${theme.globals.colors.textDarkGrey}!important`,
-      },
-      "& input ": {
-        fontSize: theme.globals.fontSize.s - 2,
-        WebkitTextFillColor: `${theme.globals.colors.textDarkGrey}!important`,
-        color: `${theme.globals.colors.textDarkGrey}!important`,
-        textOverflow: "ellipsis!important",
-        minWidth: "80px!important",
-      },
-      "& label ": { left: "-22px", right: "82%" },
-      "&  .MuiInput-underline:before": {
-        display: "none!important",
-      },
-      "&  .MuiInput-underline:after": {
-        display: "none!important",
-      },
-      "& svg": {
-        fontSize: theme.globals.fontSize.xs * 2,
-        color: "#A3A3A3!important",
-      },
-    },
   },
   addEventPartyBox: {
     display: "flex",

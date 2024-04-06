@@ -6,9 +6,11 @@ import { DateRangePicker, createStaticRanges } from "react-date-range";
 import { useSelector } from "react-redux";
 import { Button, Popover, TextField } from "../muiComponents";
 import StaticDateRanges from "./staticDateRange";
+import useStyles from "./style";
 
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
+import { InputAdornment } from "@mui/material";
 
 export default function DateRange(props) {
   const outSideClickRef = useRef(null);
@@ -21,6 +23,7 @@ export default function DateRange(props) {
     key: "selection",
   });
   const [anchorEl, setAnchorEl] = useState(null);
+  const styles = useStyles();
   const open = Boolean(anchorEl);
 
   const getSelectedDateTextValue = () => {
@@ -52,17 +55,20 @@ export default function DateRange(props) {
   }, [props.dateRange]);
 
   return (
-    <div className="date-range d-flex align-center" ref={outSideClickRef}>
+    <div className={styles.DateRange} ref={outSideClickRef}>
       <TextField
         variant="standard"
         value={getSelectedDateTextValue()}
+        label={Object.translate("LABEL.DATE_RANGE")}
         onClick={(e) => setAnchorEl(open ? null : e.currentTarget)}
         InputProps={{
           disableUnderline: true,
           endAdornment: (
-            <IoCalendarClearOutline
-              onClick={(e) => setAnchorEl(open ? null : e.currentTarget)}
-            />
+            <InputAdornment position="end">
+              <IoCalendarClearOutline
+                onClick={(e) => setAnchorEl(open ? null : e.currentTarget)}
+              />
+            </InputAdornment>
           ),
         }}
       />

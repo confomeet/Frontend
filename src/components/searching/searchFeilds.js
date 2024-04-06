@@ -209,9 +209,6 @@ export default function SearchFeilds(props) {
         xs={12}
         className={classes.findValueFeild}
       >
-        <span style={{ fontSize: "12.5px", color: "rgba(0, 0, 0, 0.6)" }}>
-          {Object.translate("LABEL.DATE_RANGE")}
-        </span>
         <DateRange
           handleDateRangeChange={(data) => handleDateRangeChange(data)}
           handleSearch={() => props.handleSearch()}

@@ -21,13 +21,11 @@ const StatisticsHeader = (props) => {
   };
 
   return (
-    <Grid className={classes.statisDateRange}>
-      <DateRange
-        handleDateRangeChange={(data) => handleDateRangeChange(data)}
-        handleSearch={() => props.handleGetStatistics()}
-        dateRange={getInputValues(props.searchParams)}
-      />
-    </Grid>
+    <DateRange
+      handleDateRangeChange={(data) => handleDateRangeChange(data)}
+      handleSearch={() => props.handleGetStatistics()}
+      dateRange={getInputValues(props.searchParams)}
+    />
   );
 };
 

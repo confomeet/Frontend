@@ -87,24 +87,6 @@ export const Styles = makeStyles((theme) => ({
       flexDirection: "column",
     },
   },
-  statisDateRange: {
-    display: "flex",
-    padding: "0 10px",
-    margin: "0 10px",
-    borderBottom: "1px solid #D9D9D9",
-    backgroundColor: "#fff",
-    height: "44px",
-    width: "300px",
-    marginTop: "10px",
-    marginInlineEnd: "25px",
-    [theme.breakpoints.down("600")]: {
-      marginTop: "16px",
-      marginBottom: "16px",
-    },
-    "& svg": {
-      color: "#19BE96",
-    },
-  },
   statisticsTypo: {
     color: "#425B73",
     fontSize: "26px!important",
