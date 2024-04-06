@@ -23,30 +23,6 @@ const drawerStyle = makeStyles((theme) => ({
         padding: "16px 8px !important",
       },
     },
-    "& .logo": {
-      width: "70%",
-      margin: "auto",
-      display: "block",
-      padding: theme.spacing(4),
-      borderTop: `1px solid ${theme.globals.colors.borderPrimary}`,
-      position: "relative",
-      "& :before": {
-        content: '""',
-        position: "absolute",
-
-        borderStyle: "solid",
-        borderWidth: "11px 11px 0",
-        borderColor: "#b7b7b7 transparent transparent",
-      },
-      "& :after": {
-        content: '""',
-        position: "absolute",
-
-        borderStyle: "solid",
-        borderWidth: "10px 10px 0",
-        borderColor: "#fff transparent transparent",
-      },
-    },
 
     "& .drawer": {
       "& .MuiList-root": {
@@ -109,17 +85,6 @@ const drawerStyle = makeStyles((theme) => ({
     },
     "& .MuiCollapse-root": {
       marginLeft: "40px",
-    },
-    "& main": {},
-  },
-  notificationIcon: {
-    zIndex: 1000,
-  },
-  header: {
-    justifyContent: "end",
-
-    "& .language": {
-      fontFamily: theme.direction === "rtl" ? "Poppins" : "Cairo",
     },
   },
 }));

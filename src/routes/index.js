@@ -28,7 +28,6 @@ import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import ConnectPage from "./connectPage/ConnectPage";
 import Panel from "./panel/Panel";
 import Login from "pages/user/Login";
-import useStyles from "./style";
 const { closeSideMenu, setHeaderPageTitle, getCountries, getCountriesDone } =
   actions;
 
@@ -42,7 +41,6 @@ const Index = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const styles = useStyles();
   window.navigateTo = navigate;
   window.currentLocation = location;
   window.navigateToDefault = () => window.navigateTo("/panel");

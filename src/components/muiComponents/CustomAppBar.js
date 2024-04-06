@@ -41,17 +41,11 @@ const AppBar = styled(MuiAppBar, {
       "& button": {
         color: "#fff!important",
       },
-      "& .logo ": {
-        display: "none",
-      },
     },
   };
   let outerPageStyle = {
     backdropFilter: "unset!important",
     borderBottom: "none!important",
-    "& .logo ": {
-      display: "none",
-    },
 
     "& .MuiToolbar-root": {
       [theme.breakpoints.down(600)]: {
