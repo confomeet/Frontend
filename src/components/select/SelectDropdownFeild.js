@@ -85,7 +85,6 @@ export default function SelectDropdownFeild({
               placement="top"
             >
               <Chip
-                // avatar={<Avatar />}
                 variant="outlined"
                 label={text}
                 {...getTagProps({ index })}

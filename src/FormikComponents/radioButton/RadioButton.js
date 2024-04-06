@@ -28,7 +28,6 @@ export default function FormikRadioButtonGroup(props) {
         {Array.isFullArray(props?.allRadios) &&
           props?.allRadios?.map((radio, index) => (
             <FormControlLabel
-              // {...props}
               control={<Radio />}
               label={radio?.name}
               key={index}

@@ -208,7 +208,6 @@ export const userStyle = makeStyles((theme, isRTL) => ({
     },
   },
   phoneNumberFld: {
-    // width: "80%",
     maxHeight: "47px",
     display: "flex",
     justifyContent: "center",
@@ -238,7 +237,6 @@ export const userStyle = makeStyles((theme, isRTL) => ({
     "& .search": {
       borderBottom: "1px solid #a4a4a4",
       marginTop: "21px",
-      // height: "100%",
       "& .MuiFormControl-root": {
         width: "100%",
       },

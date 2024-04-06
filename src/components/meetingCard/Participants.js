@@ -26,18 +26,14 @@ const Participants = ({ participants }) => (
   <Box display="flex" width="100%">
     <AvatarGroup total={participants.length}>
       {participants.map(
-        (p, idx) => (
-          // (participants.length <= 3 ||
-          //   (participants.length > 3 && idx < 2)) && (
+        (p) => (
           <Box>
             {p.isModerator ? (
               <Badge
-                // badgeContent={<RiAdminFill />}
                 overlap="circular"
                 anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                 variant="dot"
                 className={clsx(
-                  // "isModerator",
                   p.participantStatus ? "participants" : "unActiveParticipants"
                 )}
               >
@@ -61,16 +57,8 @@ const Participants = ({ participants }) => (
             )}
           </Box>
         )
-        // )
       )}
     </AvatarGroup>
-    {/* {participants.length > 3 && (
-      <Box display="flex">
-        <Typography marginRight={1} variant="subtitle">
-          {`+${participants.length - 2} ${Object.translate("VALUE.OTHER")}`}
-        </Typography>
-      </Box>
-    )} */}
   </Box>
 );
 

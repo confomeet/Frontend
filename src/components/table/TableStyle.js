@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiButton-containedPrimary": {
       margin: "0 12px 0 0",
       minWidth: "40px",
-      // borderColor: theme.globals.colors.primary,
 
       color: theme.globals.colors.primary,
       border: "1px solid #e2e2e2",
@@ -80,14 +79,12 @@ const useStyles = makeStyles((theme) => ({
       },
     },
     "& .MuiInput-underline": {
-      // margin: "0 0 0 35px!important",
       [theme.breakpoints.up("600px")]: { margin: "0 0 0 35px!important" },
     },
     "& .MuiCheckbox-root": {
       color: " #cccccc!important",
     },
     "& .MuiFab-root ": {
-      // borderRadius: "33%",
       color: "white!important",
       backgroundColor: theme.globals.colors.primary,
       zIndex: "1!important",
@@ -142,14 +139,6 @@ const useStyles = makeStyles((theme) => ({
     "& .MuiPaginationItem-sizeMedium": {
       minWidth: "0!important",
     },
-    // "& svg": {
-    //   backgroundColor: "#2c9ad4",
-    //   height: "100%",
-    //   width: "31px",
-
-    //   borderRadius: "10px",
-    //   color: "white",
-    // },
     "& .MuiTable-root": {
       tableLayout: "auto",
     },

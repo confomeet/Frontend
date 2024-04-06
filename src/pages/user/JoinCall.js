@@ -69,7 +69,6 @@ function JoinCall() {
         joinByMeetingLink({
           link: meetings.joinMeetingDone.meetingLink,
           shouldSignout: false,
-          // shouldSignout: true,
           shouldRedirect: true,
         });
         return;

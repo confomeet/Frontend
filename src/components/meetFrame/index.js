@@ -5,7 +5,6 @@ const JitsiMeetComponent = (props) => {
   const startConference = () => {
     try {
       const element = document.getElementById(jitsi_container);
-      // if (element) element.empty();
       const domain = props.domain;
       const options = {
         roomName: props.roomName,
@@ -13,16 +12,6 @@ const JitsiMeetComponent = (props) => {
         parentNode: document.getElementById(jitsi_container),
         height: "100%",
         width: "100%",
-        // height: 600,
-        // width: 1000,
-
-        // interfaceConfigOverwrite: {
-        //   filmStripOnly: false,
-        //   SHOW_JITSI_WATERMARK: false,
-        // },
-        // configOverwrite: {
-        //   disableSimulcast: false,
-        // },
       };
 
       const api = new window.JitsiMeetExternalAPI(domain, options);

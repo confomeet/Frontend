@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MUIDataTable, { ExpandButton } from "mui-datatables";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-// import createBreakpoints from "@mui/material/styles/createBreakpoints";
 import { useSelector } from "react-redux";
 import CustomToolbar from "./CustomToolBar";
 import useStyles from "./TableStyle";
@@ -15,7 +14,6 @@ export default function FullTabel(props) {
   const { settingsReducer } = useSelector((state) => state);
   const { isRtl: isDirectionRTL } = settingsReducer.settings;
 
-  // const breakpoints = createBreakpoints({});
   const getMuiTheme = () =>
     createTheme({
       overrides: {
@@ -252,9 +250,6 @@ export default function FullTabel(props) {
             "&$selected": {
               "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.04)" },
             },
-            "& td > p": {
-              // fontSize: theme.globals.fontSizeXS,
-            },
           },
 
           "& .emptyTitle": {
@@ -279,9 +274,6 @@ export default function FullTabel(props) {
               boxShadow: "none!important",
               "&:hover": {
                 background: "unset!important",
-              },
-              [theme.breakpoints.down("600")]: {
-                // fontSize: theme.globals.fontSizeXXS,
               },
             },
             MuiButtonBase: {

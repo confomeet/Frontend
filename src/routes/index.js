@@ -99,26 +99,6 @@ const Index = () => {
     window.dispatch(setHeaderPageTitle({ pageTitle }));
     switchExternal(testJoinPage(location.pathname));
   }, [location]);
-  // let widthStyle;
-  // var userAgent = navigator.userAgent;
-  // var isFirefox = userAgent.indexOf("Firefox") > -1;
-  // var isWebKit = userAgent.indexOf("AppleWebKit") > -1;
-  // var isOpera = userAgent.indexOf("OPR") > -1;
-  // if (authUser && window.innerWidth >= 700 && window.innerWidth <= 880) {
-  //   widthStyle = { width: "calc(100% - 85px)" };
-  // } else {
-  //   widthStyle = {
-  //     width: authUser
-  //       ? isFirefox
-  //         ? "-moz-available"
-  //         : isWebKit
-  //         ? "-webkit-fill-available"
-  //         : isOpera
-  //         ? "-o-fill-available"
-  //         : "-webkit-fill-available"
-  //       : "100vw",
-  //   };
-  // }
   return (
     <StylesProvider jss={jss}>
       <ThemeProvider theme={materialTheme}>

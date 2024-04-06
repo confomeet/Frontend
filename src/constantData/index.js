@@ -28,25 +28,21 @@ export const getStatusFilters = () => [
     id: Object.values(MeetingStatus),
     icon: null,
     label: Object.translate("FILTER.ALL"),
-    className: "",
   },
   {
     id: MeetingStatus.incoming,
     icon: null,
     label: Object.translate("FILTER.UPCOMING"),
-    // className: "warning",
   },
   {
     id: MeetingStatus.live,
     icon: null,
     label: Object.translate("FILTER.LIVE"),
-    // className: "success",
   },
   {
     id: MeetingStatus.finished,
     icon: null,
     label: Object.translate("FILTER.FINISHED"),
-    // className: "danger",
   },
   {
     id: MeetingStatus.recorded,

@@ -61,7 +61,6 @@ const useStyles = makeStyles((theme) => ({
     "& .ck-toolbar": {
       borderTopLeftRadius: "15px !important",
       borderTopRightRadius: "15px !important",
-      // width: "calc( 210mm + 5px )",
     },
   },
 }));

@@ -2,8 +2,6 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import appNameBannerStyles from "./style";
 
-    //<Box className=" app-name d-flex-column center-content ">
-
 export default function AppNameBanner({className, color, variant}) {
   const classes = appNameBannerStyles();
   className = className ? className + " " : "";

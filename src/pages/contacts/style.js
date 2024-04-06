@@ -28,10 +28,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
         justifyContent: "center",
       },
     },
-
-    "& button": {
-      // height: "45px",
-    },
   },
   contactGroup: {
     display: "flex",
@@ -114,7 +110,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
     "& .MuiFormControlLabel-root": {
       margin: "0!important",
     },
-    // marginTop: "20px!important",
   },
   contactFld: {
     marginBottom: "8px!important",
@@ -220,7 +215,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
       left: "inherit",
     },
     "& .MuiFormControl-root": {
-      // width: "95%!important",
       marginTop: "11px!important",
     },
     "& > form": {
@@ -483,7 +477,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
   },
   myContactsHeader: {
     position: "relative",
-    // paddingTop: "16px",
     borderRadius: "4px",
     backgroundColor: "#fff",
     alignItems: "center",
@@ -678,7 +671,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
     margin: "30px 20px!important",
     [theme.breakpoints.down("600")]: {
       margin: "30px 8px!important",
-      // justifyContent: "center",
     },
   },
   contactTabs: {
@@ -789,7 +781,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
 
   addContactBox: {
     backgroundColor: "#fff!important",
-    // padding: "0px 0 20px 20px",
     [theme.breakpoints.down("sm")]: {
       padding: "20px 5px 0px 5px",
     },
@@ -943,7 +934,6 @@ export const contactsStyles = makeStyles((theme, isRTL) => ({
     },
     "& .search": {
       borderBottom: "0.6px solid #A4A4A4",
-      // height: "100%",
       marginTop: "16px",
       width: "96%",
       "& .MuiFormControl-root": {

@@ -2,7 +2,6 @@ import { makeStyles } from "@mui/styles";
 
 const FormikTextFeildGeneralStyles = makeStyles((theme) => ({
   textFeildGeneral: {
-    // borderBottom: "0.82px solid #A4A4A4",
     "& > div": {
       "& > label": {
         transition: "all 0.3s ease-in-out",

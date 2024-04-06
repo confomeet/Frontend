@@ -18,7 +18,6 @@ export default function GroupEvents({ data = [], ...props }) {
       display="flex"
       flexDirection="row-reverse"
       height="260px"
-      // width="660px!important"
     >
       <Box display="flex" className={classes.ListBox}>
         <Box className="Scroll">

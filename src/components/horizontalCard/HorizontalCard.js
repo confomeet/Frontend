@@ -36,7 +36,6 @@ export default function HorizontalCard(props) {
           display="flex"
           flexDirection="row"
           justifyContent="space-between"
-          // width="96%"
           margin="auto"
           alignItems="center"
         >

@@ -66,7 +66,6 @@ const HandleUsersGroups = () => {
   return (
     <Grid
       container
-      // sx={{ padding: "0 20px" }}
     >
       <Formik
         initialValues={initialValues}

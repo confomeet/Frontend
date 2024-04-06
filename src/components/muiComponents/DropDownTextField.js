@@ -56,7 +56,6 @@ export default function CustomAutocomplete({
         <TextField
           {...params}
           label={label}
-          // InputProps={{ disableUnderline: true }}
           variant="standard"
           value={textFieldValue}
           onChange={textFieldOnChange}

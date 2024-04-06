@@ -216,7 +216,6 @@ const useStyles = makeStyles((theme) => ({
   },
   formikTranslationGrid: {
     display: "flex",
-    // marginBottom: "25px",
     [theme.breakpoints.up("600")]: {
       "& >div:first-child": {
         marginBottom: "8px",

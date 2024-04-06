@@ -23,15 +23,8 @@ import {
 } from "./utils";
 
 window.domain = process.env.PUBLIC_URL;
-
-// window.domain = `https://localhost:7167`;
-
-// window.domain = `https://callpp.infostrategic.com/meet`;
-// window.domain = "https://lilacmeet.infostrategic.com/meet";
-
 window.scrollIntoRef = scrollIntoRef;
 window.officialLogo = confomeetLogo;
-// window.defualtLang = "ar";
 window.defualtLang = "en";
 
 window.currentZone = Intl.DateTimeFormat().resolvedOptions().timeZone;

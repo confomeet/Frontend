@@ -27,15 +27,6 @@ export function setDirection({ isRTL }) {
   };
 }
 
-/*export function getThemeList() {
-  let res = await get_themes();
-
-  return ({
-    type: ACTION_TYPES.GET_THEME_LIST,
-    payload: res,
-  });
-}*/
-
 ////// FontSize //////
 export function increaseFont() {
   return {

@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
     },
     "& .MuiInputLabel-shrink": {
       transition: "all 0.3s ease-in-out!important",
-      // color: `${theme.globals.colors.primary}!important`,
       fontSize: "12.5px!important",
       zIndex: 2,
       transform: "translate(0, 0px) scale(1)!important",

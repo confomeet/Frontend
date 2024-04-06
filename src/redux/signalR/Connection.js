@@ -9,7 +9,6 @@ const {
 } = actions;
 
 const signalRURL = `${window.domain}/directCall`;
-// const signalRURL = `https://meeting.infostrategic.com/meet/directCall`;
 
 let connection = null;
 let isConnected = false;

@@ -240,7 +240,6 @@ export default function IconLabelButtons(props) {
             className={[classes.button, classes.outlined]}
             startIcon={<EditIcon className={classes.icons} />}
             onClick={() => {
-              // store.dispatch(push(Edit_url));
               navigate(Edit_url);
             }}
           />
@@ -389,7 +388,6 @@ export default function IconLabelButtons(props) {
             variant="outlined"
             color="default"
             className={[classes.button, classes.outlined]}
-            // startIcon={<SettingsOutlinedIcon />}
             onClick={() => {
               store.dispatch(push(Translate_url));
             }}

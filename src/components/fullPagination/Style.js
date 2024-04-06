@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   paginationContainer: {
     display: "flex",
     alignItems: "center",
-    // justifyContent: "center",
   },
   ltrPagination: {
     display: "flex",

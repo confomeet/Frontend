@@ -129,11 +129,6 @@ const DirectCallPopup = () => {
           return;
       }
 
-      // if (authUser.userId !== Number(contacts.CallResponse.senderId)) {
-      //   window.dispatch(setDirectPopupData({ data: { ...initNotification } }));
-      //   switchAnswerBtn(false);
-      //   return;
-      // }
       window.dispatch(
         setDirectPopupData({
           data: { ...directPopup, status: contacts.CallResponse.status },

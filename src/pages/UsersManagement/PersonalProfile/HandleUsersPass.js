@@ -71,7 +71,6 @@ const HandleUsersPass = (props) => {
                   variant="standard"
                   label={Object.translate(`LABEL.CURRENT_PASSWORD`)}
                   InputProps={{
-                    // disableUnderline: true,
                     endAdornment: (
                       <InputAdornment position="start">
                         <IconButton
@@ -100,7 +99,6 @@ const HandleUsersPass = (props) => {
                   name="newPassword"
                   type={showNewPassword ? "text" : "password"}
                   InputProps={{
-                    // disableUnderline: true,
                     endAdornment: (
                       <InputAdornment position="start">
                         <IconButton
@@ -129,7 +127,6 @@ const HandleUsersPass = (props) => {
                   name="confirmPassword"
                   type={showConfPassword ? "text" : "password"}
                   InputProps={{
-                    // disableUnderline: true,
                     endAdornment: (
                       <InputAdornment position="start">
                         <IconButton

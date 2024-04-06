@@ -8,18 +8,9 @@ import SecondaryButton from "videoComponents/buttonsGeneral/SecondaryButton";
 import TextFeildGeneral from "videoComponents/textFeildGeneral/TextFeildGeneral";
 const NotificationSearchFields = (props) => {
   const classes = eventsStyles();
-  // const initSearchParams = {
-  //   topic: "",
-  //   name: "",
-  //   email: "",
-  // };
-  // const [searchParams, setSearchParams] = useState({
-  //   ...initSearchParams,
-  // });
 
   const handleSearchParamsChange = (key, value) => {
     props.setSearchParams((prevState) => ({ ...prevState, [key]: value }));
-    // props.handleGetNotificatios(1);
   };
   const handleEnterKey = (e) => {
     if (e.key === "Enter") {
@@ -81,7 +72,6 @@ const NotificationSearchFields = (props) => {
 
             <SecondaryButton
               onClick={() => {
-                // setSearchParams({ ...initSearchParams });
                 props.clearSearchParams && props.clearSearchParams();
               }}
               secondaryButton={Object.translate("LABEL.CLEAR")}

@@ -3,15 +3,11 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
   card: {
     width: 324,
     height: 265,
-    // borderRadius: "14px!important",
 
     margin: theme.spacing(1),
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    // overflow: "visible!important",
-    // cursor: "pointer",
-    // marginTop: "15px",
     direction: theme.direction === "rtl" ? "ltr" : "ltr",
     "& .partyAvatarBox": {
       "& .MuiAvatar-circular": {
@@ -33,16 +29,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       width: "280px",
       minWidth: "280px",
     },
-    // "&:before": {
-    //   position: "absolute",
-    //   content: '""',
-    //   width: "80%",
-    //   height: 3,
-    //   backgroundColor: theme.globals.colors.primary,
-    //   left: 0,
-    //   right: 0,
-    //   margin: "auto",
-    // },
     "& .order": {
       position: "absolute",
       left: 0,
@@ -81,7 +67,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       },
     },
     "& .participants": {
-      // width: "100%",
       "& .MuiAvatar-root": {
         width: 32,
         height: 32,
@@ -108,7 +93,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       },
     },
     "& .isModerator": {
-      // width: "100%",
       "& .MuiAvatar-root": {
         width: 32,
         height: 32,
@@ -126,7 +110,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       },
     },
     "& .unActiveParticipants": {
-      // width: "100%",
       "& .MuiAvatar-root": {
         width: 32,
         height: 32,
@@ -135,34 +118,19 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
         border: "1px solid #ccc",
         color: "grey",
         marginRight: theme.direction === "rtl" ? "0" : "-8px",
-        // marginLeft: theme.direction === "rtl" ? "0" : "-8px",
       },
       "& .MuiBadge-badge": {
         backgroundColor: theme.globals.colors.textDarkGrey,
         color: "#44b700",
         boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
-        // "&::after": {
-        //   position: "absolute",
-        //   top: 0,
-        //   left: 0,
-        //   width: "100%",
-        //   height: "100%",
-        //   borderRadius: "50%",
-        //   animation: "ripple 1.2s infinite ease-in-out",
-        //   border: "1px solid currentColor",
-        //   content: '""',
-        // },
       },
     },
     "& .header-wrap": {
       display: "flex",
-      // flexDirection: "column",
 
       justifyContent: "space-between",
       alignItems: "center",
 
-      // height: "110px",
-      // cursor: "pointer",
       "& svg": {
         color: "#D9D9D9",
       },
@@ -174,7 +142,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     "& .MuiCardHeader-title": {
       textOverflow: "ellipsis",
       overflow: "hidden",
-      // maxWidth: "255px",
       fontSize: "15.2px",
 
       display: "-webkit-box",
@@ -182,12 +149,9 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       WebkitBoxOrient: "vertical",
       WebkitLineClamp: "1",
       fontWeight: "bold",
-      // minHeight: "70px",
       width: "100%",
     },
     "& .MuiCardHeader-subheader ": {
-      // color: theme.globals.colors.textDark,
-      // fontSize: "12px !important",
       whiteSpace: "nowrap",
       textOverflow: "ellipsis",
       overflow: "hidden",
@@ -262,12 +226,10 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       position: "absolute",
     },
     "& .light-btn": {
-      // backgroundColor: theme.palette.background.default,
       textTransform: "capitalize",
       color: theme.globals.colors.textDark,
       "& .MuiButton-startIcon": {
         marginRight: 8,
-        // marginLeft: -2,
         color: theme.globals.colors.primary,
       },
     },
@@ -285,7 +247,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       color: theme.globals.colors.captionText,
     },
     "& hr": {
-      // margin: "4px 16px 4px 0",
       borderColor: theme.globals.colors.borderLight,
     },
     "& .MuiTypography-subtitle ": {
@@ -308,7 +269,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     "& .MuiCardActions-root ": {
       display: "flex",
       padding: "0 4px 8px",
-      // position: "absolute",
       zIndex: "2",
       bottom: "0",
       width: "100%",
@@ -316,11 +276,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
 
       [theme.breakpoints.down("400")]: {
         justifyContent: "center!important",
-      },
-      "& button": {
-        [theme.breakpoints.down("400")]: {
-          // width: "125px",
-        },
       },
     },
     "& *": {
@@ -377,16 +332,8 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     },
   },
   ListBox: {
-    // flexDirection: isRTL ? "row" : "row-reverse",
-    // maxHeight: "418px!important",
-    // justifyContent: "center",
-    // alignItems: "center",
-    "& .MuiList-root": {
-      // maxHeight: "368px!important",
-    },
     "& .MuiTypography-subtitle ": {
       color: "#7C7C7C!important",
-      // fontSize: theme.globals.fontSize.s - 3,
       whiteSpace: "nowrap",
       textOverflow: "ellipsis",
       overflow: "hidden",
@@ -394,8 +341,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     },
     "& .ListGroup": {
       paddingTop: "0!important",
-      // borderRight: "1px solid #e0e0e0!important",
-      // maxHeight: "360px!important",
     },
     "& .Scroll": {
       maxHeight: "368px!important",
@@ -410,7 +355,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     },
     "& .active": {
       backgroundColor: "#F5F6FA!important",
-      // borderRadius: "10px!important",
       margin: "0px 15px!important",
       width: "265px!important",
       cursor: "pointer",
@@ -423,7 +367,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
       height: "40px",
     },
     "& .oneListItem": {
-      // borderRadius: "10px!important",
       margin: "0px 15px!important",
       width: "265px!important",
       cursor: "pointer",
@@ -455,7 +398,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
         whiteSpace: "nowrap",
         textOverflow: "ellipsis",
         overflow: "hidden",
-        // width: "312px",
 
         "& .MuiTypography-body2 ": {
           color: theme.globals.colors.textDark,
@@ -482,9 +424,6 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // margin: "0 45px",
-    // marginRight: theme.direction === "rtl" ? "54%" : "45px",
-    // right: "50%",
     [theme.breakpoints.down("400")]: {
       margin: "0 55px 0 0px",
     },
@@ -494,14 +433,11 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     },
   },
   cardHeaderActionButtons: {
-    // top: "-77px",
     color: "#9A9A9A",
     position: "relative",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // margin: "0 45px",
-    // right: "50%",
     [theme.breakpoints.down("400")]: {
       margin: "0 55px 0 0px",
     },
@@ -516,14 +452,8 @@ export const cardStyle = makeStyles((theme, isRTL) => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    // margin: "0 45px",
-    // right: "50%",
-    // [theme.breakpoints.down("400")]: {
-    //   margin: "0 55px 0 0px",
-    // },
     "& .MuiButtonBase-root": {
       color: "#7c7c7c82",
-      // padding: "8px 0 0 8px",
     },
     "& button": {
       backgroundColor: " #f5f6fa",

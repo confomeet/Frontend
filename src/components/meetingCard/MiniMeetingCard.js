@@ -51,11 +51,6 @@ const getActions = (props, data) => [
     name: Object.translate("BUTTONS.EDIT"),
     hide: false, //new Date(data.startDate).getTime() < new Date().getTime(),
   },
-  // {
-  //   icon: <Minus />,
-  //   name: Object.translate("BUTTONS.TRASH"),
-  //   hide: new Date(data.startDate).getTime() < new Date().getTime(),
-  // },
 ];
 
 export default function MiniMeetingsCard({
@@ -71,15 +66,6 @@ export default function MiniMeetingsCard({
       settings: { authUser },
     },
   } = useSelector((state) => state);
-  // const HeaderActions = (
-  //   <div className="d-flex center-content">
-  //     <span className="status" />
-  //     <ButtonList
-  //       actions={getActions(props, data).filter((a) => !a.hide)}
-  //       icon={<MoreVertical />}
-  //     />
-  //   </div>
-  // );
   const [expandInfo, setexpandInfo] = useState(false);
   const relatedUsersIds = useMemo(
     () => props.relatedUsers.map((u) => u.id),
@@ -100,19 +86,6 @@ export default function MiniMeetingsCard({
   };
 
   const HeaderActions = () => {
-    // const handleExpand = async (id) => {
-    //   await props.setView("grid");
-    //   const nextView = "group";
-    //   await props.handleGroupByChange(nextView);
-    //   await props.setGroupByList((prevState) => ({
-    //     ...prevState,
-    //     selectedId: id,
-    //   }));
-    //   await props?.groupByList?.list
-    //     ?.filter((row) => row?.id === id)[0]
-    //     ?.onClick();
-    //   props.setExpandArrows(true);
-    // };
     return (
       <div
         className={
@@ -161,7 +134,6 @@ export default function MiniMeetingsCard({
       elevation={0}
       sx={{ minWidth: 275 }}
       className={classes.miniCard}
-      // onClick={() => props.handleViewDetails(data.id)}
     >
       <Box
         className={clsx(
@@ -180,7 +152,6 @@ export default function MiniMeetingsCard({
           <CardHeader
             action={HeaderActions()}
             title={data.topic}
-            // onClick={() => props.handleViewDetails(data.id)}
             subheader={
               parentEvent ? (
                 <>{parentEvent.topic || Object.translate("VALUE.NO_VALUE")}</>
@@ -193,12 +164,6 @@ export default function MiniMeetingsCard({
         </div>
         <Divider />
         <CardContent>
-          {/* <Typography variant="subtitle">
-          {data.subTopic || Object.translate("VALUE.NO_VALUE")}
-        </Typography>
-
-        <Divider /> */}
-
           <Box marginBottom="6px" className="d-flex align-baseline  date">
             <Calendar />
             <Typography variant="subtitle">
@@ -244,18 +209,15 @@ export default function MiniMeetingsCard({
                 window.handleJoinMeeting({
                   ...data,
                   participants: getPotentialParticipants(
-                    // data.participants || [],
                     data,
                     relatedUsersIds,
                     authUser
                   ),
                 });
-                // window.goToMeeting(data);
               }}
             >
               {Object.translate("LABEL.JOIN")}
             </Button>
-            {/* <Divider flexItem orientation="vertical" variant="middle" /> */}
             <Button
               size="small"
               variant="text"

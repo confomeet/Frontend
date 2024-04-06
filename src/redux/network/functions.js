@@ -1,4 +1,3 @@
-import { dispatchSetAlertObject } from "../../components/materialComponents/AlertDialog";
 import actions from "../actions";
 import { store } from "../store";
 
@@ -32,16 +31,6 @@ export const getErrorMsgFromException = (obj) => {
     }
   }
   return msg;
-};
-
-export const handleEceptionErrors = async (obj) => {
-  let msg = getErrorMsgFromException(obj);
-  await dispatchSetAlertObject({
-    icon: "error",
-    title: msg ? msg : isRTL ? "حدث خطأ" : "Error occured",
-    hasCancelBtn: false,
-  });
-  return;
 };
 
 export const getSearchQueries = () => {

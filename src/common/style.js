@@ -1,8 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 const drawerStyle = makeStyles((theme) => ({
-  ////////lilac2023Style
-
   videoHeader: {
     padding: 0,
     border: "0.6px solid #dcdcdc",
@@ -84,10 +82,8 @@ const drawerStyle = makeStyles((theme) => ({
       display: "none",
     },
   },
-  ////////////////////
   rootMainAppBar: {
     zIndex: "5!important",
-    // height: 80,
     width: "100%!important",
     backgroundColor: `${theme.palette.background.default}7`,
     backdropFilter: "blur(20px)",
@@ -125,14 +121,11 @@ const drawerStyle = makeStyles((theme) => ({
     zIndex: "2",
     "& .titleMainGrid": {
       margin: "20px 0 0",
-      // paddingInlineEnd: "16px!important",
       backgroundColor: "#ffffff",
-      // height: 70,
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
       "& .buttonBox": {
-        // marginInlineEnd: "12px",
         "& button": {
           minWidth: "45px!important",
           padding: "0!important",
@@ -153,10 +146,8 @@ const drawerStyle = makeStyles((theme) => ({
     },
     "& .profileMainGrid": {
       width: "100%",
-      // padding: "0 16px!important",
       backgroundColor: "#ffffff",
       borderRadius: 15,
-      // height: 73,
       marginBottom: "15px!important",
       display: "flex",
       justifyContent: "space-between",
@@ -166,7 +157,6 @@ const drawerStyle = makeStyles((theme) => ({
         marginTop: "45px",
         marginLeft: "auto",
         marginRight: "auto",
-        // width: "95%",
         borderRadius: 10,
       },
       "& .title:before": {
@@ -223,9 +213,6 @@ const drawerStyle = makeStyles((theme) => ({
       display: "flex",
       alignItems: "center",
       justifyContent: "flex-end",
-      [theme.breakpoints.down("sm")]: {
-        // justifyContent: "space-evenly",
-      },
       "& button": {
         borderRadius: "4px!important",
         margin: "0 4px",
@@ -322,8 +309,6 @@ const drawerStyle = makeStyles((theme) => ({
   },
 
   SubHeaderRoot: {
-    // minHeight: "70px",
-    // width: "100%!important",
     display: "flex",
     alignContent: "center",
     margin: "0 20px",

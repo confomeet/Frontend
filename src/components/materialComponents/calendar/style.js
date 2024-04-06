@@ -59,7 +59,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
       },
     },
     "& .MainLayout-container": {
-      // paddingInlineEnd: "20px!important",
       "& > div": {
         "& .MainLayout-flexRow .MainLayout-inlineFlex .MainLayout-relativeContainer .Container-container":
           {

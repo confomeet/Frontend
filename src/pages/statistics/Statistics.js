@@ -52,7 +52,6 @@ const Statistics = (props) => {
       pageSize: 25,
     };
 
-    // window.dispatchWantedAction("GET_EVENTS_BY_APP_STATISTICS", { body });
     window.dispatchWantedAction("GET_EVENTS_BY_STATUS_STATISTICS", {
       body,
       params: 0,

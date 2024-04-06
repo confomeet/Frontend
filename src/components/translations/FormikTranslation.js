@@ -22,7 +22,6 @@ export default function FormikTranslation({ title }) {
           id="en"
           name="enName"
           className={classes.formikTranslationInputen}
-          // style={{ direction: "ltr" }}
         />
       </Grid>
     </Grid>

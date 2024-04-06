@@ -21,10 +21,6 @@ const drawerStyle = makeStyles((theme) => ({
       transition: "all 0.3s ease-in-out",
       height: "100%",
     },
-    //     "& .MuiList-root": {
-    //       paddingInlineStart: "16px",
-    //       paddingInlineEnd:"16px"
-    // },
     "& a": {
       "& .MuiListItemIcon-root": {
         paddingBottom: "16px",
@@ -33,21 +29,14 @@ const drawerStyle = makeStyles((theme) => ({
 
       "&:hover": {
         transform: "scale(1.15)",
-        // border: "1px solid #DDE2EC",
         transition: "all 0.3s ease-in-out",
         "& .MuiListItemButton-root": {
           paddingBottom: "0!important",
-        },
-
-        "& .MuiListItemIcon-root": {
-          // borderBottom: "none!important",
-          // paddingBottom: "0px",
         },
       },
     },
     "& a.active": {
       transform: "scale(1.15)",
-      // border: "1px solid #DDE2EC",
       transition: "all 0.3s ease-in-out",
       "&:before": {
         content: "''",
@@ -62,16 +51,10 @@ const drawerStyle = makeStyles((theme) => ({
       "& .MuiListItemButton-root": {
         paddingBottom: "0!important",
       },
-
-      "& .MuiListItemIcon-root": {
-        // borderBottom: "none!important",
-        // paddingBottom: "0px",
-      },
     },
     [theme.breakpoints.down("sm")]: {
       position: "absolute",
       color: `${theme.palette.primary.main}!important`,
-      // background: "#fff",
       "& ul": {
         display: "none",
       },
@@ -167,7 +150,6 @@ const drawerStyle = makeStyles((theme) => ({
   },
   listItemButton: {
     padding: "0!important",
-    // borderBottom: "0.6px solid #EEEDED!important",
   },
 }));
 export default drawerStyle;

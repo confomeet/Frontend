@@ -97,7 +97,6 @@ export const useStyles = makeStyles((theme) => ({
     "& .MuiGrid-item ": {
       maxWidth: "48%",
       marginInlineEnd: "1%",
-      // backgroundColor: "#ffffff",
     },
     "& .MuiBox-root": {
       display: "flex",

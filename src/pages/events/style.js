@@ -1,7 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
 export const eventsStyles = makeStyles((theme, isRTL) => ({
-  //////////////// lilac2023Style
   filtersSwitchers: {
     display: "flex",
     justifyContent: "space-between",
@@ -27,7 +26,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
 
     "& .MuiInputLabel-shrink": {
       transition: "all 0.3s ease-in-out!important",
-      // color: `${theme.globals.colors.primary}!important`,
       fontSize: "12.5px!important",
       zIndex: 2,
       transform: "translate(0, 0px) scale(1)!important",
@@ -42,11 +40,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     "& .MuiInputBase-root": {
       padding: "0!important",
     },
-  },
-  searchUserItem: {
-    // "& > div": {
-    //   height: "100%",
-    // },
   },
   headerEventsButtons: {
     display: "flex",
@@ -82,7 +75,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
   },
   findValueFeild: {
     padding: "0 24px",
-    // height: "50px",
     marginTop: "8px!important",
     marginBottom: "16px!important",
     [theme.breakpoints.down("sm")]: {
@@ -182,8 +174,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: "20px",
-    // height: "40px",
-    // borderBottom: "1px solid #A4A4A4",
   },
   repeatByAny: {
     marginBottom: "20px",
@@ -203,7 +193,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
   },
   untilBox: {
     minWidth: "50%",
-    // borderBottom: "0.82px solid #A4A4A4",
     height: "fit-content",
     [theme.breakpoints.down("sm")]: {
       marginBottom: "20px",
@@ -216,7 +205,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
       flexDirection: "column",
     },
   },
-  ////////////////
   listIcon: {
     backgroundColor: "transparent!important",
     fontSize: theme.globals.fontSize.s,
@@ -345,7 +333,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     },
   },
   advancedBox: {
-    // display: "flex",
     width: "100%",
     justifyContent: "center",
     alignItems: "center",
@@ -355,7 +342,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     },
     "& .MuiOutlinedInput-input": {
       padding: "0 0",
-      // height: "49px",
     },
   },
 
@@ -440,9 +426,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     },
     "& div": {
       margin: "inherit",
-    },
-    "& svg": {
-      // margin: "4px",
     },
     "&:hover": {
       cursor: "pointer",
@@ -583,7 +566,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     height: "50px",
     border: "1px solid #e1e1e1",
     zIndex: "3",
-    // marginTop: "20px",
     "& .MuiDivider-root ": {
       marginTop: "16px!important",
       marginBottom: "12px!important",
@@ -697,9 +679,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
   searchContainer: {
     margin: "auto!important",
 
-    [theme.breakpoints.up("1200")]: {
-      // height: "140px",
-    },
     [theme.breakpoints.down("sm")]: {
       width: "auto",
 
@@ -741,9 +720,7 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     height: "fit-content",
     marginTop: "18px!important",
     marginBottom: "8px!important",
-    // paddingInlineEnd: "24px",
     [theme.breakpoints.down("sm")]: {
-      // justifyContent: "center",
       padding: "6px 0!important",
     },
     [theme.breakpoints.between("600", "1200")]: {
@@ -784,7 +761,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     marginBottom: "10px!important",
     marginInlineEnd: "20px",
     [theme.breakpoints.down("sm")]: {
-      // justifyContent: "center",
       padding: "6px 0!important",
     },
     [theme.breakpoints.between("600", "1200")]: {
@@ -818,7 +794,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
   internalHeader: {
     minHeight: "70px",
     justifyContent: "space-between",
-    // display: "flex!important",
     alignItems: "center!important",
 
     padding: "5px 0!important",
@@ -836,7 +811,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
           border: "none!important",
           borderRadius: "10px!important",
           height: "45px!important",
-          // justifyContent: "center",
         },
       },
     },
@@ -935,8 +909,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
       },
 
       "& .active": {
-        // height: 52,
-        // borderRadius: "50%!important",
         color: `${theme.palette.primary.main}!important`,
         transition: "none",
 
@@ -955,7 +927,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     },
     "& .MuiToggleButtonGroup-root ": {
       "& .MuiToggleButton-root": {
-        // marginRight: "6px!important",
         border: "none!important",
         width: "45px!important",
         height: "45px!important",
@@ -1041,7 +1012,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     display: "flex",
     flexDirection: "column!important",
 
-    // padding: "0 20px 0 0px",
     [theme.breakpoints.down("sm")]: {
       padding: "0 2px",
       width: "100%",
@@ -1103,9 +1073,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
       margin: "5px auto",
     },
 
-    "& input": {
-      // minHeight: "50px",
-    },
     "& > div": {
       "& > div": {
         "& > label": {
@@ -2174,7 +2141,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
       minHeight: 48,
       height: "auto",
       border: "0.5px solid #a4a4a4",
-      // borderBottom: "none",
       padding: "10px",
     },
     "& .MuiAutocomplete-input": {
@@ -2304,7 +2270,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     margin: "0 auto 20px",
     display: "flex",
     justifyContent: "space-between",
-    // paddingInlineEnd: "10px",
     flexDirection: "column",
     [theme.breakpoints.down("sm")]: {
       flexWrap: "wrap",
@@ -2314,8 +2279,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
     },
     "& .MuiInputBase-root": {
       backgroundColor: "inherit!important",
-      // paddingLeft: "10px!important",
-      // paddingRight: "10px!important",
     },
   },
   button: {

@@ -37,7 +37,6 @@ const initialState = {
   currentTheme,
   themeList,
   isDark: Boolean(JSON.parse(localStorage.getItem("isDark"))),
-  // isRTL: appLang === window.defualtLang,
   isRTL: appLang !== window.defualtLang,
 
   appDateFormat: "MMM D, YYYY",
@@ -116,7 +115,6 @@ const settings = (state = initialState, action) => {
       return {
         ...state,
         appLang: action.lang,
-        // isRTL: action.lang === window.defualtLang,
         isRTL: action.lang !== window.defualtLang,
       };
 
