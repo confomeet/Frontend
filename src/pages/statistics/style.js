@@ -48,7 +48,6 @@ export const Styles = makeStyles((theme) => ({
     },
     "& .eventsByApp": {
       border: "1px solid rgba(224, 224, 224, 1)",
-      marginInlineEnd: "25px",
       borderRadius: "15px",
       marginBottom: "25px",
       paddingBottom: "8px",

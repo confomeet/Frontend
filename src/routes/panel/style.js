@@ -4,6 +4,9 @@ const drawerStyle = makeStyles((theme) => ({
   root: {
     marginBottom: theme.spacing(2),
     width: "100%",
+    [theme.breakpoints.down("600")]: {
+      padding: "0 8px",
+    },
     "& .MuiAppBar-root": {
       zIndex: 1200,
       height: 64,
