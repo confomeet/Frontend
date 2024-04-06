@@ -1,4 +1,3 @@
-import RenderComp from "components/RenderComponent";
 import { Box } from "components/muiComponents";
 import { UsersGroupsContext } from "contextProviders";
 import { useContext } from "react";
@@ -18,11 +17,8 @@ const UsersGroups = () => {
   const classes = contactsStyles();
   return (
     <Box className={classes.UsersGroupsMainBox}>
-      <RenderComp dispaly={contextProps?.mainView} component={TableView} />
-      <RenderComp
-        dispaly={contextProps?.addToggle || contextProps?.editToggle}
-        component={HandleUsersGroups}
-      />
+      {contextProps?.mainView && <TableView />}
+      {(contextProps?.addToggle || contextProps?.editToggle) && <HandleUsersGroups />}
     </Box>
   );
 };

@@ -1,4 +1,3 @@
-import RenderComp from "components/RenderComponent";
 import { Box } from "components/muiComponents";
 import { SmtpContext } from "contextProviders";
 import { useContext } from "react";
