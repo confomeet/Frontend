@@ -35,13 +35,12 @@ export default function Panel() {
   return (
     <Box sx={{ display: "flex", width: "100%", height: "100%" }} className={classes.root}>
       {authUser && <MiniSideMenu />}
-      <Box sx={{ display: "flex", flexDirection: "column", overflow: "scroll" }}>
+      <Box sx={{ display: "flex", flexDirection: "column", overflow: "scroll", flex: "1 1 auto" }}>
         {authUser && <Header />}
         {authUser && <SubHeader />}
         <Container
           maxWidth="flase">
           <Routes>
-            <Route path="/" element={<Navigate replace to="events" />} />
             <Route path="users" element={<UsersTable />} />
             <Route path="usersGroups" element={<UsersGroupsProvider />} />
             <Route
@@ -59,6 +58,7 @@ export default function Panel() {
             <Route path="statistics" element={<Statistics />} />
             <Route path="personalProfile" element={<PersonalProfile />} />
             <Route path="smtp" element={<SmtpProvider />} />
+            <Route path="*" element={<Navigate to="events" replace />} />
           </Routes>
         </Container>
       </Box>
