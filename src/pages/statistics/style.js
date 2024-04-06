@@ -14,26 +14,6 @@ export const Styles = makeStyles((theme) => ({
     "& svg": {
       fontSize: theme.globals.fontSize.m,
     },
-    "& .selectDropdownFeild": {
-      "& > div": {
-        width: "100%",
-        border: "1px solid #c4c4c4",
-        borderRadius: "10px",
-        height: "42px",
-        marginBottom: "10px",
-        marginTop: "10px",
-      },
-      "& .MuiFormControl-root": {
-        "& > div": {
-          minHeight: "inherit!important",
-        },
-      },
-    },
-    "& .eventTypo": {
-      whiteSpace: "nowrap",
-      margin: "-5px 10px 00px 20px",
-      alignSelf: "center",
-    },
     "& .subtitle ": {
       minHeight: "62px",
       padding: "10px 20px",
@@ -79,16 +59,5 @@ export const Styles = makeStyles((theme) => ({
         },
       },
     },
-  },
-
-  statisticsBox: {
-    [theme.breakpoints.down("960")]: {
-      flexDirection: "column",
-    },
-  },
-  statisticsTypo: {
-    color: "#425B73",
-    fontSize: "26px!important",
-    fontWeight: "600!important",
   },
 }));
