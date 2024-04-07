@@ -68,10 +68,10 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    if (authUser)
-      (async () => await connectSignalR(authUser))();
-    else
-      (async () => await disconnect())();
+    // if (authUser)
+    //   (async () => await connectSignalR(authUser))();
+    // else
+    //   (async () => await disconnect())();
   }, [authUser]);
 
   useEffect(() => {

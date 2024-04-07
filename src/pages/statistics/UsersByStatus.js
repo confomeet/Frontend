@@ -77,6 +77,8 @@ const UsersByStatus = (props) => {
     }));
   };
 
+  // FIXME: this effect does not involve any synchronization with external system.
+  // There is not sense in doing this with async/await calls. It should be refactored.
   useEffect(() => {
     (async () => {
       if (Object.isObjectEmpty(statistics.UsersByStatusStatistics)) return;

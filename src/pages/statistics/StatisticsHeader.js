@@ -6,6 +6,7 @@ import { Styles } from "./style";
 const StatisticsHeader = (props) => {
   const handleDateRangeChange = ({ startDate, endDate }) => {
     props.setSearchParams({
+      ...props.searchParams,
       startDate: Date.getManualISOString(startDate),
       endDate: Date.getManualISOString(endDate),
     });

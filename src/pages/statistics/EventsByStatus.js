@@ -1,18 +1,14 @@
 import { Box, Grid, Typography } from "components/muiComponents";
-import SelectDropdownFeild from "components/select/SelectDropdownFeild";
-import { pagination } from "components/shared/utils";
 import FullTabel from "components/table/Table";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getTableRowsAndColumns } from "redux/network/functions";
-import { getListItemsForDropDownMenu, handleNoValue } from "utils";
+import { handleNoValue } from "utils";
 
 const EventsByStatus = () => {
   const { statistics } = useSelector((state) => state);
 
   const [tableData, setTableData] = useState({ ROWS: [], COLUMNS: [] });
-  const [pageIndex, setPageIndex] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
 
   const getModifiedEventsByStatusStatistics = (data) => {
     if (!data || !data.length) return [];
@@ -30,22 +26,15 @@ const EventsByStatus = () => {
   useEffect(() => {
     (async () => {
       if (!Array.isFullArray(statistics.EventsByStatusStatistics)) return;
-      let paginatedData = pagination(
-        statistics.EventsByStatusStatistics,
-        pageSize,
-        pageIndex
-      );
-      let modifiedEventsByStatusStatistics =
-        getModifiedEventsByStatusStatistics(paginatedData?.requiredArr);
-      let rowsAndColumnsData = await getTableRowsAndColumns(
-        modifiedEventsByStatusStatistics
-      );
+      const tableRecords = getModifiedEventsByStatusStatistics(statistics.EventsByStatusStatistics);
+      const {ROWS, COLUMNS} = await getTableRowsAndColumns(tableRecords);
       setTableData({
-        COUNT: paginatedData?.count,
-        ...rowsAndColumnsData,
+        COUNT: tableRecords.length,
+        ROWS,
+        COLUMNS,
       });
     })();
-  }, [statistics.EventsByStatusStatistics, pageSize, pageIndex]);
+  }, [statistics.EventsByStatusStatistics]);
 
   return (
     <Grid item xs={6} className="eventsByApp">
@@ -58,14 +47,6 @@ const EventsByStatus = () => {
         data={tableData.ROWS}
         columns={tableData.COLUMNS}
         selectableRows={false}
-        pagination={true}
-        paginatedCount={tableData?.COUNT || 0}
-        page={pageIndex}
-        rowsPerPage={pageSize}
-        handlePaginationChange={async ({ pageIndex, pageSize }) => {
-          setPageSize(pageSize);
-          setPageIndex(pageIndex - 1 > 0 ? pageIndex - 1 : 1);
-        }}
         customFooter={() => null}
       />
     </Grid>
