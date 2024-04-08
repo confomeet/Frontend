@@ -12,12 +12,12 @@ const EventsByStatus = () => {
 
   const getModifiedEventsByStatusStatistics = (data) => {
     if (!data || !data.length) return [];
-    return data.map((row) => ({
-      ["I.D."]: row.id,
+    return data.map((row, index) => ({
+      ["I.D."]: index,
       [Object.translate("STATISTICS.EVENTS_BY_STATUS.STATUS")]: handleNoValue(
-        row.description
+        Object.translate(`STATISTICS.EVENTS_BY_STATUS.${row.description}`)
       ),
-      [Object.translate("STATISTICS.EVENTS_BY_STATUS.COUNT")]: handleNoValue(
+      [Object.translate("STATISTICS.EVENTS_BY_STATUS.COUNT")]: row.value != null ? row.value : handleNoValue(
         row.value
       ),
     }));
