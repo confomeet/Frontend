@@ -12,6 +12,19 @@
   "PAGES": {
     "SIGNIN": "Авторизация"
   },
+  "STATISTICS": {
+    "EVENTS_BY_STATUS": {
+      "TITLE": "Конференции по статусу",
+      "COUNT": "Количество конференций",
+      "STATUS": "Статус",
+      "ActiveMeetingsNum": "Активные конференции",
+      "UpcomingMeetingsNum": "Предстоящие конференции",
+      "FinishedMeetingsNum": "Завершенные конференции",
+      "AllMeetingsTime": "Общее время конференций, ч",
+      "RecordedMeetingsNum": "Зписанные конференции",
+      "AllMeetingsNum": "Всего конференций"
+    }
+  },
   "WARNING": {
     "EMAIL_FORMAT": "Неверный формат эл. почты",
     "EMAIL_REQUIRED": "Эл. почта не может быть пустой",

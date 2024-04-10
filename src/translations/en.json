@@ -49,7 +49,13 @@
     "EVENTS_BY_STATUS": {
       "TITLE": "Statistics By Meetings Status",
       "COUNT": "Meetings Count",
-      "STATUS": "Status"
+      "STATUS": "Status",
+      "ActiveMeetingsNum": "Active rooms",
+      "UpcomingMeetingsNum": "Upcoming meetings",
+      "FinishedMeetingsNum": "Finished meetings",
+      "AllMeetingsTime": "All meetings time, h",
+      "RecordedMeetingsNum": "Number of recorded meetings",
+      "AllMeetingsNum": "All meetings"
     },
     "USERS_BY_STATUS": {
       "TITLE": "Statistics By Active Users",
