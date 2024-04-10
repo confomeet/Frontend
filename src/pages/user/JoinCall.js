@@ -23,28 +23,18 @@ function JoinCall() {
     name:
       !window.self.JitsiMeetElectron &&
       Yup.string().required(Object.translate("WARNING.REQUIRED")),
-    email:
-      !window.self.JitsiMeetElectron &&
-      Yup.string()
-        .email(Object.translate("WARNING.EMAILFORMAT"))
-        .required(Object.translate("WARNING.REQUIRED")),
   });
 
   const {
     meetingid: meetingId,
     password,
     name,
-    email,
     redirect,
   } = useMemo(() => {
     let queries = getSearchQueries();
 
     if (queries.email?.toLowerCase() === "null") {
       queries.email = null;
-    }
-
-    if (queries.email) {
-      queries.email = decodeURIComponent(queries.email);
     }
 
     if (queries.password) {
@@ -93,7 +83,6 @@ function JoinCall() {
         <Formik
           initialValues={{
             name: name || "",
-            email: email || "",
             meetingId,
             password,
           }}
@@ -120,50 +109,6 @@ function JoinCall() {
                         }
                       }}
                     />
-                    <Field
-                      disabled={!!email}
-                      placeholder={Object.translate("LABEL.EMAIL")}
-                      component={TextField}
-                      className="input"
-                      name="email"
-                      type="email"
-                      variant="standard"
-                      onKeyUp={(e) => {
-                        if (e.which === 13) {
-                          submitForm();
-                        }
-                      }}
-                    />
-                    {/* <Field
-                      component={TextField}
-                      className="input"
-                      disabled={true}
-                      name="meetingId"
-                      variant="standard"
-                      type="text"
-                      placeholder={Object.translate("LABEL.MEETINGID")}
-                      onKeyUp={(e) => {
-                        if (e.which === 13) {
-                          submitForm();
-                        }
-                      }}
-                    /> */}
-                    {/* {values.password && (
-                      <Field
-                        component={TextField}
-                        className="input"
-                        disabled={true}
-                        name="password"
-                        variant="standard"
-                        type="text"
-                        placeholder={Object.translate("LABEL.PASS_CODE")}
-                        onKeyUp={(e) => {
-                          if (e.which === 13) {
-                            submitForm();
-                          }
-                        }}
-                      />
-                    )} */}
                   </>
                 ) : (
                   <>
