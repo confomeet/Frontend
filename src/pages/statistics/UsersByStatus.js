@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getTableRowsAndColumns } from "redux/network/functions";
 import { handleNoValue } from "utils";
+import { shouldIgnoreDataUpdate } from "./utils";
 
 const UsersByStatus = (props) => {
   const {
@@ -81,8 +82,8 @@ const UsersByStatus = (props) => {
   // There is not sense in doing this with async/await calls. It should be refactored.
   useEffect(() => {
     (async () => {
-      if (Object.isObjectEmpty(statistics.UsersByStatusStatistics)) return;
-      if (!Array.isFullArray(statistics.UsersByStatusStatistics.items)) return;
+      if (shouldIgnoreDataUpdate(statistics.UsersByStatusStatistics.items, tableData))
+        return;
       let paginatedData = pagination(
         statistics.UsersByStatusStatistics.items,
         pageSize,

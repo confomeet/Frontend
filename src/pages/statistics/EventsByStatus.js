@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getTableRowsAndColumns } from "redux/network/functions";
 import { handleNoValue } from "utils";
+import { shouldIgnoreDataUpdate } from "./utils";
 
 const EventsByStatus = () => {
   const { statistics } = useSelector((state) => state);
@@ -25,8 +26,8 @@ const EventsByStatus = () => {
 
   useEffect(() => {
     (async () => {
-      if (!Array.isFullArray(statistics.EventsByStatusStatistics)) return;
-      const tableRecords = getModifiedEventsByStatusStatistics(statistics.EventsByStatusStatistics);
+      if (shouldIgnoreDataUpdate(statistics.EventsByStatusStatistics.items, tableData)) return;
+      const tableRecords = getModifiedEventsByStatusStatistics();
       const {ROWS, COLUMNS} = await getTableRowsAndColumns(tableRecords);
       setTableData({
         COUNT: tableRecords.length,

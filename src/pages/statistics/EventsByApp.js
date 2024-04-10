@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getTableRowsAndColumns } from "redux/network/functions";
 import { handleNoValue } from "utils";
+import { shouldIgnoreDataUpdate } from "./utils";
 
 const EventsByApp = () => {
   const { statistics } = useSelector((state) => state);
@@ -27,7 +28,7 @@ const EventsByApp = () => {
 
   useEffect(() => {
     (async () => {
-      if (!Array.isFullArray(statistics.EventsByAppStatistics)) return;
+      if (shouldIgnoreDataUpdate(statistics.EventsByAppStatistics.items, tableData)) return;
       let paginatedData = pagination(
         statistics.EventsByAppStatistics,
         pageSize,

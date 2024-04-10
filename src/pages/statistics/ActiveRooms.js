@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getTableRowsAndColumns } from "redux/network/functions";
 import { handleNoValue } from "utils";
+import { shouldIgnoreDataUpdate } from "./utils";
 
 const ActiveRooms = () => {
   const { statistics } = useSelector((state) => state);
@@ -27,7 +28,7 @@ const ActiveRooms = () => {
 
   useEffect(() => {
     (async () => {
-      if (!Array.isFullArray(statistics.getActiveRoomsStatisticsComplete))
+      if (shouldIgnoreDataUpdate(statistics.getActiveRoomsStatisticsComplete.items, tableData))
         return;
       let paginatedData = pagination(
         statistics.getActiveRoomsStatisticsComplete,
