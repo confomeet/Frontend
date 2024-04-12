@@ -12,7 +12,6 @@ import {
   fetchMeetingLinkByUserId,
   fetchRelatedUsers,
   getActiveParticipantsReq,
-  getActiveRoomListReq,
   getMeetingLink,
   remindParticipant,
   searchInEvents,
@@ -46,8 +45,6 @@ const {
   editEventDone,
   DELETE_PARTICIPANT,
   deleteParticipantDone,
-  GET_ACTIVE_ROOM_LIST,
-  getActiveRoomListDone,
   GET_ACTIVE_PARTICIPANTS,
   getActiveParticipantsDone,
   CANCEL_EVENTS,
@@ -235,21 +232,6 @@ function* performDeleteParticipant({ id }) {
 
 export function* watchDeleteParticipant() {
   yield takeLatest(DELETE_PARTICIPANT, performDeleteParticipant);
-}
-
-function* performGetActiveRoomList() {
-  let resultData;
-  try {
-    const result = yield call(getActiveRoomListReq);
-    resultData = result.networkSuccess ? result.data?.result : [];
-  } catch (e) {
-    resultData = {};
-  }
-  yield put(getActiveRoomListDone({ data: resultData }));
-}
-
-export function* watchGetActiveRoomList() {
-  yield takeLatest(GET_ACTIVE_ROOM_LIST, performGetActiveRoomList);
 }
 
 function* performGetActiveParticipants({ meetingId, id }) {

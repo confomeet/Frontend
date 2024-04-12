@@ -30,8 +30,6 @@ const {
   EDIT_EVENT_DONE,
   DELETE_PARTICIPANT,
   DELETE_PARTICIPANT_DONE,
-  GET_ACTIVE_ROOM_LIST,
-  GET_ACTIVE_ROOM_LIST_DONE,
   GET_ACTIVE_PARTICIPANTS,
   GET_ACTIVE_PARTICIPANTS_DONE,
   ADD_EVENTS_TYPES,
@@ -287,25 +285,6 @@ export const isDeletingParticipant = (state = false, action) => {
 export const deleteParticipantComplete = (state = {}, action) => {
   switch (action.type) {
     case DELETE_PARTICIPANT_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
-export const gettingActiveRoomList = (state = false, action) => {
-  switch (action.type) {
-    case GET_ACTIVE_ROOM_LIST:
-      return true;
-    case GET_ACTIVE_ROOM_LIST_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const gettingActiveRoomListComplete = (state = [], action) => {
-  switch (action.type) {
-    case GET_ACTIVE_ROOM_LIST_DONE:
       return action.data;
     default:
       return state;

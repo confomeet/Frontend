@@ -24,7 +24,7 @@ export const getUsersByStatusStatistics = async ({ body }) =>
 
 export const getActiveRoomsStatisticsReq = async () =>
   await fetchData({
-    endpoint: "/v1/ConfEvent/roomList",
+    endpoint: "/v1/ConfEvent/ActiveRoomsList",
     disableLoader: true,
     disableSwal: true,
   });

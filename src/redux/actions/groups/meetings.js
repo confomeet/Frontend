@@ -43,9 +43,6 @@ export default {
   ...createAction("DELETE_PARTICIPANT", "id"),
   ...createAction("DELETE_PARTICIPANT_DONE", "data"),
 
-  ...createAction("GET_ACTIVE_ROOM_LIST"),
-  ...createAction("GET_ACTIVE_ROOM_LIST_DONE", "data"),
-
   ...createAction("GET_ACTIVE_PARTICIPANTS", "meetingId", "id"),
   ...createAction("GET_ACTIVE_PARTICIPANTS_DONE", "data"),
 
