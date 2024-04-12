@@ -144,7 +144,6 @@
     "NOTIFICATIONS_SETTINGS": "Notification Settings",
     "TABS": "Side Menu Settings",
     "ALL_EVENTS": "All Meetings",
-    "EVENTS_TYPES": "Meetings Types",
     "SETTINGS": "Settings"
   },
   "CONTACT": {
@@ -420,7 +419,6 @@
     "CANSEL": "Cansel",
     "PARTICIPANTS_EMAIL": "Participant Email",
     "SHOW_SUB_EVENTS": "Sub Meetings",
-    "NEW_EVENTS_TYPES": "Add...",
     "PLZ_JOIN": "Please Join meeting.",
     "MEET_ID": "Meet ID",
     "INVETATION_CLIPBOARD": "Invetation text is copied to clipboard",

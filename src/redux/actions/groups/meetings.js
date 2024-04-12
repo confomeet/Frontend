@@ -22,9 +22,6 @@ export default {
   ...createAction("GET_CALENDAR_MEETINGS"),
   ...createAction("GET_CALENDAR_MEETINGS_DONE", "data"),
 
-  ...createAction("GET_EVENTS_TYPES"),
-  ...createAction("GET_EVENTS_TYPES_DONE", "data"),
-
   ...createAction("JOIN_MEETING_BY_USER_ID", "params", "pathParams", "body"),
   ...createAction("JOIN_MEETING_BY_USER_ID_DONE", "data"),
 
@@ -51,15 +48,6 @@ export default {
 
   ...createAction("GET_FINISHED_MEETING_DETAILS", "params"),
   ...createAction("GET_FINISHED_MEETING_DETAILS_DONE", "data"),
-
-  ...createAction("ADD_EVENTS_TYPES", "body"),
-  ...createAction("ADD_EVENTS_TYPES_DONE", "data"),
-
-  ...createAction("EDIT_EVENTS_TYPES", "body", "params"),
-  ...createAction("EDIT_EVENTS_TYPES_DONE", "data"),
-
-  ...createAction("DELETE_EVENTS_TYPES", "id"),
-  ...createAction("DELETE_EVENTS_TYPES_DONE", "data"),
 
   ...createAction("CANCEL_EVENTS", "id", "body"),
   ...createAction("CANCEL_EVENTS_DONE", "data"),

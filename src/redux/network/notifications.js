@@ -51,13 +51,6 @@ export const getChannels = async () =>
     disableSwal: true,
   });
 
-export const getMyNotifications = async ({ data }) =>
-  await fetchData({
-    endpoint: "/SendNotification/GetInternalNotificationsLog",
-    params: data,
-    disableSwal: true,
-  });
-
 export const getMyNotificationsCount = async () =>
   await fetchData({
     endpoint: "/SendNotification/NewInternalNotificationsCount",
@@ -68,13 +61,5 @@ export const readNotification = async ({ data }) =>
   await postData({
     endpoint: "/v1/NotificationSetting/AddNotificationTemplate",
     params: { notifyId: data.notificationId },
-    disableSwal: true,
-  });
-
-export const sendNotifyToContactReq = async (body, id) =>
-  await postData({
-    endpoint: "/v1/SendNotification/FCMWeb",
-    params: { userId: id },
-    body,
     disableSwal: true,
   });

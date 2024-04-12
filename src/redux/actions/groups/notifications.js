@@ -19,15 +19,6 @@ export default {
   ...createAction("FETCH_CHANNELS", "data"),
   ...createAction("COMPLETE_FETCH_CHANNELS", "data"),
 
-  ...createAction("FETCH_MY_NOTIFICATIONS", "data"),
-  ...createAction("COMPLETE_FETCH_MY_NOTIFICATIONS", "data"),
-
   ...createAction("READ_NOTIFICATION", "data"),
   ...createAction("COMPLETE_READ_NOTIFICATION", "data"),
-
-  ...createAction("FETCH_NOTIFICATIONS_COUNT", "data"),
-  ...createAction("COMPLETE_FETCH_NOTIFICATIONS_COUNT", "data"),
-
-  ...createAction("SEND_NOTIFY_TO_CONTACT", "body", "id"),
-  ...createAction("SEND_NOTIFY_TO_CONTACT_DONE", "data"),
 };

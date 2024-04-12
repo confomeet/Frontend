@@ -14,14 +14,8 @@ const {
   COMPLETE_FETCH_NOTIFICATIONS_PARAMS,
   FETCH_CHANNELS,
   COMPLETE_FETCH_CHANNELS,
-  FETCH_MY_NOTIFICATIONS,
-  COMPLETE_FETCH_MY_NOTIFICATIONS,
   READ_NOTIFICATION,
   COMPLETE_READ_NOTIFICATION,
-  FETCH_NOTIFICATIONS_COUNT,
-  COMPLETE_FETCH_NOTIFICATIONS_COUNT,
-  SEND_NOTIFY_TO_CONTACT,
-  SEND_NOTIFY_TO_CONTACT_DONE,
 } = actions;
 
 export const getNotifications = (state = false, action) => {
@@ -172,31 +166,6 @@ const Channels = (state = [], action) => {
   }
 };
 
-const isFecthingMyNotifications = (state = false, action) => {
-  switch (action.type) {
-    case FETCH_MY_NOTIFICATIONS: {
-      return true;
-    }
-    case COMPLETE_FETCH_MY_NOTIFICATIONS: {
-      return false;
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
-const MyNotifications = (state = [], action) => {
-  switch (action.type) {
-    case COMPLETE_FETCH_MY_NOTIFICATIONS: {
-      return action.data || [];
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
 const isReadingNotification = (state = false, action) => {
   switch (action.type) {
     case READ_NOTIFICATION: {
@@ -222,50 +191,6 @@ const ReadNotification = (state = false, action) => {
   }
 };
 
-const isFetchingNotificationsCount = (state = false, action) => {
-  switch (action.type) {
-    case FETCH_NOTIFICATIONS_COUNT: {
-      return true;
-    }
-    case COMPLETE_FETCH_NOTIFICATIONS_COUNT: {
-      return false;
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
-const NotificationsCount = (state = 0, action) => {
-  switch (action.type) {
-    case COMPLETE_FETCH_NOTIFICATIONS_COUNT: {
-      return action.data || 0;
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
-export const isSendingNotifyToContact = (state = false, action) => {
-  switch (action.type) {
-    case SEND_NOTIFY_TO_CONTACT:
-      return true;
-    case SEND_NOTIFY_TO_CONTACT_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const sendNotifyToContactComplete = (state = {}, action) => {
-  switch (action.type) {
-    case SEND_NOTIFY_TO_CONTACT_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 export default combineReducers({
   getNotifications,
   getNotificationsComplete,
@@ -279,12 +204,6 @@ export default combineReducers({
   DeleteNotificationsComplete,
   isFethingChannels,
   Channels,
-  isFecthingMyNotifications,
-  MyNotifications,
   isReadingNotification,
   ReadNotification,
-  isFetchingNotificationsCount,
-  NotificationsCount,
-  isSendingNotifyToContact,
-  sendNotifyToContactComplete,
 });

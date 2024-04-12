@@ -4,7 +4,6 @@ import {
   MdNotificationsActive,
   Menu,
   ImUsers,
-  IoCalendar,
   ImStatsDots,
   SettingsInputComponentIcon,
 } from "components/icons";
@@ -16,7 +15,6 @@ const sidebarIcons = {
   NOTIFICATIONS_ICON: <MdNotificationsActive />,
   SIDE_MENU_SETTINGS_ICON: <Menu />,
   ALL_MEETINGS_ICON: <CameraVideoFill />,
-  EVENTS_TYPES: <IoCalendar />,
   STATISTICS: <ImStatsDots />,
   SETTINGS: <SettingsInputComponentIcon />,
   SMART_VISITS: <CameraVideoFill />,

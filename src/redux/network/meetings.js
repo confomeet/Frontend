@@ -112,12 +112,6 @@ export const deleteParticipantsReq = async (id) =>
     endpoint: `/v1/Participant/${id}`,
   });
 
-export const getActiveRoomListReq = async () =>
-  await fetchData({
-    endpoint: `/v1/ConfEvent/roomList`,
-    disableSwal: true,
-  });
-
 export const getActiveParticipantsReq = async (meetingId, id) =>
   await fetchData({
     endpoint: `/v1/ConfEvent/room/${meetingId}/${id}`,

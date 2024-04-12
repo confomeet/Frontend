@@ -139,7 +139,6 @@
     "NOTIFICATIONS_SETTINGS": "إعدادات الإشعارات",
     "TABS": "إعدادات القائمة الجانبية",
     "ALL_EVENTS": "جميع الاجتماعات",
-    "EVENTS_TYPES": "أنواع الاجتماعات",
     "SETTINGS": "الإعدادات"
   },
   "CONTACT": {
@@ -408,7 +407,6 @@
     "CANSEL": "الغاء",
     "PARTICIPANTS_EMAIL": "ايميل المشترك",
     "SHOW_SUB_EVENTS": " الاجتماعات الفرعية",
-    "NEW_EVENTS_TYPES": "إضافة...",
     "PLZ_JOIN": "يرجى الانضمام للاجتماع عبر الرابط التالي.",
     "MEET_ID": "الرقم التعريفي للاجتماع",
     "INVETATION_CLIPBOARD": "تم نسخ نص الدعوة",

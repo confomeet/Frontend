@@ -15,14 +15,8 @@ const {
   completeDeleteNotifications,
   FETCH_CHANNELS,
   completeFetchChannels,
-  FETCH_MY_NOTIFICATIONS,
-  completeFetchMyNotifications,
   READ_NOTIFICATION,
   completeReadNotification,
-  FETCH_NOTIFICATIONS_COUNT,
-  completeFetchNotificationsCount,
-  SEND_NOTIFY_TO_CONTACT,
-  sendNotifyToContactDone,
 } = actions;
 
 function* performGetNotifications({ body, isAdmin }) {
@@ -126,21 +120,6 @@ export function* watchFetchChannels() {
   yield takeLatest(FETCH_CHANNELS, performFetchChannels);
 }
 
-function* performFetchMyNotifications({ data }) {
-  let resultData;
-  try {
-    const result = yield call(notificationsAPI.getMyNotifications, { data });
-    resultData = result.networkSuccess ? result.data : [];
-  } catch (e) {
-    resultData = [];
-  }
-  yield put(completeFetchMyNotifications({ data: resultData }));
-}
-
-export function* watchFetchMyNotifications() {
-  yield takeLatest(FETCH_MY_NOTIFICATIONS, performFetchMyNotifications);
-}
-
 function* performReadNotification({ data }) {
   let resultData;
   try {
@@ -154,38 +133,4 @@ function* performReadNotification({ data }) {
 
 export function* watchReadNotification() {
   yield takeLatest(READ_NOTIFICATION, performReadNotification);
-}
-
-function* performFetchNotificationsCount() {
-  let resultData;
-  try {
-    const result = yield call(notificationsAPI.getMyNotificationsCount);
-    resultData = result.networkSuccess ? result.data : 0;
-  } catch (e) {
-    resultData = 0;
-  }
-  yield put(completeFetchNotificationsCount({ data: resultData }));
-}
-
-export function* watchFetchNotificationsCount() {
-  yield takeLatest(FETCH_NOTIFICATIONS_COUNT, performFetchNotificationsCount);
-}
-
-function* performSendNotifyToContact({ body, id }) {
-  let resultData;
-  try {
-    const result = yield call(
-      notificationsAPI.sendNotifyToContactReq,
-      JSON.stringify(body),
-      id
-    );
-    resultData = result.networkSuccess ? result.data : [];
-  } catch (e) {
-    resultData = [];
-  }
-  yield put(sendNotifyToContactDone({ data: resultData }));
-}
-
-export function* watchSendNotifyToContact() {
-  yield takeLatest(SEND_NOTIFY_TO_CONTACT, performSendNotifyToContact);
 }
