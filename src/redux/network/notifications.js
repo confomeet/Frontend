@@ -45,12 +45,6 @@ export const getNotificationsParams = async () =>
     disableSwal: true,
   });
 
-export const getChannels = async () =>
-  await fetchData({
-    endpoint: "/v1/Channel",
-    disableSwal: true,
-  });
-
 export const getMyNotificationsCount = async () =>
   await fetchData({
     endpoint: "/SendNotification/NewInternalNotificationsCount",

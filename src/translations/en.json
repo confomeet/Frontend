@@ -2,7 +2,6 @@
   "CALENDAR": { "MONTH": "Month", "WEEK": "Week", "DAY": "Day" },
   "LANG": { "AR": "Arabic", "EN": "English" },
   "NOTIFICATIONS": { "TITLE": "Notification Title" },
-  "CHANNELS": { "TYPE": "Channel Type" },
   "VALUE": {
     "UNKNOWN": "Unknown",
     "NO_VALUE": "None",

@@ -13,8 +13,6 @@ const {
   completeEditNotification,
   DELETE_NOTIFICATIONS,
   completeDeleteNotifications,
-  FETCH_CHANNELS,
-  completeFetchChannels,
   READ_NOTIFICATION,
   completeReadNotification,
 } = actions;
@@ -103,21 +101,6 @@ function* performDeleteNotifications({ data }) {
 
 export function* watchDeleteNotifications() {
   yield takeLatest(DELETE_NOTIFICATIONS, performDeleteNotifications);
-}
-
-function* performFetchChannels() {
-  let resultData;
-  try {
-    const result = yield call(notificationsAPI.getChannels);
-    resultData = result.networkSuccess ? result.data : [];
-  } catch (e) {
-    resultData = [];
-  }
-  yield put(completeFetchChannels({ data: resultData }));
-}
-
-export function* watchFetchChannels() {
-  yield takeLatest(FETCH_CHANNELS, performFetchChannels);
 }
 
 function* performReadNotification({ data }) {

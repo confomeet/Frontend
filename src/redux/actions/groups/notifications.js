@@ -16,9 +16,6 @@ export default {
   ...createAction("FETCH_NOTIFICATIONS_PARAMS", "data"),
   ...createAction("COMPLETE_FETCH_NOTIFICATIONS_PARAMS", "data"),
 
-  ...createAction("FETCH_CHANNELS", "data"),
-  ...createAction("COMPLETE_FETCH_CHANNELS", "data"),
-
   ...createAction("READ_NOTIFICATION", "data"),
   ...createAction("COMPLETE_READ_NOTIFICATION", "data"),
 };

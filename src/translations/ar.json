@@ -2,7 +2,6 @@
   "CALENDAR": { "MONTH": "شهر", "WEEK": "أسبوع", "DAY": "يوم" },
   "LANG": { "AR": "اللغة العربية", "EN": "اللغة الانجليزية" },
   "NOTIFICATIONS": { "TITLE": "عنوان الإشعار" },
-  "CHANNELS": { "TYPE": "نوع القناة" },
   "VALUE": {
     "NO_VALUE": "لا يوجد",
     "UNKNOWN": "غير معروف",

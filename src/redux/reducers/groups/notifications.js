@@ -12,8 +12,6 @@ const {
   COMPLETE_DELETE_NOTIFICATIONS,
   FETCH_NOTIFICATIONS_PARAMS,
   COMPLETE_FETCH_NOTIFICATIONS_PARAMS,
-  FETCH_CHANNELS,
-  COMPLETE_FETCH_CHANNELS,
   READ_NOTIFICATION,
   COMPLETE_READ_NOTIFICATION,
 } = actions;
@@ -139,33 +137,6 @@ const NotificationParams = (state = {}, action) => {
   }
 };
 
-//Channels
-
-const isFethingChannels = (state = false, action) => {
-  switch (action.type) {
-    case FETCH_CHANNELS: {
-      return true;
-    }
-    case COMPLETE_FETCH_CHANNELS: {
-      return false;
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
-const Channels = (state = [], action) => {
-  switch (action.type) {
-    case COMPLETE_FETCH_CHANNELS: {
-      return action.data || [];
-    }
-    default: {
-      return state;
-    }
-  }
-};
-
 const isReadingNotification = (state = false, action) => {
   switch (action.type) {
     case READ_NOTIFICATION: {
@@ -202,8 +173,6 @@ export default combineReducers({
   EditNotificationsComplete,
   isDeletingNotifications,
   DeleteNotificationsComplete,
-  isFethingChannels,
-  Channels,
   isReadingNotification,
   ReadNotification,
 });
