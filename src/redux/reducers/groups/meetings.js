@@ -14,16 +14,12 @@ const {
   REMIND_PARTICIPANT_DONE,
   GET_RELATED_USERS,
   GET_RELATED_USERS_DONE,
-  GET_CALENDAR_MEETINGS,
-  GET_CALENDAR_MEETINGS_DONE,
   JOIN_MEETING_BY_USER_ID,
   JOIN_MEETING_BY_USER_ID_DONE,
   CREATE_NEW_MEETING,
   CREATE_NEW_MEETING_DONE,
   JOIN_MEETING,
   JOIN_MEETING_DONE,
-  ADD_PARTICIPANTS,
-  ADD_PARTICIPANTS_DONE,
   EDIT_EVENT,
   EDIT_EVENT_DONE,
   DELETE_PARTICIPANT,
@@ -148,25 +144,6 @@ export const getRelatedUsersDone = (state = [], action) => {
   }
 };
 
-export const getCalendarMeetings = (state = false, action) => {
-  switch (action.type) {
-    case GET_CALENDAR_MEETINGS:
-      return true;
-    case GET_CALENDAR_MEETINGS_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-export const getCalendarMeetingsDone = (state = [], action) => {
-  switch (action.type) {
-    case GET_CALENDAR_MEETINGS_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 export const joinMeetingByUserId = (state = false, action) => {
   switch (action.type) {
     case JOIN_MEETING_BY_USER_ID:
@@ -243,26 +220,6 @@ export const joinMeetingDone = (state = false, action) => {
   }
 };
 
-export const addParticipants = (state = false, action) => {
-  switch (action.type) {
-    case ADD_PARTICIPANTS:
-      return true;
-    case ADD_PARTICIPANTS_DONE:
-      return false;
-    default:
-      return state;
-  }
-};
-
-export const addParticipantsDone = (state = false, action) => {
-  switch (action.type) {
-    case ADD_PARTICIPANTS_DONE:
-      return action.data;
-    default:
-      return state;
-  }
-};
-
 export const isDeletingParticipant = (state = false, action) => {
   switch (action.type) {
     case DELETE_PARTICIPANT:
@@ -332,16 +289,12 @@ export default combineReducers({
   getEventDetailsDone,
   getRelatedUsers,
   getRelatedUsersDone,
-  getCalendarMeetings,
-  getCalendarMeetingsDone,
   joinMeetingByUserId,
   joinMeetingByUserIdDone,
   createNewMeeting,
   createNewMeetingDone,
   joinMeeting,
   joinMeetingDone,
-  addParticipants,
-  addParticipantsDone,
   editExistingEvent,
   editExistingEventDone,
   isDeletingParticipant,

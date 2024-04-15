@@ -19,9 +19,6 @@ export default {
   ...createAction("GET_RELATED_USERS", "handleSearch"),
   ...createAction("GET_RELATED_USERS_DONE", "data"),
 
-  ...createAction("GET_CALENDAR_MEETINGS"),
-  ...createAction("GET_CALENDAR_MEETINGS_DONE", "data"),
-
   ...createAction("JOIN_MEETING_BY_USER_ID", "params", "pathParams", "body"),
   ...createAction("JOIN_MEETING_BY_USER_ID_DONE", "data"),
 
@@ -33,9 +30,6 @@ export default {
 
   ...createAction("JOIN_MEETING", "params", "body", "meetingId"),
   ...createAction("JOIN_MEETING_DONE", "data"),
-
-  ...createAction("ADD_PARTICIPANTS", "body", "id"),
-  ...createAction("ADD_PARTICIPANTS_DONE", "data"),
 
   ...createAction("DELETE_PARTICIPANT", "id"),
   ...createAction("DELETE_PARTICIPANT_DONE", "data"),

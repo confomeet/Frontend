@@ -31,16 +31,12 @@ const {
   getEventDetailsDone,
   GET_RELATED_USERS,
   getRelatedUsersDone,
-  GET_CALENDAR_MEETINGS,
-  getCalendarMeetingsDone,
   JOIN_MEETING_BY_USER_ID,
   joinMeetingByUserIdDone,
   CREATE_NEW_MEETING,
   createNewMeetingDone,
   JOIN_MEETING,
   joinMeetingDone,
-  ADD_PARTICIPANTS,
-  addParticipantsDone,
   EDIT_EVENT,
   editEventDone,
   DELETE_PARTICIPANT,
@@ -108,24 +104,6 @@ export function* watchGetRelatedUsers() {
   yield takeLatest(GET_RELATED_USERS, performGetRelatedUsers);
 }
 
-function* performGetCalendarMeetings(action) {
-  try {
-    const result = yield call(calendarMeets);
-    if (!result.networkSuccess) {
-      yield put(getCalendarMeetingsDone({ data: [] }));
-    } else if (result.data) {
-      yield put(getCalendarMeetingsDone({ data: result.data }));
-    }
-  } catch {
-    yield put(getCalendarMeetingsDone({ data: [] }));
-    return;
-  }
-}
-
-export function* watchGetCalendarMeetings() {
-  yield takeLatest(GET_CALENDAR_MEETINGS, performGetCalendarMeetings);
-}
-
 function* performJoinMeetingByUserId({ params, pathParams, body }) {
   try {
     const result = yield call(fetchMeetingLinkByUserId, {
@@ -182,24 +160,6 @@ function* performJoinMeeting({ params, meetingId, body }) {
 
 export function* watchJoinMeeting() {
   yield takeLatest(JOIN_MEETING, performJoinMeeting);
-}
-
-function* performAddParticipants({ id, body }) {
-  try {
-    const result = yield call(addParticipantsToMeeting, { id, body });
-    if (!result.networkSuccess) {
-      yield put(addParticipantsDone({ data: false }));
-    } else {
-      yield put(addParticipantsDone({ data: result.data }));
-    }
-  } catch {
-    yield put(addParticipantsDone({ data: false }));
-    return;
-  }
-}
-
-export function* watchAddParticipants() {
-  yield takeLatest(ADD_PARTICIPANTS, performAddParticipants);
 }
 
 function* performEditEvent({ id, body }) {

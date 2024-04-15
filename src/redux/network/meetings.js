@@ -82,15 +82,6 @@ export const editExistingMeeting = async ({ body, id }) =>
     body: body,
   });
 
-export const searchParticipants = async ({ params, body, meetingId }) =>
-  await postData({
-    endpoint: `/v1/Event/${meetingId}/AddParticipants`,
-    body: body,
-    params: params,
-    disableLoader: false,
-    disableSwal: true,
-  });
-
 export const getMeetingLink = async ({ params, meetingId, body }) => {
   return meetingId
     ? await postData({
