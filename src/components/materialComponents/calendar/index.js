@@ -79,69 +79,15 @@ const AppointmentTag = ({ data }) => {
       </Box>
     );
 };
-function Calendar(props) {
+function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
   const isSmallScreen = window.innerWidth <= 600;
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
 
   const [data, setData] = useState([]);
   const [selectedDateEvents, setSelectedDateEvents] = useState(null);
-
   const [currentViewName, setCurrentViewName] = useState("CALENDAR.MONTH");
-  const [currentViewDateRange, setCurrentViewDateRange] = useState({
-    startDate: props.startDate,
-    endDate: props.endDate,
-  });
-  const [confirmationVisible, setConfirmationVisible] = useState(false);
-  const [deletedAppointmentId, setDeletedAppointmentIdState] =
-    useState(undefined);
-  const [editingAppointment, setEditingAppointment] = useState(undefined);
-  const [startDayHour] = useState(0);
-  const [endDayHour] = useState(24);
 
   const calendarClasses = calendarStyle();
 
-  const onEditingAppointmentChange = (editingAppointment) => {
-    setEditingAppointment(editingAppointment);
-  };
-
-  const onAddedAppointmentChange = (addedAppointment) => {
-    setEditingAppointment(undefined);
-  };
-
-  const setDeletedAppointmentId = (id) => {
-    setDeletedAppointmentIdState(id);
-  };
-
-  const toggleConfirmationVisible = () => {
-    setConfirmationVisible(!confirmationVisible);
-  };
-
-  const commitChanges = ({ added, changed, deleted }) => {
-    let newData = data;
-    if (added) {
-      let startingAddedId =
-        data?.length > 0 ? data[data?.length - 1].id + 1 : 0;
-      newData = [...data, { id: startingAddedId, ...added }];
-    }
-
-    if (changed) {
-      newData = data.map((appointment) =>
-        changed[appointment.id]
-          ? { ...appointment, ...changed[appointment.id] }
-          : appointment
-      );
-    }
-    if (deleted !== undefined) {
-      setDeletedAppointmentId(deleted);
-      toggleConfirmationVisible();
-    }
-
-    setData(newData);
-  };
   const handleDateEventsChange = (data) => (event) => {
     setSelectedDateEvents(data);
     window.scrollIntoRef(event, "#events-accordion", "start");
@@ -263,8 +209,8 @@ function Calendar(props) {
   };
 
   const viewCommonProps = {
-    startDayHour,
-    endDayHour,
+    startDayHour: 0,
+    endDayHour: 24,
     cellDuration: 60,
   };
 
@@ -275,15 +221,15 @@ function Calendar(props) {
     setCurrentViewName(viewName);
     switch (viewName) {
       case "CALENDAR.WEEK":
-        setCurrentViewDateRange(date ? getAWeek(date) : getThisWeek());
+        handleCalandarViewChange(date ? getAWeek(date) : getThisWeek());
         return;
 
       case "CALENDAR.MONTH":
-        setCurrentViewDateRange(date ? getAMonth(date) : getThisMonth());
+        handleCalandarViewChange(date ? getAMonth(date) : getThisMonth());
         return;
 
       case "CALENDAR.DAY":
-        setCurrentViewDateRange(date ? getADay(date) : getToday());
+        handleCalandarViewChange(date ? getADay(date) : getToday());
         return;
 
       default:
@@ -321,25 +267,6 @@ function Calendar(props) {
     setData(handleViewEvents(props.meetings, 100, props.allMeetings));
   }, [props.meetings]);
 
-  useDidMountEffect(
-    () =>
-      props.handleCalandarViewChange &&
-      props.handleCalandarViewChange(currentViewDateRange),
-    [currentViewDateRange]
-  );
-  useEffect(() => {
-    if (
-      props.startDate === currentViewDateRange.startDate &&
-      props.endDate === currentViewDateRange.endDate
-    )
-      return;
-
-    setCurrentViewDateRange({
-      startDate: props.startDate,
-      endDate: props.endDate,
-    });
-  }, [props.startDate, props.endDate]);
-
   return (
     <Paper
       className={
@@ -349,23 +276,18 @@ function Calendar(props) {
       }
     >
       <Scheduler
-        locale={isRTL ? "ar-AE" : "en-US"}
+        locale={localStorage.getItem("lange") ?? "en"}
         data={data}
         style={{ zIndex: "1111" }}
         firstDayOfWeek={1}
       >
         <ViewState
-          currentDate={currentViewDateRange.startDate}
+          currentDate={startDate}
           onCurrentDateChange={(date) => onCurrentDateChange(date)}
           currentViewName={currentViewName}
           onCurrentViewNameChange={(viewName) => {
             onCurrentViewNameChange(viewName);
           }}
-        />
-        <EditingState
-          onCommitChanges={commitChanges}
-          onEditingAppointmentChange={onEditingAppointmentChange}
-          onAddedAppointmentChange={onAddedAppointmentChange}
         />
         <MonthView
           {...viewCommonProps}
@@ -383,7 +305,6 @@ function Calendar(props) {
           name={"CALENDAR.DAY"}
           displayName={Object.translate("CALENDAR.DAY")}
         />
-        <EditRecurrenceMenu />
         <Appointments appointmentContentComponent={AppointmentContent} />
         {!isSmallScreen && (
           <AppointmentTooltip
@@ -397,7 +318,7 @@ function Calendar(props) {
       </Scheduler>
 
       {/* Show list of events below the calendar on view port with width < 600px */}
-      {isSmallScreen && Object.isFullArray(selectedDateEvents) && <EventsAccordion
+      {isSmallScreen && selectedDateEvents && <EventsAccordion
         events={selectedDateEvents}
         isSmallScreen={isSmallScreen}
         {...props}

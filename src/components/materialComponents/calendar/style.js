@@ -321,7 +321,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
       width: "13px",
       height: "4px",
       backgroundColor: `${theme.palette.primary.main}!important`,
-      marginLeft: "-17px",
       marginRight: "5px",
     },
     [theme.breakpoints.up("600")]: {

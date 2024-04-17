@@ -107,7 +107,7 @@ export default function EventsAccordion(props) {
             className={calendarClasses.EventTitleBox}
             onClick={() => setOpenAdvanceInfo(ev.id)}
           >
-            <Divider orientation="horizental" />
+            <Divider orientation="horizontal" />
             <Typography className={calendarClasses.EventTitle}>
               {ev.topic}
             </Typography>

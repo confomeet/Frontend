@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { handleSubEvebtsFilter } from "redux/network/functions";
 import Calendar from "../../components/materialComponents/calendar";
 
-function CalendarView({ data, handleSearch, ...props }) {
+function CalendarView({ data, handleSearch, searchParams, ...props }) {
   const { meetings, allMeetings } = useMemo(
     () => ({
       meetings: handleSubEvebtsFilter(data, props?.showSubEvents),
@@ -14,14 +14,12 @@ function CalendarView({ data, handleSearch, ...props }) {
   return (
     <Calendar
       className="calendar"
+      {...props}
       meetings={meetings}
       allMeetings={allMeetings}
-      getParentEvent={props.getParentEvent}
-      joinMeeting={props.joinMeeting}
       handleCalandarViewChange={handleSearch}
-      startDate={props.searchParams.startDate}
-      endDate={props.searchParams.endDate}
-      {...props}
+      startDate={searchParams.startDate}
+      endDate={searchParams.endDate}
     />
   );
 }
