@@ -18,7 +18,7 @@ const { setSubHeader, fetchAllRoles } = actions;
 const PersonalProfile = () => {
   const {
     settingsReducer: {
-      settings: { isRTL, authUser },
+      settings: { authUser },
     },
     users,
   } = useSelector((state) => state);
@@ -74,7 +74,7 @@ const PersonalProfile = () => {
       });
       setRoles(ids);
     }
-  }, [users.AllRoles, isRTL]);
+  }, [users.AllRoles]);
 
   useEffect(() => {
     (async () => {
@@ -117,12 +117,12 @@ const PersonalProfile = () => {
         })
       );
     })();
-  }, [isRTL, toggleEdit, toggleEditPass]);
+  }, [toggleEdit, toggleEditPass]);
 
   useEffect(() => {
     window.dispatch(fetchAllRoles());
     window.dispatchWantedAction("GET_PROFILE_INFO");
-  }, [isRTL]);
+  });
 
   const HandleUserProps = () => ({
     initialValues,

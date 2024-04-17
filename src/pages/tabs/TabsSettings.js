@@ -10,9 +10,6 @@ const { getAllTabs, deleteTabs, fetchAllRoles } = actions;
 
 const Tabs = () => {
   const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
     tabs,
   } = useSelector((state) => state);
 
@@ -77,7 +74,7 @@ const Tabs = () => {
   useEffect(() => {
     dispatch(getAllTabs());
     window.dispatch(fetchAllRoles());
-  }, [isRTL]);
+  });
   useEffect(() => {
     if (
       Object.isObjectEmpty(tabs.editTabsComplete) &&

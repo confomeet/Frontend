@@ -30,7 +30,6 @@ const Header = () => {
     settingsReducer: {
       settings: {
         authUser,
-        isRTL,
         sideMenuToggle,
         drawerWidth,
         pageTitle,
@@ -71,7 +70,6 @@ const Header = () => {
         authUser ? classes.rootMainAppBar : classes.rootMainAppBarWithoutAuth
       }
       open={sideMenuToggle}
-      isRTL={isRTL}
       drawerWidth={drawerWidth}
       sx={{ boxShadow: "none" }}
     >

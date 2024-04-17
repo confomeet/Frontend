@@ -13,9 +13,6 @@ import HandleUsersGroupsComponents from "./HandleUsersGroupsComponents";
 const HandleUsersGroups = () => {
   const {
     users,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const contextProps = useContext(UsersGroupsContext);
 

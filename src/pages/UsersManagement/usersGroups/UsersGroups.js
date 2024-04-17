@@ -10,9 +10,6 @@ const UsersGroups = () => {
   const contextProps = useContext(UsersGroupsContext);
   const {
     usersgroups,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const classes = contactsStyles();
   return (

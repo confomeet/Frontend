@@ -32,7 +32,7 @@ export default function InternalDrawer(props, data) {
 
   const {
     settingsReducer: {
-      settings: { authUser, isRTL },
+      settings: { authUser },
     },
   } = useSelector((state) => state);
 
@@ -102,7 +102,7 @@ export default function InternalDrawer(props, data) {
         <>
           <Box display="flex" alignItems="center">
             <IconButton className="backHeader" onClick={handleExpandClick}>
-              {isRTL ? <ChevronRight /> : <ChevronLeft />}
+              <ChevronLeft />
             </IconButton>
             <Button
               disableElevation

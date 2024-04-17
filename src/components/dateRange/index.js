@@ -14,7 +14,7 @@ import { InputAdornment } from "@mui/material";
 
 export default function DateRange(props) {
   const outSideClickRef = useRef(null);
-  const { appDateFormat, isRTL } = useSelector(
+  const { appDateFormat } = useSelector(
     (state) => state.settingsReducer.settings
   );
   const [selectedRange, setRange] = useState({
@@ -78,7 +78,6 @@ export default function DateRange(props) {
         onClose={() => setAnchorEl(null)}
       >
         <DateRangePicker
-          locale={isRTL ? ar : enUS}
           weekStartsOn={1}
           onChange={(item) => {
             setRange(item.selection);

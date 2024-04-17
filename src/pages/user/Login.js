@@ -36,7 +36,7 @@ function Login() {
   } = useSelector((state) => state);
 
   const authProviders = users.getAuthProvidersComplete;
-  const { isRTL, authUser } = settings;
+  const { authUser } = settings;
   const [showPassword, setShowPassword] = useState(false);
   const [ip, setIP] = useState("0");
   const [isVerified, setIsVerified] = useState(false);
@@ -62,9 +62,7 @@ function Login() {
         pasword: Yup.string().required(Object.translate("WARNING.PASSWORD_REQUIRED"))
       })
     : Yup.object({
-        verifyCode: Yup.string().required(
-          isRTL ? "يرجى إدخال رمز التحقق" : " Verification Code is Required"
-        ),
+        verifyCode: Yup.string().required(Object.translate("WARNING.VERIFICATION_CODE_REQUIRED")),
       });
 
   const onSubmit = async (values) => {

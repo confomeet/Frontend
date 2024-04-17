@@ -9,9 +9,6 @@ const { addTabs, editTabs } = actions;
 export default function HandleTabs(props) {
   const dispatch = useDispatch();
   const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
     users,
     tabs,
   } = useSelector((state) => state);
@@ -97,7 +94,7 @@ export default function HandleTabs(props) {
       });
       setRoles(ids);
     }
-  }, [users.AllRoles, isRTL]);
+  }, [users.AllRoles]);
 
   useEffect(() => {
     let parentIds = [];
@@ -117,7 +114,7 @@ export default function HandleTabs(props) {
       });
       setParentIdArr(parentIds);
     }
-  }, [tabs.getAllTabsComplete, isRTL]);
+  }, [tabs.getAllTabsComplete]);
 
   useEffect(() => {
     if (props.toggleAdd) return;

@@ -16,9 +16,6 @@ const { fetchAllRoles, setSubHeader, searchUsers } = actions;
 const Users = () => {
   const classes = userStyle();
   const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
     users,
     usersgroups,
   } = useSelector((state) => state);
@@ -119,7 +116,7 @@ const Users = () => {
         pageIndex: 1,
       },
     });
-  }, [isRTL]);
+  });
 
   const clearSearchParams = () => {
     setSearchParams(initSearchParams);
@@ -181,7 +178,7 @@ const Users = () => {
         })
       );
     })();
-  }, [isRTL, searchParams, openFilters, toggleAdd, toggleEdit]);
+  }, [searchParams, openFilters, toggleAdd, toggleEdit]);
 
   useEffect(() => {
     (async () => {

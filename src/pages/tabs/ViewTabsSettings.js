@@ -16,11 +16,6 @@ export default function ViewTabs(props) {
   const [pageSize, setPageSize] = useState(10);
   const { tabs } = useSelector((state) => state);
   const classes = useStyles();
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
   const getModifiedSideMenuTabsData = (data) => {
     if (!data || !data.length) return [];
     let modifiedData = [];
@@ -63,7 +58,7 @@ export default function ViewTabs(props) {
         })
       );
     })();
-  }, [isRTL]);
+  });
   return (
     <div>
       <Grid container>

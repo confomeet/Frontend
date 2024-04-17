@@ -24,7 +24,7 @@ function Notifications(props) {
 
   const {
     settingsReducer: {
-      settings: { isRTL, authUser },
+      settings: { authUser },
     },
     notifications,
   } = useSelector((state) => state);
@@ -118,7 +118,7 @@ function Notifications(props) {
       if (!authUser) return;
       handleGetNotificatios();
     })();
-  }, [isRTL, authUser, window.currentLocation.pathname]);
+  }, [authUser, window.currentLocation.pathname]);
 
   useEffect(() => {
     (async () => {
@@ -135,7 +135,7 @@ function Notifications(props) {
         subHeader: <PageHeading />,
       })
     );
-  }, [isRTL]);
+  });
   return (
     <Box className={classes.rootNotifications}>
       <Box

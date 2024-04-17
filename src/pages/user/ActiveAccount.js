@@ -12,13 +12,12 @@ function ActiveAccount() {
 
   const dispatch = useDispatch();
   const { settingsReducer } = useSelector((state) => state);
-  let isRTL = settingsReducer.settings.isRTL;
 
   useEffect(() => {
     window.dispatch(clearAuthUser());
     const { token, email } = getSearchQueries();
-    let lang = isRTL ? "ar" : "en";
-    dispatch(confirmUser({ data: { token, email }, lang }));
+    // FIXME: use global localization
+    dispatch(confirmUser({ data: { token, email }, lang: "ru" }));
   }, []);
 
   return <Box className={classes.loginRoot}></Box>;

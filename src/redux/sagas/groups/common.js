@@ -11,8 +11,7 @@ function* performGetCountries() {
     if (!result.networkSuccess) yield put(getCountriesDone({ data: [] }));
     else if (result.data) {
       const data = getModifiedCountries(
-        result.data?.items,
-        window.getAppLang() === "ar"
+        result.data?.items
       );
       yield put(getCountriesDone({ data }));
     }

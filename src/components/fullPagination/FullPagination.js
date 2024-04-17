@@ -5,11 +5,6 @@ import useStyles from "./Style";
 
 export default function FullPagination(props) {
   const classes = useStyles();
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
   return (
     <Grid container>
       <Grid
@@ -20,28 +15,15 @@ export default function FullPagination(props) {
         xs={12}
         className={classes.paginationContainer}
       >
-        {isRTL && (
-          <Pagination
-            count={props.count}
-            page={props.page}
-            shape="rounded"
-            onChange={props.handlePaginationClick}
-            color="primary"
-            defaultPage={1}
-            className={classes.pagination}
-          />
-        )}
-        {!isRTL && (
-          <Pagination
-            count={props.count}
-            page={props.page}
-            shape="rounded"
-            onChange={props.handlePaginationClick}
-            color="primary"
-            defaultPage={1}
-            className={classes.ltrPagination}
-          />
-        )}
+        <Pagination
+          count={props.count}
+          page={props.page}
+          shape="rounded"
+          onChange={props.handlePaginationClick}
+          color="primary"
+          defaultPage={1}
+          className={classes.ltrPagination}
+        />
         <Box className={classes.selectGrid}>
           <PaginationSelect
             value={props.rowsPerPage}

@@ -22,14 +22,11 @@ function ForgetPassword() {
   const classes = loginStyles();
   const dispatch = useDispatch();
   const { settingsReducer } = useSelector((state) => state);
-  let isRTL = settingsReducer.settings.isRTL;
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email(
-        isRTL ? "يرجى إدخال الإيميل بالصيغة الصحيحة" : "Invalid email format"
-      )
-      .required(isRTL ? "يرجى إدخال الإيميل" : "Email is Required"),
+      .email(Object.translate("WARNING.EMAILFORMAT"))
+      .required(Object.translate("WARNING.EMAIL_REQUIRED")),
   });
 
   const onSubmit = async (values) => {

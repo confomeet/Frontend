@@ -1,6 +1,5 @@
-export const coloredTheme = ({ currentTheme, isRTL, isDark }) => {
+export const coloredTheme = ({ currentTheme, }) => {
   return {
-    direction: isRTL ? "rtl" : "ltr",
     palette: {
       primary: {
         main: currentTheme.elements.colors.primary,
@@ -17,10 +16,8 @@ export const coloredTheme = ({ currentTheme, isRTL, isDark }) => {
     ...typographyHeadersConfiguration,
   };
 };
-export const darkTheme = ({ currentTheme, isRTL, isDark }) => {
+export const darkTheme = ({ currentTheme }) => {
   return {
-    direction: isRTL ? "rtl" : "ltr",
-
     palette: {
       type: "dark",
       background: {
@@ -42,9 +39,8 @@ export const darkTheme = ({ currentTheme, isRTL, isDark }) => {
   };
 };
 
-export const blindTheme = ({ currentTheme, isRTL }) => {
+export const blindTheme = ({ currentTheme }) => {
   return {
-    direction: isRTL ? "rtl" : "ltr",
     palette: {
       type: "blind",
       background: {

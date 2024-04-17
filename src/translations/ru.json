@@ -74,6 +74,7 @@
     "ADD_PARTICIPANT": "Добавить участника",
     "CANCEL_EVENT": "Отменить конференцию",
     "CANCEL_EVENT_MSG": "Участники оповещены, что конференция отменена",
+    "ADD_EVENT": "Создать конференцию"
   },
   "FULL_SENTENCE": {
     "ADD_PARTICIPANT_BY_EMAIL": "You may add Participants using thier email addresses",
@@ -268,7 +269,14 @@
     "JOIN": "Присоединиться к конференции",
     "RESETPASSWORD": "Сброс пароля",
     "FORGETPASSWORD": "Не помню пароль",
-    "APPVERSION": "Версия"
+    "APPVERSION": "Версия",
+    "PANEL": {
+      "NOTIFICATIONS": "Оповещения",
+      "ALLNOTIFICATIONS": "Все оповещения",
+      "EVENTS": "Мои конференции",
+      "ALLEVENTS": "Все конференции",
+      "STATISTICS": "Статистика"
+    }
   },
   "RECORDING_STATUS_NAMES": {
     "RECORDING": "Обрабатывается",
@@ -322,7 +330,7 @@
       "ALL_PARTICIPANTS": "Запланированные участники"
     },
     "ACTIVE_ROOMS": {
-      "TITLE": "Active Rooms Statistics",
+      "TITLE": "Активные конференции",
       "MEETING_ID": "Идентификатор конференции",
       "TOPIC": "Название конференции"
     }
@@ -343,6 +351,7 @@
     "PASSREQUIRMENTS": "Пароль должен содержать не менее 7 символов, разного регистра, спец символы и цифры",
     "ADDPHONE": "Добавить телефон",
     "INVALID_DOMAIN": "Адрес задан неверно",
-    "PORT_DECIMAL": "Порт задан неверно"
+    "PORT_DECIMAL": "Порт задан неверно",
+    "VERIFICATION_CODE_REQUIRED": "Не указан код подтверждения"
   }
 }

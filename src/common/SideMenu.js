@@ -19,7 +19,7 @@ const { closeSideMenu, openSideMenu } = actions;
 const SideMenu = () => {
   const {
     settingsReducer: {
-      settings: { authUser, isRTL, sideMenuToggle, drawerWidth },
+      settings: { authUser, sideMenuToggle, drawerWidth },
     },
     tabs,
   } = useSelector((state) => state);
@@ -53,7 +53,7 @@ const SideMenu = () => {
     (async () => {
       setSidebar(tabs?.getMyTabsComplete);
     })();
-  }, [tabs?.getMyTabsComplete, isRTL]);
+  }, [tabs?.getMyTabsComplete]);
 
   useEffect(() => {
     (async () => {
@@ -77,7 +77,7 @@ const SideMenu = () => {
         }}
         className={sideMenuToggle ? classes.drawer : classes.drawerclosed}
         variant="persistent"
-        anchor={isRTL ? "right" : "left"}
+        anchor="left"
         open={sideMenuToggle}
       >
         <List>

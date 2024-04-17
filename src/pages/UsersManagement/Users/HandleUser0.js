@@ -20,9 +20,6 @@ const { addUser, editUser, setSubHeader } = actions;
 const HandleUser0 = (props) => {
   const {
     users,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const [roles, setRoles] = useState([]);
   const classes = loginStyles();
@@ -92,7 +89,7 @@ const HandleUser0 = (props) => {
         })
       );
     })();
-  }, [isRTL]);
+  });
   useEffect(() => {
     let ids = [];
     let idsObj = {};
@@ -109,7 +106,7 @@ const HandleUser0 = (props) => {
       });
       setRoles(ids);
     }
-  }, [users.AllRoles, isRTL]);
+  }, [users.AllRoles]);
 
   useEffect(() => {
     (async () => {
@@ -126,11 +123,7 @@ const HandleUser0 = (props) => {
               </Box>
               <ToolTip title={Object.translate("BUTTONS.BACK")} placement="top">
                 <Box className="titleIconBox" onClick={() => props.onView()}>
-                  {isRTL ? (
-                    <IoArrowBack />
-                  ) : (
-                    <IoArrowBack className="leftArrowBack" />
-                  )}
+                  <IoArrowBack className="leftArrowBack" />
                 </Box>
               </ToolTip>
             </Box>
@@ -138,7 +131,7 @@ const HandleUser0 = (props) => {
         })
       );
     })();
-  }, [isRTL, props.toggleAdd]);
+  }, [props.toggleAdd]);
 
   const HandleUserProps = () => ({
     initialValues,

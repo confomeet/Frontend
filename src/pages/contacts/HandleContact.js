@@ -29,7 +29,7 @@ const HandleContact = (props) => {
   const {
     contacts,
     settingsReducer: {
-      settings: { authUser, isRTL },
+      settings: { authUser },
     },
   } = useSelector((state) => state);
   const [value, setValue] = useState(0);
@@ -169,11 +169,7 @@ const HandleContact = (props) => {
                     className="titleIconBox"
                     onClick={() => props.handleView()}
                   >
-                    {isRTL ? (
-                      <IoArrowBack />
-                    ) : (
-                      <IoArrowBack className="leftArrowBack" />
-                    )}
+                    <IoArrowBack className="leftArrowBack" />
                   </Box>
                 </ToolTip>
               </Grid>
@@ -182,7 +178,7 @@ const HandleContact = (props) => {
         })
       );
     })();
-  }, [isRTL]);
+  });
 
   return (
     <Box width="100%">

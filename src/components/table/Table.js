@@ -11,8 +11,6 @@ export default function FullTabel(props) {
   const theme = useTheme();
   const [rowsExpanded, setRowsExpanded] = useState([]);
   const [rowsSelected, setrowsSelected] = useState([]);
-  const { settingsReducer } = useSelector((state) => state);
-  const { isRtl: isDirectionRTL } = settingsReducer.settings;
 
   const getMuiTheme = () =>
     createTheme({
@@ -319,7 +317,6 @@ export default function FullTabel(props) {
               "& h6": {
                 padding: "0 32px",
                 fontFamily: "inherit",
-                textAlign: isDirectionRTL ? "left" : "right",
                 [theme.breakpoints.down("600")]: {
                   fontSize: `${theme.globals.fontSize.xs}px!important`,
                 },
@@ -331,7 +328,6 @@ export default function FullTabel(props) {
         MUIDataTableBodyCell: {
           root: {
             fontFamily: "inherit",
-            textAlign: isDirectionRTL ? "right" : "left",
             "& > i": {
               color: "red",
               fontSize: `${theme.globals.fontSize.s + 1}px!important`,
@@ -531,8 +527,6 @@ export default function FullTabel(props) {
           },
           actions: {
             "& button": {
-              transform: isDirectionRTL ? "rotate(180deg)" : "rotate(0deg)",
-
               [theme.breakpoints.down("600")]: {
                 width: 25,
                 height: 25,

@@ -4,11 +4,6 @@ import { useSelector } from "react-redux";
 import ToolTip from "components/toolTip/ToolTip";
 
 export default function ToggleButtons(props) {
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
   return (
     <ToggleButtonGroup
       value={props.view}
@@ -19,7 +14,7 @@ export default function ToggleButtons(props) {
         <ToggleButton key={index} value={btn.value} aria-label={btn.label}>
           <ToolTip
             placement="top"
-            title={isRTL ? btn?.arTooltip : btn?.Tooltip}
+            title={btn?.Tooltip}
           >
             <span
               style={{

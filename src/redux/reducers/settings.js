@@ -36,7 +36,6 @@ const initialState = {
   currentTheme,
   themeList,
   isDark: Boolean(JSON.parse(localStorage.getItem("isDark"))),
-  isRTL: appLang !== window.defualtLang,
 
   appDateFormat: "MMM D, YYYY",
   sideMenuToggle: false,
@@ -108,7 +107,6 @@ const settings = (state = initialState, action) => {
       return {
         ...state,
         appLang: action.lang,
-        isRTL: action.lang !== window.defualtLang,
       };
 
     case ACTION_TYPES.CLEAR_AUTH_USER:
@@ -151,17 +149,6 @@ const settings = (state = initialState, action) => {
       return {
         ...state,
         isDark: action.payload,
-      };
-
-    case ACTION_TYPES.SET_DIRECTION:
-      return {
-        ...state,
-        isRTL: action.payload,
-
-        currentTheme: {
-          ...state.currentTheme,
-          direction: action.payload === true ? "rtl" : "ltr",
-        },
       };
 
     case ACTION_TYPES.CHANGE_THEME:

@@ -20,7 +20,7 @@ const TableView = () => {
   const {
     usersgroups,
     settingsReducer: {
-      settings: { isRTL, authUser },
+      settings: { authUser },
     },
   } = useSelector((state) => state);
   const [tableData, setTableData] = useState(initTableData);

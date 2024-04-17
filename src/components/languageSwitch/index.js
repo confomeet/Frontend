@@ -7,8 +7,8 @@ const { setLang } = actions;
 
 const Languages = [
   {
-    lang: "ar",
-    text: "عربي",
+    lang: "ru",
+    text: "Русский",
   },
   {
     lang: "en",
@@ -18,8 +18,8 @@ const Languages = [
 
 export default function LanguageSwitch() {
   const dispatch = useDispatch();
-  const { isRTL } = useSelector((state) => state.settingsReducer.settings);
-  const currentLang = Languages[isRTL ? 1 : 0];
+  // FIXME: Must get the language from window.navigator.language
+  const currentLang = "ru";
   const handleLangChange = (lang) => {
     dispatch(setLang({ lang }));
   };

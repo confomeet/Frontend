@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export const contactsStyles = makeStyles((theme, isRTL) => ({
+export const contactsStyles = makeStyles((theme) => ({
   myContacts: {
     flexWrap: "wrap",
     position: "relative",

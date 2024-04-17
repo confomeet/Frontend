@@ -15,12 +15,6 @@ import {
 
 export default function EventsHeader(props) {
   const classes = eventsStyles();
-  const filters = getStatusFilters();
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
   return (
     <Box className={classes.relativeBox}>
       <Box className={classes.internalHeader}>
@@ -35,7 +29,7 @@ export default function EventsHeader(props) {
             >
               <ToolTip
                 placement="top"
-                title={isRTL ? "إضافة اجتماع" : "Add Event"}
+                title={Object.translate("EVENTS.ADD_EVENT")}
               >
                 <AddIcon />
               </ToolTip>

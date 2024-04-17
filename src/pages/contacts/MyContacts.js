@@ -47,9 +47,6 @@ export default function MyContacts() {
   const dispatch = useDispatch();
   const {
     contacts,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const classes = contactsStyles();
   const theme = useTheme();
@@ -292,7 +289,7 @@ export default function MyContacts() {
   useEffect(() => {
     handleGetMyContacts();
     handleGetContactsTabs();
-  }, [isRTL]);
+  });
 
   useEffect(() => {
     (async () => {
@@ -312,7 +309,7 @@ export default function MyContacts() {
         })
       );
     })();
-  }, [isRTL, toggleAdd, toggleEdit, view, openFilters, searchParams]);
+  }, [toggleAdd, toggleEdit, view, openFilters, searchParams]);
 
   useEffect(() => {
     if (!contacts?.getMyContactsComplete)

@@ -63,7 +63,7 @@ export default function MiniSideMenu() {
   const theme = useTheme();
   const {
     settingsReducer: {
-      settings: { authUser, isRTL, sideMenuToggle },
+      settings: { authUser, sideMenuToggle },
     },
     tabs,
   } = useSelector((state) => state);
@@ -93,7 +93,7 @@ export default function MiniSideMenu() {
     (async () => {
       setSidebar(tabs?.getMyTabsComplete);
     })();
-  }, [tabs?.getMyTabsComplete, isRTL]);
+  }, [tabs?.getMyTabsComplete]);
 
   useEffect(() => {
     (async () => {

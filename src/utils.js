@@ -1,8 +1,8 @@
 import moment from "moment";
-import "moment/locale/ar";
+import "moment/locale/ru";
 import actions from "redux/actions";
 import { RRule } from "rrule";
-import ar from "./translations/ar.json";
+import ru from "./translations/ru.json";
 import en from "./translations/en.json";
 import camelCase from "lodash/camelCase";
 const {
@@ -13,7 +13,7 @@ const {
   clearPhraseLoader,
 } = actions;
 
-const languages = ["ar", "en"];
+const languages = ["ru", "en"];
 export const dispatchWantedAction = (action, data) => {
   if (!action) return;
   if (!data) return window.dispatch(actions[camelCase(action)]());
@@ -133,7 +133,7 @@ export const getDeepValue = (obj, path) => {
 
 export const getTransaltion = (key) => {
   let trimmedKey = key?.trim() || "";
-  let TRANSLATION_OBJ = getAppLang() === "ar" ? { ...ar } : { ...en };
+  let TRANSLATION_OBJ = getAppLang() === "ru" ? { ...ru } : { ...en };
   return getDeepValue(TRANSLATION_OBJ, trimmedKey);
 };
 
@@ -165,11 +165,11 @@ export const getListItemsForDropDownMenu = (
   }));
 };
 
-export const getModifiedCountries = (list, isRTL) =>
+export const getModifiedCountries = (list) =>
   getListItemsForDropDownMenu(
     list || [],
     "cntId",
-    isRTL ? "cntCountryAr" : "cntCountryEn"
+    "cntCountryEn"
   );
 
 export const getModifiedContacts = (list) =>
@@ -440,9 +440,9 @@ export const getInvitationText = (appointment) => {
 };
 
 export const displayDate = (date, format) => {
-  const locale = getAppLang() === "ar" ? "ar" : "en";
+  const locale = getAppLang() === "ru" ? "ru" : "en";
   if (!format) {
-    format = locale === "ar" ? "DD MMM YYYY,  hh:mm A" : "MMM DD,YYYY  hh:mm A";
+    format = locale === "ru" ? "DD MM YYYY,  HH:mm" : "MM DD,YYYY  hh:mm A";
   }
   moment.locale(locale);
   return moment(date).format(format);

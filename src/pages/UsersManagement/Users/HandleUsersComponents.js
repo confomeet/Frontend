@@ -19,9 +19,6 @@ let timeout;
 const HandleUsersComponents = (props) => {
   const {
     users,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const classes = useStyles();
   const usersClasses = userStyle();

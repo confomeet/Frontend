@@ -10,9 +10,6 @@ import PageHeading from "videoComponents/typographyGeneral/PageHeading";
 
 const SmtpProvider = () => {
   const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
     users,
   } = useSelector((state) => state);
   const [selectedObj, setSelectedObj] = useReducer((initState, data) => {
@@ -27,7 +24,7 @@ const SmtpProvider = () => {
       subHeader: <PageHeading />,
     });
     handleGetSmtpConfig();
-  }, [isRTL]);
+  });
 
   useEffect(() => {
     if (Object.isObjectEmpty(users?.getSmtpConfigComplete))

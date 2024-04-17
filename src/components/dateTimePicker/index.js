@@ -9,17 +9,12 @@ import { useStyles } from "./style";
 
 const DateTimePickerField = ({ ...props }) => {
   const classes = useStyles();
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
-  const inputFormat = isRTL ? "yyyy-MM-dd" : "dd-MM-yyyy";
+  const inputFormat = "dd-MM-yyyy";
   return (
     <Grid className={classes.rootMainCalender}>
       <LocalizationProvider
         dateAdapter={AdapterDateFns}
-        adapterLocale={isRTL ? arSaLocale : enLocale}
+        adapterLocale={window.navigator.language}
       >
         <DatePicker
           format={inputFormat}

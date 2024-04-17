@@ -21,9 +21,6 @@ const HandleUsersGroupsComponents = (props) => {
   const [usersGroup, setUsersGroup] = useState([]);
   const {
     users,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const handleInputChange = async (e, text, values) => {
     if (timeout) clearTimeout(timeout);
@@ -56,9 +53,7 @@ const HandleUsersGroupsComponents = (props) => {
     }
 
     handleNotification({
-      message: isRTL
-        ? "تم حذف المستخدم من المجموعة  بنجاح"
-        : "Success to remove users to group",
+      message: "Success to remove users from group",
       success: true,
     });
   };

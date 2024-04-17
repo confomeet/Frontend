@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export const eventsStyles = makeStyles((theme, isRTL) => ({
+export const eventsStyles = makeStyles((theme) => ({
   listIcon: {
     backgroundColor: "transparent!important",
     fontSize: theme.globals.fontSize.s,

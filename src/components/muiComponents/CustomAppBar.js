@@ -2,7 +2,7 @@ import { styled } from "@mui/material/styles";
 import { AppBar as MuiAppBar } from "./index";
 
 const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => !["isRTL", "open", "drawerWidth"].includes(prop),
+  shouldForwardProp: (prop) => !["open", "drawerWidth"].includes(prop),
 })(({ theme, open }) => {
   let styleObj = {
     backgroundColor: theme.palette.background.default,

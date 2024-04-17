@@ -24,16 +24,10 @@ function ResetPassword() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const dispatch = useDispatch();
   const { settingsReducer, users } = useSelector((state) => state);
-  let isRTL = settingsReducer.settings.isRTL;
 
   const validationSchema = Yup.object({
-    password: Yup.string().required(
-      isRTL ? "يرجى إدخال كلمة المرور" : "Password Is Required"
-    ),
-    passwordConfirmation: Yup.string().oneOf(
-      [Yup.ref("password"), null],
-      isRTL ? "يرجى إدخال كلمة مرور مطابقة" : "Password must match"
-    ),
+    password: Yup.string().required(Object.translate("WARNING.PASSWORD_REQUIRED")),
+    passwordConfirmation: Yup.string().oneOf([Yup.ref("password"), null], Object.translate("WARNING.MATCHPASS")),
   });
 
   const onSubmit = async (values) => {

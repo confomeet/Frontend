@@ -16,9 +16,6 @@ import { shouldIgnoreDataUpdate } from "./utils";
 const UsersByStatus = (props) => {
   const {
     statistics,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
 
   const [tableData, setTableData] = useState({ ROWS: [], COLUMNS: [] });
@@ -58,7 +55,6 @@ const UsersByStatus = (props) => {
               anchorEl={anchorEls[index]}
               open={Boolean(anchorEls[index])}
               onClose={() => handleClose(index)}
-              sx={{ direction: isRTL ? "rtl" : "ltr" }}
             >
               {row.onlineParticipantsDetails.map((row) => {
                 return (

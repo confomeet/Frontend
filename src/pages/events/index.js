@@ -54,7 +54,7 @@ export default function MyMeetings(props) {
   const {
     meetings,
     settingsReducer: {
-      settings: { isRTL, appRowsPerPage, authUser },
+      settings: { appRowsPerPage, authUser },
     },
   } = useSelector((state) => state);
   const initSearchParams = {
@@ -425,7 +425,7 @@ export default function MyMeetings(props) {
       handleGetMyContacts();
       window.dispatch(getRelatedUsers({ handleSearch }));
     })();
-  }, [isRTL]);
+  });
 
   useEffect(() => {
     if (addToggle || editToggle || detailsToggle) return;

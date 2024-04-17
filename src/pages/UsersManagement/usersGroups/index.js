@@ -15,9 +15,6 @@ const initSearchParams = {
 const UsersGroupsProvider = () => {
   const {
     usersgroups,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   const [mainView, switchMainView] = useState(true);
   const [addToggle, switchAdd] = useState(false);
@@ -122,23 +119,19 @@ const UsersGroupsProvider = () => {
                 className="titleIconBox"
                 onClick={() => handleToogle(UserGroupsActions.mainView)}
               >
-                {isRTL ? (
-                  <IoArrowBack />
-                ) : (
-                  <IoArrowBack className="leftArrowBack" />
-                )}
+                <IoArrowBack className="leftArrowBack" />
               </Box>
             </ToolTip>
           </Box>
         ),
       });
     })();
-  }, [isRTL, mainView, addToggle, editToggle]);
+  }, [mainView, addToggle, editToggle]);
 
   useEffect(() => {
     handleToogle(UserGroupsActions.mainView);
     handleGetUsersGroups(true);
-  }, [isRTL]);
+  });
 
   return (
     <UsersGroupsContext.Provider

@@ -3,8 +3,6 @@ import { store } from "../store";
 
 const { loadingReturned, setAlertMessage } = actions;
 
-const isRTL = localStorage.getItem("isRTL");
-
 export const getCurrentUserIP = async () => {
   const res = await fetch(`https://geolocation-db.com/json/`, {
     method: "GET",

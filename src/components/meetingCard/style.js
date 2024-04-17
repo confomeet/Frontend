@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-export const cardStyle = makeStyles((theme, isRTL) => ({
+export const cardStyle = makeStyles((theme) => ({
   card: {
     width: 324,
     height: 265,

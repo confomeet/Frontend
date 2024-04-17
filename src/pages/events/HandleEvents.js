@@ -122,9 +122,6 @@ const getInitialParticipantes = (participants) => {
 function HandleEvents({ selectedObj, handleView, ...props }) {
   const classes = eventsStyles();
   const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
     meetings,
     contacts,
   } = useSelector((state) => state);
@@ -282,11 +279,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
               )}
               <ToolTip title={Object.translate("BUTTONS.BACK")} placement="top">
                 <Box className="titleIconBox" onClick={() => handleView()}>
-                  {isRTL ? (
-                    <IoArrowBack />
-                  ) : (
-                    <IoArrowBack className="leftArrowBack" />
-                  )}
+                  <IoArrowBack className="leftArrowBack" />
                 </Box>
               </ToolTip>
             </Box>
@@ -295,7 +288,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
       );
     })();
   }, [
-    isRTL,
     props.addToggle,
     props.editToggle,
     props.calendarCellClickData,

@@ -156,11 +156,6 @@ const Participants = ({
     email: null,
     emailOrMobile: null,
   });
-  const {
-    settingsReducer: {
-      settings: { isRTL },
-    },
-  } = useSelector((state) => state);
   const [value, setValue] = useState(0);
   const [usersGroups, setUsersGroups] = useState([]);
   const [selectedGroup, setSelectedGroup] = useState([]);
@@ -412,7 +407,7 @@ const Participants = ({
       </TabPanel>
       <TabPanel value={value} index={1}>
         <Box
-          className={isRTL ? classes.addGroupSelect : classes.addGroupSelectLTR}
+          className={classes.addGroupSelectLTR}
         >
           <SearchAutoComplete
             autoCompleteProps={{

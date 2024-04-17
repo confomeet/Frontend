@@ -18,15 +18,6 @@ export function setDarkMode({ isDark }) {
   };
 }
 
-export function setDirection({ isRTL }) {
-  localStorage.setItem("isRTL", JSON.stringify(isRTL));
-
-  return {
-    type: ACTION_TYPES.SET_DIRECTION,
-    payload: isRTL,
-  };
-}
-
 ////// FontSize //////
 export function increaseFont() {
   return {

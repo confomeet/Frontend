@@ -7,9 +7,6 @@ const Smtp = () => {
   const contextProps = useContext(SmtpContext);
   const {
     usersgroups,
-    settingsReducer: {
-      settings: { isRTL },
-    },
   } = useSelector((state) => state);
   return (
     <Box margin="0 20px">

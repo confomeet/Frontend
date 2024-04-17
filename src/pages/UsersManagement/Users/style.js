@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export const userStyle = makeStyles((theme, isRTL) => ({
+export const userStyle = makeStyles((theme) => ({
   rootUserManagement: {
     margin: "0px 20px",
     [theme.breakpoints.down("sm")]: {

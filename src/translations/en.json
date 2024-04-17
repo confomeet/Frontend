@@ -36,7 +36,8 @@
     "ADD_SUB_EVENT": "Add Sub Meeting",
     "ADD_PARTICIPANT": "Add Participant",
     "CANCEL_EVENT": "Cancel event",
-    "CANCEL_EVENT_MSG": "Participants has been informed the meeting has been canceled"
+    "CANCEL_EVENT_MSG": "Participants has been informed the meeting has been canceled",
+    "ADD_EVENT": "Create Meeting"
   },
   "STATISTICS": {
     "EVENTS_BY_APP": {
@@ -80,7 +81,6 @@
     "FORGETPASSWORD": "Forgot Password",
     "APPVERSION": "Application Version",
     "PANEL": {
-      "CABINES": "Cabines",
       "ALLNOTIFICATIONS": "All Notifications",
       "FINISHEDEVENTS": "Finished Meetings",
       "STATISTICS": "Statistics",
@@ -462,7 +462,8 @@
     "INVALID_DOMAIN": "Invalid Domain for host",
     "PORT_DECIMAL": "Port should not be decimal number",
     "PASSWORD_REQUIRED": "Password is required",
-    "EMAIL_REQUIRED": "Email is required"
+    "EMAIL_REQUIRED": "Email is required",
+    "VERIFICATION_CODE_REQUIRED": "Verification code is required"
   },
   "FILTER": {
     "ALL": "All",

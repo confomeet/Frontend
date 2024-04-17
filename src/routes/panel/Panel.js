@@ -20,7 +20,7 @@ const { closeSideMenu, getMyTabs } = actions;
 
 export default function Panel() {
   const classes = style();
-  const { isRTL, authUser } = useSelector(
+  const { authUser } = useSelector(
     (state) => state.settingsReducer.settings
   );
   useEffect(() => {
@@ -30,7 +30,7 @@ export default function Panel() {
     })();
     if (!authUser)
       window.dispatch(closeSideMenu());
-  }, [authUser, isRTL]);
+  }, [authUser]);
 
   return (
     <Box sx={{ display: "flex", width: "100%", height: "100%" }} className={classes.root}>

@@ -1,6 +1,6 @@
 import { makeStyles } from "@mui/styles";
 
-export const eventsStyles = makeStyles((theme, isRTL) => ({
+export const eventsStyles = makeStyles((theme) => ({
   filtersSwitchers: {
     display: "flex",
     justifyContent: "space-between",
@@ -833,33 +833,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
       minWidth: "50px!important",
     },
 
-    "& .internalSwitcherSub": {
-      display: "flex!important",
-      flexDirection: isRTL ? "row" : " row-reverse",
-      justifyContent: "center!important",
-      alignItems: "baseline!important",
-      maxWidth: "241px!important",
-      padding: "3px!important",
-      marginRight: "8px!important",
-      "& .MuiFormControlLab:el-root": {
-        margin: "0 !important",
-      },
-      "& .formControl": {
-        borderBottom: "none!important",
-      },
-      "& .MuiFormControlLabel-root": {
-        marginRight: "0!important",
-        marginLeft: "0!important",
-      },
-    },
-
-    "& .subSwitchercontainer": {
-      display: "flex",
-      alignItems: "baseline",
-      [theme.breakpoints.down("sm")]: {
-        marginTop: "15px!important",
-      },
-    },
     "& .subswitcher": {
       minWidth: "140px",
       "& span": {
@@ -1103,7 +1076,7 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
   },
   internalSwitcher: {
     display: "flex!important",
-    flexDirection: isRTL ? "row" : " row-reverse",
+    flexDirection: " row-reverse",
 
     justifyContent: "center!important",
     alignItems: "baseline!important",
@@ -1355,56 +1328,6 @@ export const eventsStyles = makeStyles((theme, isRTL) => ({
         color: theme.globals.colors.primary,
         width: "40px",
         fontSize: "20px",
-      },
-    },
-    "& .typeSection": {
-      border: "1px solid #d5d5d5",
-      width: "96%",
-      margin: "auto",
-      borderRadius: "0 0 4px 4px",
-      padding: "0 10px  0 10px",
-      height: "40px",
-      "& .MuiAutocomplete-listbox": {
-        border: "2px solid grey",
-        minHeight: 400,
-        backgroundColor: "green!important",
-        fontSize: theme.globals.fontSize.s + 2,
-        //hover discussed above
-        "& > div": {
-          justifyContent: isRTL ? "start!important" : "end!important",
-        },
-        "& li": {
-          border: "2px solid green!important",
-          borderRadius: 4,
-        },
-      },
-    },
-    "& .typeSection2": {
-      margin: "auto",
-      height: "40px",
-      "& .MuiAutocomplete-listbox": {
-        border: "2px solid grey",
-        minHeight: 400,
-
-        fontSize: theme.globals.fontSize.s + 2,
-        "& > div": {
-          justifyContent: isRTL ? "start!important" : "end!important",
-        },
-        "& li": {
-          border: "2px solid green!important",
-          borderRadius: 4,
-        },
-      },
-    },
-    "& .typeSectionBox": {
-      display: "flex",
-      marginBottom: "16px",
-      width: "100%",
-      alignItems: "center",
-      "& svg": {
-        color: `${theme.globals.colors.primary}!important`,
-        marginInlineEnd: "10px",
-        fontSize: theme.globals.fontSize.lg,
       },
     },
 
