@@ -81,11 +81,13 @@
     "ADD_PARTICIPANT_BY_MOBILE": "Or using their mobile number",
     "FORGET_PASSWORD": "Забыли пароль?",
     "ENTER_PASSWORD": "Пароль",
-    "ADD_DETAILS": "Create Meeting",
+    "ADD_DETAILS": "Создание конференции",
     "NO_CONTACTS": "Нет контактов",
     "GET_DATA_LOADER_PHRASE": "Загружаем данные, пожалуйста подождите",
     "CHOSE_COMPANY_FIRST": "Сначала выберите компанию",
-    "TYPE_TO_SEARCH": "Начните печтать для появления подсказки"
+    "TYPE_TO_SEARCH": "Начните печтать для появления подсказки",
+    "EDIT_DETAILS": "Изменение параметров конференции",
+    "VIEW_DETAILS": "Просмотр параметров конференции"
   },
   "FULL_TABLE": {
     "BODY": {
@@ -234,7 +236,7 @@
     "SENT": "Отправлено",
     "SHARE_CONTACT": "Поделиться контактом",
     "SHOW_EVENT": "Детали конференции",
-    "SUB_TOPIC": "Удлиненное название",
+    "SUB_TOPIC": "Дополнительное название",
     "SUBMIT": "Отправить",
     "TEXT": "Текст",
     "THIS_IS_RECURRING": "This is a Recurring Meeting. Please choose the meetings that should be changed.",
