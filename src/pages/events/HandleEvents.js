@@ -194,7 +194,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     next: false,
     previous: false,
   });
-  const [openAdvanceFilters, setOpenAdvanceFilters] = useState(false);
   const [singleAccess, setSingleAccess] = useState(
     selectedObj?.singleAccess || false
   );
@@ -782,74 +781,60 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                     </Grid>
                     <Grid item lg={12} md={12} sm={12} xs={12}>
                       <Box className="BoxDescFld">
-                        {!props?.detailsToggle && (
-                          <Box
-                            className="DescFld"
-                            onClick={() =>
-                              setOpenAdvanceFilters(!openAdvanceFilters)
-                            }
-                          >
-                            {Object.translate("LABEL.ADVANCED")} +
-                          </Box>
-                        )}
-                        {openAdvanceFilters && (
-                          <>
-                            <Grid container className={classes.switchContainer}>
-                              {!selectedObj?.eGroup && (
-                                <Box className="switchsection">
-                                  <Switcher
-                                    label={Object.translate("LABEL.RECCURING")}
-                                    switchToggle={reccurring.isReccurring}
-                                    handleSwitchChange={(isReccurring) =>
-                                      setReccurring({
-                                        rRule: null,
-                                        isReccurring,
-                                      })
-                                    }
-                                    labelPlacement="start"
-                                  />
-                                </Box>
-                              )}
-                              <Box className="switchsection">
-                                <Switcher
-                                  label={Object.translate(
-                                    "LABEL.SINGLE_ACCESS"
-                                  )}
-                                  switchToggle={singleAccess}
-                                  handleSwitchChange={(checked) =>
-                                    setSingleAccess(checked)
-                                  }
-                                  labelPlacement="start"
-                                />
-                              </Box>
-                              <Box className="switchsection">
-                                <Switcher
-                                  label={Object.translate("LABEL.REQ_RECORD")}
-                                  switchToggle={recordingReq}
-                                  handleSwitchChange={(checked) =>
-                                    setRecordingReq(checked)
-                                  }
-                                  labelPlacement="start"
-                                />
-                              </Box>
-                              <Box className="switchsection">
-                                <Switcher
-                                  label={Object.translate("LABEL.AUTO_LOBBY")}
-                                  switchToggle={autoLobby}
-                                  handleSwitchChange={(checked) =>
-                                    switchAutoLobby(checked)
-                                  }
-                                  labelPlacement="start"
-                                />
-                              </Box>
-                            </Grid>
-                            {reccurring.isReccurring && (
-                              <ReccuringEvents
-                                handleRRuleChange={handleRRuleChange}
-                                {...reccurring}
+                        <Grid container className={classes.switchContainer}>
+                          {!selectedObj?.eGroup && (
+                            <Box className="switchsection">
+                              <Switcher
+                                label={Object.translate("LABEL.RECCURING")}
+                                switchToggle={reccurring.isReccurring}
+                                handleSwitchChange={(isReccurring) =>
+                                  setReccurring({
+                                    rRule: null,
+                                    isReccurring,
+                                  })
+                                }
+                                labelPlacement="start"
                               />
-                            )}
-                          </>
+                            </Box>
+                          )}
+                          <Box className="switchsection">
+                            <Switcher
+                              label={Object.translate(
+                                "LABEL.SINGLE_ACCESS"
+                              )}
+                              switchToggle={singleAccess}
+                              handleSwitchChange={(checked) =>
+                                setSingleAccess(checked)
+                              }
+                              labelPlacement="start"
+                            />
+                          </Box>
+                          <Box className="switchsection">
+                            <Switcher
+                              label={Object.translate("LABEL.REQ_RECORD")}
+                              switchToggle={recordingReq}
+                              handleSwitchChange={(checked) =>
+                                setRecordingReq(checked)
+                              }
+                              labelPlacement="start"
+                            />
+                          </Box>
+                          <Box className="switchsection">
+                            <Switcher
+                              label={Object.translate("LABEL.AUTO_LOBBY")}
+                              switchToggle={autoLobby}
+                              handleSwitchChange={(checked) =>
+                                switchAutoLobby(checked)
+                              }
+                              labelPlacement="start"
+                            />
+                          </Box>
+                        </Grid>
+                        {reccurring.isReccurring && (
+                          <ReccuringEvents
+                            handleRRuleChange={handleRRuleChange}
+                            {...reccurring}
+                          />
                         )}
                         {!props?.detailsToggle && selectedObj?.eGroup && (
                           <Grid container className="partyContainer">
