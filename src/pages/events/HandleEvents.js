@@ -27,7 +27,6 @@ import {
   addMinutes,
   calculateNextThirtyMin,
   checkFullDate,
-  getTableRowsAndColumns,
   handleDateTimeChange,
   handleNotification,
   isEmail,
@@ -90,13 +89,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
   })();
   const validationSchema = getEventsValidationSchema();
 
-  const getInitAllDay = () => {
-    if (selectedObj === null) return false;
-    let initStartTime = selectedObj.startDate?.split("T")[1].substring(0, 5);
-    let initEndDate = selectedObj.endDate?.split("T")[1].substring(0, 5);
-    if (initStartTime === "00:00" && initEndDate === "23:59") return true;
-  };
-
   const getInitEventDateTimes = (selectedObj) => {
     let init = {
       startDate: currentYearMonth,
@@ -140,12 +132,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     return init;
   };
 
-  const [pageIndex, setPageIndex] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [partiArr, setPartiArr] = useState([]);
-  const [tableData, setTableData] = useState({ ROWS: [], COLUMNS: [] });
   const [selectedGroups, setSelectedGroups] = useState([]);
-  const [allDay, setAllDay] = useState(getInitAllDay());
   const [recordingReq, setRecordingReq] = useState(
     selectedObj?.recordingReq || false
   );
@@ -189,21 +176,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     endMinDate: undefined,
     endMaxDate: undefined,
   });
-
-  const getModifiedSubEvents = (data) => {
-    if (!data || !data.length) return [];
-    let modifiedData = [];
-    modifiedData = data.map((row) => ({
-      ["I.D."]: row.id,
-      [Object.translate("LABEL.TOPIC")]: row.topic,
-      [Object.translate("LABEL.SUB_TOPIC")]: row.subTopic,
-      [Object.translate("LABEL.ORGANIZER")]: row.organizer,
-      [Object.translate("LABEL.MEETINGID")]: row.meetingId,
-      [Object.translate("LABEL.START_DATE")]: Date.displayDate(row.startDate),
-      [Object.translate("LABEL.END_DATE")]: Date.displayDate(row.endDate),
-    }));
-    return modifiedData;
-  };
 
   const eventLogs = useMemo(() => {
     if (!Array.isArray(selectedObj?.eventLogs)) return [];
@@ -290,31 +262,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     props.calendarCellClickData,
     props.detailsToggle,
   ]);
-  useEffect(() => {
-    (async () => {
-      if (!selectedObj?.subEvents || !Array.isArray(selectedObj?.subEvents))
-        return;
-      let paginatedData = pagination(
-        selectedObj?.subEvents,
-        pageSize,
-        pageIndex
-      );
-      let modifiedSubEvents = await getModifiedSubEvents(
-        paginatedData?.requiredArr
-      );
-      let rowsAndColumnsData = await getTableRowsAndColumns(modifiedSubEvents);
-      setTableData({
-        COUNT: paginatedData?.count,
-        ...rowsAndColumnsData,
-      });
-    })();
-  }, [selectedObj?.subEvents, pageSize, pageIndex, isRTL]);
-
-  useEffect(() => {
-    (async () => {
-      getInitAllDay();
-    })();
-  }, []);
 
   const handleDeleteParticipant = (p, idx) => {
     if (!p.id)
@@ -346,7 +293,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     })();
   }, [selectedObj, eventDateTimes]);
 
-  const constructFullDate = (date, time) => `${date}T${time}:00`;
+  const constructFullDate = (date, time) => new Date (`${date}T${time}:00`).toISOString();
 
   const onSubmit = async (values) => {
     const currentErrors = Object.values(formErrors).filter((v) => v);
@@ -359,15 +306,11 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     }
     let selectedStartDate = constructFullDate(
       eventDateTimes.startDate,
-      allDay && eventDateTimes.startTime !== "00:00"
-        ? "00:00"
-        : eventDateTimes.startTime
+      eventDateTimes.startTime
     );
     let selectedEndDate = constructFullDate(
       eventDateTimes.endDate,
-      allDay && eventDateTimes.endTime !== "23:59"
-        ? "23:59"
-        : eventDateTimes.endTime
+      eventDateTimes.endTime
     );
 
     let body = {
@@ -386,7 +329,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
       endDate: selectedEndDate,
       description: values.description ? values.description : null,
       password: values.password ? values.password : null,
-      timeZone: selectedTimezone,
+      timeZone: window.currentZone,
       parentEventId: selectedObj?.selectedEventParent?.id || null,
       participants: participants
         .filter((p) => p.shouldSend)
@@ -539,12 +482,12 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
         ? null
         : Object.translate("ERROR.DATE.START"),
       startTime:
-        isValidSTartDate.time || allDay
+        isValidSTartDate.time
           ? null
           : Object.translate("ERROR.TIME.START"),
       endDate: isValidEndDate.date ? null : Object.translate("ERROR.DATE.END"),
       endTime:
-        isValidEndDate.time || allDay
+        isValidEndDate.time
           ? null
           : Object.translate("ERROR.TIME.END"),
     });
@@ -553,7 +496,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     eventDateTimes.endDate,
     eventDateTimes.endTime,
     eventDateTimes.startTime,
-    allDay,
   ]);
 
   useEffect(() => {
@@ -574,7 +516,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     if (!startTime) return;
     const newDate = handleDateTimeChange(
       startDate + "T" + startTime + ":00.000Z",
-      allDay,
       selectedObj,
       props.editToggle
     );
@@ -688,25 +629,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                         disabled={props?.detailsToggle}
                       />
                     </Box>
-                    <Box className={classes.badgeBox}>
-                      <InputLabel className={classes.titletimeZone}>
-                        {Object.translate("LABEL.TIME_ZONE")}
-                      </InputLabel>
-                      <Box className={classes.timeZoneBox}>
-                        <TimeZone
-                          width="100%"
-                          value={selectedTimezone}
-                          onChange={({ value }) => setSelectedTimezone(value)}
-                          name="timeZone"
-                          variant="outlined"
-                          placeholder={"Select your timezone"}
-                          timezones={{
-                            ...timezones[isRTL ? "ar" : "en"],
-                          }}
-                          disabled={props?.detailsToggle}
-                        />
-                      </Box>
-                    </Box>
                   </Box>
                   <Grid container>
                     <Grid
@@ -748,7 +670,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                             handleEventStartDateChange({ startTime: value });
                           }}
                           timeValue={eventDateTimes.startTime}
-                          showTime={allDay}
+                          showTime={false}
                           disabled={props?.detailsToggle}
                         />
                       </Box>
@@ -788,7 +710,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                             }));
                           }}
                           timeValue={eventDateTimes.endTime}
-                          showTime={allDay}
+                          showTime={false}
                           disabled={props?.detailsToggle}
                         />
                       </Box>

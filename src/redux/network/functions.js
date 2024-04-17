@@ -144,7 +144,7 @@ export const handleDateDuration = (selectedData, adjustedStartDate) => {
   return shiftedEndDate;
 };
 
-export const handleDateTimeChange = (dateStr, allDay, selectedDate, type) => {
+export const handleDateTimeChange = (dateStr, selectedDate, type) => {
   const startDate = handleAdjustTime(new Date(dateStr));
   const shiftDuration = handleDateDuration(selectedDate, startDate);
 
@@ -152,8 +152,8 @@ export const handleDateTimeChange = (dateStr, allDay, selectedDate, type) => {
   return {
     startDate: handleSeparateDate(startDate),
     endDate: handleSeparateDate(endDate),
-    startTime: allDay ? "00:00" : handleSeparteTime(startDate),
-    endTime: allDay ? "23:59" : handleSeparteTime(endDate),
+    startTime: handleSeparteTime(startDate),
+    endTime: handleSeparteTime(endDate),
   };
 };
 
