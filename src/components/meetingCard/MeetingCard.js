@@ -121,7 +121,7 @@ export default function MeetingCard({
             </Typography>
           </Box>
         ) : null}
-        {data?.password ? (
+        {/* {data?.password ? (
           <Box
             marginBottom="8px"
             marginInlineStart="16px"
@@ -133,7 +133,7 @@ export default function MeetingCard({
             </Typography>
             <Typography className="subtitleBold">{data?.password} </Typography>
           </Box>
-        ) : null}
+        ) : null} */}
         <Box
           marginBottom="8px"
           marginInlineStart="16px"

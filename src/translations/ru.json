@@ -1,16 +1,306 @@
 {
+  "CALENDAR": { "MONTH": "Месяц", "WEEK": "Неделя", "DAY": "День" },
+  "CONTACT": {
+    "ADD": "Добавить контакт",
+    "mobile": "Мобильный номер",
+    "office": "Рабочий номер"
+  },
   "BUTTONS": {
+    "SWITCH_LANG": "Сменить язык",
+    "SEND": "Отправить",
+    "ADD_NOTE": "Добавить заметку",
+    "SEND_SMS": "Отправить СМС",
+    "SEND_EMAIL": "Отправить Email",
+    "REMINDER": "Напомнить",
+    "DOWNLOAD": "Скачать",
+    "SEARCH": "Поиск",
+    "VIEW": "Просмотр",
+    "EDIT": "Изменить",
+    "ADD": "Добавить",
+    "EXPORT": "Экспортировать",
+    "EXCEL": "Эксель",
+    "TRASH": "Удалить",
+    "ANALYTICS": "Аналитика",
+    "RESULTS": "Результаты",
+    "UPDATE": "Обновить",
+    "CALENDAR": "Календарь",
+    "SAVE": "Сохранить",
+    "CREATE": "Создать",
+    "CANCEL": "Отменить",
+    "OK": "Ок",
+    "NO": "Нет",
     "JOIN": "Присоединиться к встрече",
+    "JOIN0": "Присоедниться",
     "SIGNIN": "Войти",
+    "SIGNUP": "Зарегистрироваться",
+    "NEW_CONTACT": "Новый контакт",
+    "BACK": "Еазад",
+    "ANSWER": "Ответить",
+    "DECLINE_CALL": "Отклонить",
+    "BUSY": "Занят",
     "SIGN_IN_WITH": "Войти через "
   },
+  "DATE_RANGES": {
+    "YESTERDAY": "Вчера",
+    "TODAY": "Сегодня",
+    "TOMORROW": "Завтра",
+    "LAST_WEEK": "На прошлой неделе",
+    "THIS_WEEK": "На этой неделе",
+    "NEXT_WEEK": "На следующей неделе",
+    "LAST_MONTH": "В прошлом месяце",
+    "THIS_MONTH": "В этом месяце",
+    "NEXT_MONTH": "В следующем месяце"
+  },
+  "ERROR": {
+    "MOBILE": {
+      "IN_VALID": "Неправильный формат тел. номера"
+    },
+    "NAME": "Необходимо указать имя",
+    "EMAIL_OR_MOBILE": "Необходимо указать email или мобильный телефоны",
+    "EMAIL": {
+      "EXISTS": "Данный email уже зарегистрирован",
+      "IN_VALID": "Формат email неверный"
+    },
+    "DATE": {
+      "START": "Дата начала не подходит",
+      "END": "Дата окончания не подходит"
+    },
+    "TIME": {
+      "START": "Время начала не подходит",
+      "END": "Время окончания не подходит"
+    }
+  },
+  "EVENTS": {
+    "ADD_PARTICIPANT": "Добавить участника",
+    "CANCEL_EVENT": "Отменить конференцию",
+    "CANCEL_EVENT_MSG": "Участники оповещены, что конференция отменена",
+  },
+  "FULL_SENTENCE": {
+    "ADD_PARTICIPANT_BY_EMAIL": "You may add Participants using thier email addresses",
+    "ADD_PARTICIPANT_BY_MOBILE": "Or using their mobile number",
+    "FORGET_PASSWORD": "Забыли пароль?",
+    "ENTER_PASSWORD": "Пароль",
+    "ADD_DETAILS": "Create Meeting",
+    "NO_CONTACTS": "Нет контактов",
+    "GET_DATA_LOADER_PHRASE": "Загружаем данные, пожалуйста подождите",
+    "CHOSE_COMPANY_FIRST": "Сначала выберите компанию",
+    "TYPE_TO_SEARCH": "Начните печтать для появления подсказки"
+  },
+  "FULL_TABLE": {
+    "BODY": {
+      "NO_MATCH": "К сожалению, ничего не найдено",
+      "SORT": "Сортировать",
+      "SORT_FOR": "Сортировать по"
+    },
+    "PAGINATION": {
+      "NEXT": "Следующая страница",
+      "PREVIOUS": "Предыдущая страница",
+      "ROWS_PER_PAGE": "Количество страниц",
+      "OF": "из"
+    },
+    "TOOLBAR": {
+      "SEARCH": "Поиск",
+      "EXPORT_DATA": "Экспортировать таблицу",
+      "PRINT": "Распечатать",
+      "VIEW_COLUMNS": "Колонки",
+      "FILTER_TABLE": "Фильтры"
+    },
+    "FILTER": {
+      "ALL": "Все фильтры",
+      "FILTER_BY": "Фильтр по",
+      "RESET": "Сбросить фильтры"
+    },
+    "COLUMNS": {
+      "VIEW": "Колонки",
+      "SHOW_HIDE": "Показать/скрыть колонки"
+    },
+    "ROWS": {
+      "SELECTED": "колонки выбраны",
+      "DELETE": "Удалить",
+      "DELETE_S": "Удалить выбранные строки"
+    }
+  },
+  "FILTER": {
+    "ALL": "Все",
+    "UPCOMING": "Предстоящие",
+    "LIVE": "Активные",
+    "FINISHED": "Завершенные",
+    "RECORDED": "Записанные"
+  },
+  "HEADER": {
+    "LOG_OUT": "Log out",
+    "LOG_IN": "Log in"
+  },
   "LABEL": {
+    "ACCESS": "Доступ",
+    "ADD_GROUP": "Добавить группу",
+    "ADD_PHOTO": "Добавить фото",
+    "ADD_USER": "Добавить пользователя",
+    "ADD_USERS_GROUP": "Добавить группу",
+    "ADDRESS": "Аддресс",
+    "ADVANCED": "Расширенные ",
+    "ALL": "Все",
+    "ALL_PARTICIPANTS": "Все участники",
+    "AUTO_LOBBY": "Лобби",
+    "BELONGS_TO": "Относится к",
+    "CALL": "Звонок",
+    "CITY": "Город",
+    "CLEAR": "Очистить",
+    "CLICK": "Кликните",
+    "CONFIRMED_USERS": "Подвержденные аккаунты",
+    "COMPANY": "Компания",
+    "CONFIRM_PASSWORD": "Подтвердить пароль",
+    "CONTACTS": "Контакты",
+    "COPY_INVITE": "Скопировать приглашение",
+    "COUNTRY": "Страна",
+    "CREATE_CONF_LINK": "Создать конференцию",
+    "CURRENT_PASSWORD": "Текущий пароль",
+    "DATE": "Дата",
+    "DATE_FORMAT": "Формат даты",
+    "DATE_RANGE": "Дата",
+    "DAY": "День",
+    "DECLINE_CALL": "Отклонить звонко",
+    "DESCRIPTION": "Описание",
+    "DETAILS": "Детали конференции",
+    "DIRECT_MANAGER": "Руководитель",
+    "DISPLAYNAME": "Имя",
+    "DONE": "Выполнено",
+    "DOWNLOAD": "Скачать",
+    "EDIT_EVENT": "Изменить конференцию",
+    "EDIT_USERS_GROUP": "Изменить группу",
     "EMAIL": "Эл. почта",
-    "DETAILS": "Настройки конференции",
-    "PASSWORD": "Пароль"
+    "EMAIL_USERNAME": "Email или логин",
+    "ENABLE_2FA": "Включить двухфакторную аутентификацию",
+    "END_DATE": "Дата окончания",
+    "END_TIME": "Время окончания",
+    "EVENT": "Конференция",
+    "EVENT_INSTANCE": "Конференция",
+    "EVENTS": "Конференции",
+    "EVENTS_MORE": "еще",
+    "EXAMPLE": "Пример",
+    "FROM": "Начало",
+    "GROUPNAME": "Им группы",
+    "ICON_NAME": "Имя иконки",
+    "INDVIDUAL": "Пользователи",
+    "INVETATION_CLIPBOARD": "Приглашение скопировано в буфер обмена",
+    "JOB_POSITION": "Должность",
+    "JOIN": "Присоединиться",
+    "JUST_CURRENT": "Только текущюю",
+    "LINK": "Ссылка",
+    "LOCKED_USERS": "Отключенные аккаунты",
+    "LOG": "Лог конференций",
+    "MAKE_MODERATOR": "Сделать модератором",
+    "MAKE_USER": "Сделать обычным пользователем",
+    "MANAGER": "Руководитель",
+    "MEETINGID": "Идентификатор конференции",
+    "MESSAGE": "Сообщение",
+    "MOBLIE": "Мобильный номер",
+    "NAME": "Имя",
+    "NEXT": "Текущий и следующие",
+    "NOTE": "Заметка",
+    "NOTIFICATIONS": "Оповещения",
+    "OFFICE_PHONE": "Рабочий телефон",
+    "ORDER": "Порядковый номер",
+    "ORGANIZER": "Организатор",
+    "ORGANIZER_BY": "Организатор ",
+    "PASS_CODE": "Код доступа",
+    "PASSWORD": "Пароль",
+    "PARTICIPANTS_EMAIL": "Email",
+    "PARTICIPANTS_MOBILE": "Мобильный",
+    "PHONE": "Телефон",
+    "PARTICIPANTS": "Участники",
+    "PLZ_CHOOSE_PARTICIPANTS": "Пожалуйста выберите участников конференции",
+    "PREVIOUS": "Текущий и предыдущие",
+    "RECCURING": "Повтор",
+    "RECEIVER": "Получатель",
+    "RECORDING_DATE": "Дата записи",
+    "RECORDING_NAME": "Имя записи",
+    "RECORDING_LOG": "Записи конференций",
+    "RECORDING_PUBLIC_LINK": "Ссылка",
+    "RECORDING_SIZE": "Размер",
+    "REMEMBER": "Запоминить меня",
+    "RELATED_USER": "Related user",
+    "RELATED_USERS": "Related Users",
+    "REQ_RECORD": "Запись",
+    "RESEND_VERIFICATION_CODE": "Отправить код повторно",
+    "START_DATE": "Дата начала",
+    "START": "Начать",
+    "START_TIME": "Время начала",
+    "SINGLE_ACCESS": "Ограничить множественное подключение",
+    "TIME_FORMAT": "Формат времени",
+    "SEARCH": "Поиск",
+    "SECTION": "Секция",
+    "SENT": "Отправлено",
+    "SHARE_CONTACT": "Поделиться контактом",
+    "SHOW_EVENT": "Детали конференции",
+    "SUB_TOPIC": "Удлиненное название",
+    "SUBMIT": "Отправить",
+    "TEXT": "Текст",
+    "THIS_IS_RECURRING": "This is a Recurring Meeting. Please choose the meetings that should be changed.",
+    "TOPIC": "Название",
+    "TITLE": "Заголовок",
+    "TO": "До",
+    "TO_ADDRESS": "Адрес",
+    "TYPE": "Тип",
+    "USERCONFIRMED": "Email подтвержден",
+    "USERFULLNAME": "Полное имя",
+    "USERLOCKED": "Аккаунт активен",
+    "USERNAME": "Имя пользователя",
+    "USERROLE": "Роль пользователя",
+    "USER_BUSY": "Пользователь занят",
+    "USER_GROUP_NAME": "Название группы",
+    "USER_DECLINE": "Звонок отклонен",
+    "USER_GROUPS": "Группы пользователей",
+    "USERS_GROUPS": "Группы пользователей",
+    "USERS_GROUP_LIST": "Пользователи",
+    "VERIFICATION_CODE": "Код подтверждения",
+    "VIEW": "Все",
+    "VIEW_PARTICIPANTS": "Участники",
+    "WEBSITE": "Веб-сайт"
+  },
+  "MAIN": {
+    "RIGHTS": "Copyright © 2024 Confomeet. Все права защищены."
   },
   "PAGES": {
-    "SIGNIN": "Авторизация"
+    "SIGNIN": "Авторизация",
+    "DEFAULT": "Главная страница",
+    "SIGNUP": "Регистрация",
+    "JOIN": "Присоединиться к конференции",
+    "RESETPASSWORD": "Сброс пароля",
+    "FORGETPASSWORD": "Не помню пароль",
+    "APPVERSION": "Версия"
+  },
+  "RECORDING_STATUS_NAMES": {
+    "RECORDING": "Обрабатывается",
+    "UPLOADED": "Загружено в облако",
+    "UPLOADING_FAILED": "Ошибка"
+  },
+  "SIDE_BAR": {
+    "NOTIFICATIONS": "Notifications"
+  },
+  "RRule": {
+    "DAILY": "Каждый день",
+    "WEEKLY": "Каждую неделю",
+    "MONTHLY": "Каждый месяц",
+    "YEARLY": "Кадый год",
+    "MO": "По понедельникам",
+    "TU": "По вторникам",
+    "WE": "По средам",
+    "TH": "По четвергам",
+    "FR": "По пятницам",
+    "SA": "По субботам",
+    "SU": "По воскресеньям",
+    "FIRST": "Первый",
+    "SECOND": "Второй",
+    "THIRD": "Третий",
+    "FORTH": "Четвертый",
+    "FIFTH": "Пятый",
+    "UNTIL": "До",
+    "REPEAT_EVERY_X_DAYS": "Повтор/дни",
+    "REPEAT_EVERY_X_WEEKS": "Повтор/недели",
+    "REPEAT_EVERY_X_MONTHS": "Повтор/месяцы",
+    "REPEAT": "Повтор",
+    "RANK": "Rank"
   },
   "STATISTICS": {
     "EVENTS_BY_STATUS": {
@@ -23,11 +313,36 @@
       "AllMeetingsTime": "Общее время конференций, ч",
       "RecordedMeetingsNum": "Зписанные конференции",
       "AllMeetingsNum": "Всего конференций"
+    },
+    "USERS_BY_STATUS": {
+      "TITLE": "Статистика по количеству активных участников",
+      "MEETING_ID": "Идентификатор конференеции",
+      "TOPIC": "Название конференции",
+      "ONLINE_PARTICIPANTS": "Онлайн участники",
+      "ALL_PARTICIPANTS": "Запланированные участники"
+    },
+    "ACTIVE_ROOMS": {
+      "TITLE": "Active Rooms Statistics",
+      "MEETING_ID": "Идентификатор конференции",
+      "TOPIC": "Название конференции"
     }
+  },
+  "VALUE": {
+    "UNKNOWN": "Нет данных",
+    "NO_VALUE": "Нет данных"
   },
   "WARNING": {
     "EMAIL_FORMAT": "Неверный формат эл. почты",
     "EMAIL_REQUIRED": "Эл. почта не может быть пустой",
-    "PASSWORD_REQUIRED": "Пароль не может быть пустым"
+    "PASSWORD_REQUIRED": "Пароль не может быть пустым",
+    "REQUIRED": "Обязательно",
+    "EMAILFORMAT": "Email некорреткный",
+    "MATCHPASS": "Пароли не совпадает",
+    "NAMEREQUIRED": "Имя отсутсвует",
+    "INVALIDPHONE": "Некорректный телефон",
+    "PASSREQUIRMENTS": "Пароль должен содержать не менее 7 символов, разного регистра, спец символы и цифры",
+    "ADDPHONE": "Добавить телефон",
+    "INVALID_DOMAIN": "Адрес задан неверно",
+    "PORT_DECIMAL": "Порт задан неверно"
   }
 }

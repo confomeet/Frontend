@@ -154,22 +154,6 @@
     "mobile": "Mobile No.",
     "office": "Office No."
   },
-  "SMART_VISIT": {
-    "CASE_RELATION": "The applicant's relationship with the prisoner (general):",
-    "CASE_SHORT_DESC": "Brief description of the issue:",
-    "EMAIL": "The customer's email (the applicant):",
-    "EVENT_STATUS_DESC": "case status:",
-    "FULL_NAME": "Name of the customer (the applicant):",
-    "PARTY_NAME": "Name of the prisoner (inmate):",
-    "PRC_UNIT_DESC": "Case attorney:",
-    "PRISON_DESC": "Name of the prison (establishment):",
-    "RELASHIONSHIP_DESC": "The applicant's relationship with the prisoner (detailed):",
-    "REQ_NAME": "Service name:",
-    "REQ_STATUS_DESC": "Application status:",
-    "VISIT_PURPOSE_DESC": "the purpose from the visit:",
-    "VISIT_DATE": "The date of the visit specified by the customer:   ",
-    "VIEW_VISIT_DATE": "Visit date"
-  },
   "FULL_TABLE": {
     "BODY": {
       "NO_MATCH": "Sorry, no matching records found",
@@ -203,13 +187,6 @@
       "DELETE": "Delete",
       "DELETE_S": "Delete Selected Rows"
     }
-  },
-  "CABINE": {
-    "email": "Cabinet Email",
-    "password": "Cabinet Password",
-    "phoneNumber": "Cabinet Phone Number",
-    "fullName": "Cabinet Full Name",
-    "ADD": "Add Cabinet  "
   },
   "BUTTONS": {
     "SWITCH_LANG": "Switch Language",

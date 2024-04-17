@@ -252,7 +252,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
               {props.detailsToggle && (
                 <Box className="buttonBox" item xs={6}>
                   <ToolTip
-                    title={Object.translate("FULL_SENTENCE.EDIT_DETAILS")}
+                    title={Object.translate("BUTTONS.SAVE")}
                     placement="top"
                   >
                     <Button

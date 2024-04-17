@@ -11,7 +11,7 @@ export const smtpInitialValues = {
 
 export const getSmtpValidationSchema = () =>
   Yup.object({
-    displayName: Yup.string().required(Object.translate("LABEL.AR_REQUIRED")),
+    displayName: Yup.string().required(Object.translate("WARNING.NAMEREQUIRED")),
     email: Yup.string()
       .email(Object.translate("WARNING.EMAILFORMAT"))
       .required(Object.translate("WARNING.REQUIRED")),
