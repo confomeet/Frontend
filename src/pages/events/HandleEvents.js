@@ -16,22 +16,17 @@ import {
   InputLabel,
   Typography,
 } from "components/muiComponents";
-import { pagination } from "components/shared/utils";
-import TimeZone from "components/timeZoneSelect";
-import timezones from "components/timeZoneSelect/timezones";
 import { Formik } from "formik";
 import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import actions from "redux/actions";
 import {
-  addMinutes,
   calculateNextThirtyMin,
   checkFullDate,
-  handleDateTimeChange,
   handleNotification,
   isEmail,
 } from "redux/network/functions";
-import { generateDatesByRRlu } from "utils";
+import { generateDatesByRRlu, getCurrentTimeZoneDate, getManualISOString } from "utils";
 import PrimaryButton from "videoComponents/buttonsGeneral/PrimaryButton";
 import SecondaryButton from "videoComponents/buttonsGeneral/SecondaryButton";
 import PageSubHeading from "videoComponents/typographyGeneral/PageSubHeading";
@@ -55,6 +50,65 @@ const {
   deleteParticipantDone,
   setSubHeader,
 } = actions;
+
+
+function addMinutesToDate (m, date) {
+  var newDate = new Date(date.getTime());
+
+  newDate.setMinutes(newDate.getMinutes() + parseInt(m));
+  return newDate;
+};
+
+function handleDateTimeChange(newStartDateStr, eventDateTimes, type) {
+  const newLocalStartDate = new Date(newStartDateStr);
+  const prevLocalStartDate = new Date(eventDateTimes.startDate + 'T' + eventDateTimes.startTime);
+  const shiftInMillis = newLocalStartDate - prevLocalStartDate;
+  const prevLocalEndDate = new Date(eventDateTimes.endDate + 'T' + eventDateTimes.endTime);
+  const shiftedEndDate = new Date(prevLocalEndDate.getTime() + shiftInMillis);
+
+  let endDate = null;
+  if (type)
+    endDate = shiftedEndDate;
+  else
+    endDate = addMinutesToDate(30, newLocalStartDate);
+  return {
+    startDate: handleSeparateDate(newLocalStartDate),
+    endDate: handleSeparateDate(endDate),
+    startTime: handleSeparteTime(newLocalStartDate),
+    endTime: handleSeparteTime(endDate),
+  };
+};
+
+function padTo2Digits(num) {
+  return num.toString().padStart(2, "0");
+};
+
+function handleSeparateDate(date) {
+  return (
+    date.getFullYear() +
+    "-" +
+    padTo2Digits(date.getMonth() + 1) +
+    "-" +
+    padTo2Digits(date.getDate())
+  );
+};
+
+function handleSeparteTime(date) {
+  return padTo2Digits(date.getHours()) + ":" + padTo2Digits(date.getMinutes());
+};
+
+function addMinutes(m, time) {
+  const splitTime = time.split(":");
+
+  var newDate = new Date();
+
+  newDate.setHours(splitTime[0]);
+  newDate.setMinutes(parseInt(splitTime[1]) + parseInt(m));
+  return (
+    padTo2Digits(newDate.getHours()) + ":" + padTo2Digits(newDate.getMinutes())
+  );
+};
+
 
 const getInitialParticipantes = (participants) => {
   if (!participants || !Array.isArray(participants)) return participants;
@@ -110,23 +164,15 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
       return fromCalendarInit;
     }
     if (!selectedObj) return init;
-    let { selectedEventParent, ...rest } = selectedObj;
-    if (!Object.isObjectEmpty(rest)) {
+    // Dto coming frome server has date and time in ISO format with UTC timezone.
+    const localStartDateTimeIso = getManualISOString(new Date(selectedObj.startDate));
+    const localEndDateTimeIso = getManualISOString(new Date(selectedObj.endDate));
+    if (!Object.isObjectEmpty(selectedObj)) {
       init = {
-        startDate: rest.startDate?.split("T")[0],
-        startTime: rest.startDate?.split("T")[1].substring(0, 5),
-        endTime: rest.endDate?.split("T")[1].substring(0, 5),
-        endDate: rest.endDate?.split("T")[0],
-      };
-    } else if (
-      selectedObj.selectedEventParent &&
-      !Object.isObjectEmpty(selectedEventParent)
-    ) {
-      init = {
-        startDate: selectedEventParent.startDate?.split("T")[0],
-        startTime: selectedEventParent.startDate?.split("T")[1].substring(0, 5),
-        endTime: selectedEventParent.endDate?.split("T")[1].substring(0, 5),
-        endDate: selectedEventParent.endDate?.split("T")[0],
+        startDate: localStartDateTimeIso.split("T")[0],
+        startTime: localStartDateTimeIso.split("T")[1],
+        endTime: localEndDateTimeIso.split("T")[1],
+        endDate: localEndDateTimeIso.split("T")[0],
       };
     }
     return init;
@@ -156,19 +202,13 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
   const [participants, setParticipants] = useState(
     getInitialParticipantes(selectedObj?.participants || [])
   );
-  const [selectedTimezone, setSelectedTimezone] = useState(
-    selectedObj?.timeZone || window.currentZone
-  );
   const [value, setValue] = useState("");
+
+  // eventDateTimes contains local date and times in string format, like this: 2024-04-17T21:13:00
   const [eventDateTimes, setEventDateTimes] = useState({
     ...getInitEventDateTimes(selectedObj),
   });
-  const [formErrors, setFormErrors] = useState({
-    startTime: null,
-    endTime: null,
-    startDate: null,
-    endDate: null,
-  });
+
   const [participantsError, setParticipantsError] = useState("");
   const [datePickerValidation, setDatePickerValidation] = useState({
     startMinDate: undefined,
@@ -292,6 +332,31 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
       });
     })();
   }, [selectedObj, eventDateTimes]);
+
+  const formErrors = (() => {
+    const isValidSTartDate = checkFullDate(
+      eventDateTimes.startDate + "T" + eventDateTimes.startTime + ":00.000Z",
+      selectedObj?.startDate || null
+    );
+    const isValidEndDate = checkFullDate(
+      eventDateTimes.endDate + "T" + eventDateTimes.endTime + ":00.000Z",
+      eventDateTimes.startDate + "T" + eventDateTimes.startTime + ":00.000Z"
+    );
+    return {
+      startDate: isValidSTartDate.date
+        ? null
+        : Object.translate("ERROR.DATE.START"),
+      startTime:
+        isValidSTartDate.time
+          ? null
+          : Object.translate("ERROR.TIME.START"),
+      endDate: isValidEndDate.date ? null : Object.translate("ERROR.DATE.END"),
+      endTime:
+        isValidEndDate.time
+          ? null
+          : Object.translate("ERROR.TIME.END"),
+    };
+  })();
 
   const constructFullDate = (date, time) => new Date (`${date}T${time}:00`).toISOString();
 
@@ -469,36 +534,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     setReccurring((prevState) => ({ ...prevState, rRule }));
 
   useEffect(() => {
-    const isValidSTartDate = checkFullDate(
-      eventDateTimes.startDate + "T" + eventDateTimes.startTime + ":00.000Z",
-      selectedObj?.startDate || null
-    );
-    const isValidEndDate = checkFullDate(
-      eventDateTimes.endDate + "T" + eventDateTimes.endTime + ":00.000Z",
-      eventDateTimes.startDate + "T" + eventDateTimes.startTime + ":00.000Z"
-    );
-    setFormErrors({
-      startDate: isValidSTartDate.date
-        ? null
-        : Object.translate("ERROR.DATE.START"),
-      startTime:
-        isValidSTartDate.time
-          ? null
-          : Object.translate("ERROR.TIME.START"),
-      endDate: isValidEndDate.date ? null : Object.translate("ERROR.DATE.END"),
-      endTime:
-        isValidEndDate.time
-          ? null
-          : Object.translate("ERROR.TIME.END"),
-    });
-  }, [
-    eventDateTimes.startDate,
-    eventDateTimes.endDate,
-    eventDateTimes.endTime,
-    eventDateTimes.startTime,
-  ]);
-
-  useEffect(() => {
     if (!meetings.createNewMeetingDone) return;
     window.dispatch(createNewMeetingDone({ data: false }));
   }, [meetings.createNewMeetingDone]);
@@ -515,8 +550,8 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     if (!startDate) return;
     if (!startTime) return;
     const newDate = handleDateTimeChange(
-      startDate + "T" + startTime + ":00.000Z",
-      selectedObj,
+      startDate + "T" + startTime,
+      eventDateTimes,
       props.editToggle
     );
     setEventDateTimes(newDate);
