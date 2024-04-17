@@ -5,7 +5,6 @@ import ContactsCard from "components/contactsCard/ContactsCard";
 import clsx from "clsx";
 import { contactsStyles } from "./style";
 import ContactsHeader from "./ContactsHeader";
-import { initCall } from "redux/signalR/eventsHandlers/Outgoing";
 import HandleContact from "./HandleContact";
 import { DisplayType as ContactsDisplayType } from "constantData";
 import ContactsTable from "./ContactsTable";
@@ -24,7 +23,6 @@ const {
   editContact,
   deleteContact,
   setSubHeader,
-  setDirectPopupData,
   getContactById,
   getContactByIdDone,
   getUserById,
@@ -156,25 +154,7 @@ export default function MyContacts() {
   }, 3000);
 
   const goToMeeting = (props) => {
-    initCall({
-      recieverId: `${props.contactId}`,
-      status: 1,
-    });
-
-    window.dispatch(
-      setDirectPopupData({
-        data: {
-          isSender: true,
-          open: true,
-          title: "",
-          body: "",
-          senderName: props?.name,
-          senderId: props?.id,
-          status: null,
-          contactId: props?.contactId,
-        },
-      })
-    );
+    console.error("Direct call is currently not suported");
   };
   const handleGetUserById = async (id) => {
     window.dispatch(getUserById({ id }));

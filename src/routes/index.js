@@ -9,7 +9,6 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import actions from "redux/actions";
-import { connectSignalR } from "redux/signalR";
 import { Box } from "../components/muiComponents";
 import Spinner from "../components/shared/Spinner";
 import AppVersion from "../pages/appVersion/index";
@@ -23,7 +22,6 @@ import { coloredTheme, darkTheme } from "../styles/globalTheme/theme";
 import WelcomePage from "./welcomePage";
 import Panel from "./panel/Panel";
 import Login from "pages/user/Login";
-import { disconnect } from "redux/signalR/Connection";
 const { getCountries, setHeaderPageTitle } = actions;
 
 const RestrictedRoute = ({ authUser, Component }) =>
@@ -66,13 +64,6 @@ const Index = () => {
   useEffect(() => {
     window.dispatch(getCountries());
   }, []);
-
-  useEffect(() => {
-    // if (authUser)
-    //   (async () => await connectSignalR(authUser))();
-    // else
-    //   (async () => await disconnect())();
-  }, [authUser]);
 
   useEffect(() => {
     const pageTitle = getCurrentPageTitle(location.pathname);

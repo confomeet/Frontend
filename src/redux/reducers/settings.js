@@ -27,7 +27,6 @@ if (authUser) authUser = JSON.parse(authUser);
 const appLang = window.getAppLang();
 
 const initialState = {
-  directPopup: {},
   subHeader: null,
   link: null,
   partyId: null,
@@ -57,12 +56,6 @@ const initialState = {
 
 const settings = (state = initialState, action) => {
   switch (action.type) {
-    case ACTION_TYPES.SET_DIRECT_POPUP_DATA:
-      return {
-        ...state,
-        directPopup: { ...state.directPopup, ...action.data },
-      };
-
     case ACTION_TYPES.SET_SUB_HEADER:
       return {
         ...state,
