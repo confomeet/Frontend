@@ -42,7 +42,7 @@ function WelcomePage() {
                   </Typography>
                   <div className="button-shape"></div>
                 </Link>
-                <Link to="/join">
+                {/* <Link to="/join">
                   <Typography
                     variant="h2"
                     className="button-text"
@@ -50,7 +50,7 @@ function WelcomePage() {
                     {Object.translate("BUTTONS.JOIN")}
                   </Typography>
                   <div className="button-shape"></div>
-                </Link>
+                </Link> */}
               </Box>
             </Container>
             </Box>
