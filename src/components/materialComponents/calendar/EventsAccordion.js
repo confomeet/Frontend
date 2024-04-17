@@ -7,7 +7,7 @@ import { handleNotification } from "redux/network/functions";
 import { getPotentialParticipants } from "utils";
 import calendarStyle from "./style";
 
-export function EventDetails({
+function EventDetails({
   data = {},
   dataArr,
   parentEvent,
