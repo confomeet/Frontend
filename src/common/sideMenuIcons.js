@@ -10,7 +10,6 @@ import {
 
 const sidebarIcons = {
   MY_EVENTS_ICON: <CameraVideoFill />,
-  CONTACTS_ICON: <ImUsers />,
   USERS_ICON: <TiGroup />,
   NOTIFICATIONS_ICON: <MdNotificationsActive />,
   SIDE_MENU_SETTINGS_ICON: <Menu />,

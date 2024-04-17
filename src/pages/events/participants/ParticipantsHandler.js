@@ -42,18 +42,6 @@ const ParticipantsHandler = (props) => {
       handleNewParticipant(toBeAdded);
     }
   };
-  const handleChooseContact = (obj) => {
-    if (!obj) return;
-    if (!props.isValidEmail(obj?.email)) return;
-    const newObj = { ...obj };
-    delete newObj.id;
-    props.setParticipants((prevArr) => [
-      ...prevArr,
-      { ...newObj, isModerator: false, shouldSend: true },
-    ]);
-    props.setValue("");
-    props.setParticipantsError(null);
-  };
 
   const handleDeleteParticipant = (p, idx) => {
     if (!p.id)
@@ -71,8 +59,6 @@ const ParticipantsHandler = (props) => {
       textFieldOnChange={handleChange}
       textFieldOnKeyDown={handleKeyDown}
       textFieldOnPaste={handlePaste}
-      myContacts={props.myContacts}
-      handleChooseContact={handleChooseContact}
       participants={props.participants}
       setParticipants={props.setParticipants}
       handleDeleteParticipant={handleDeleteParticipant}

@@ -8,7 +8,6 @@ import notifications from "./groups/notifications";
 import loading from "./groups/loading";
 import meetings from "./groups/meetings";
 import alert from "./groups/alert";
-import contacts from "./groups/contacts";
 import tabs from "./groups/tabs";
 import statistics from "./groups/statistics";
 
@@ -22,7 +21,6 @@ const rootReducer = (history) =>
     common,
     alert,
     notifications,
-    contacts,
     tabs,
     statistics,
     usersgroups,

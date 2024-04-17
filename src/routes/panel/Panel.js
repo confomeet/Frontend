@@ -7,7 +7,6 @@ import UsersTable from "pages/UsersManagement/Users/Users";
 import UsersGroupsProvider from "pages/UsersManagement/usersGroups";
 import Notifications from "pages/UsersManagement/Notifications/Notifications";
 import Events from "pages/events";
-import MyContacts from "pages/contacts/MyContacts";
 import TabsSettings from "pages/tabs/TabsSettings";
 import { Box, Container } from "@mui/material";
 import PersonalProfile from "pages/UsersManagement/PersonalProfile/PersonalProfile";
@@ -53,7 +52,6 @@ export default function Panel() {
             />
             <Route path={`events`} element={<Events allEvents={false} />} />
             <Route path={`allEvents`} element={<Events allEvents={true} />} />
-            <Route path="contacts" element={<MyContacts />} />
             <Route path="tabs" element={<TabsSettings />} />
             <Route path="statistics" element={<Statistics />} />
             <Route path="personalProfile" element={<PersonalProfile />} />

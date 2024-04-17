@@ -31,7 +31,6 @@ import { eventsStyles } from "./style";
 import PrimaryButton from "videoComponents/buttonsGeneral/PrimaryButton";
 
 const {
-  getMyContacts,
   getRelatedUsers,
   joinMeetingDone,
   searchEvents,
@@ -119,20 +118,6 @@ export default function MyMeetings(props) {
     setSelectedEvents(show ? events : []);
     if (view !== EventsDisplayType.participants)
       setView(EventsDisplayType.participants);
-  };
-
-  const handleGetMyContacts = async (
-    payload = {
-      text: null,
-      name: null,
-      email: null,
-      pageIndex: 1,
-      pageSize: 100,
-      tabId: 0,
-    }
-  ) => {
-    let body = payload;
-    window.dispatch(getMyContacts({ body }));
   };
 
   const handleSearchParamsChange = (key, value) =>
@@ -417,15 +402,6 @@ export default function MyMeetings(props) {
     });
     return Object.keys(main).map((key) => main[key]);
   };
-
-  useEffect(() => {
-    (async () => {
-      if (addToggle || addParticipantsToggle || editToggle || detailsToggle)
-        return;
-      handleGetMyContacts();
-      window.dispatch(getRelatedUsers({ handleSearch }));
-    })();
-  });
 
   useEffect(() => {
     if (addToggle || editToggle || detailsToggle) return;

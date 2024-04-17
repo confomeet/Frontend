@@ -8,12 +8,6 @@ export const sidebar = [
     icon: <CameraVideoFill />,
   },
   {
-    id: 3,
-    heading: `SIDE_BAR.MY_CONTACTS`,
-    link: "/panel/contacts",
-    icon: <TiGroup />,
-  },
-  {
     id: 5,
     heading: `SIDE_BAR.USERS`,
     link: "/panel/users",

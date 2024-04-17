@@ -3,7 +3,6 @@ import * as users from "./groups/users";
 import * as meetings from "./groups/meetings";
 import * as common from "./groups/common";
 import * as notifications from "./groups/notifications";
-import * as contacts from "./groups/contacts";
 import * as tabs from "./groups/tabs";
 import * as statistics from "./groups/statistics";
 import * as usersgroups from "./groups/usersgroups";
@@ -12,7 +11,6 @@ const sagas = Object.values({
   ...meetings,
   ...common,
   ...notifications,
-  ...contacts,
   ...tabs,
   ...statistics,
   ...usersgroups,

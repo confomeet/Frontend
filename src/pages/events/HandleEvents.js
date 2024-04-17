@@ -194,7 +194,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
   const [singleAccess, setSingleAccess] = useState(
     selectedObj?.singleAccess || false
   );
-  const [myContacts, setMyContacts] = useState([]);
   const [participants, setParticipants] = useState(
     getInitialParticipantes(selectedObj?.participants || [])
   );
@@ -509,18 +508,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     return !error;
   };
 
-  const updateParticipants = () => {
-    let updatedParticipants = [...participants];
-    for (let contact of myContacts) {
-      delete contact.id;
-      updatedParticipants = updatedParticipants.map((p) =>
-        p.email === contact.email ? { ...p, ...contact } : p
-      );
-    }
-
-    setParticipants(updatedParticipants);
-  };
-
   const handleRRuleChange = (rRule) =>
     setReccurring((prevState) => ({ ...prevState, rRule }));
 
@@ -564,29 +551,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
       }));
     }
   }, [eventDateTimes.endTime]);
-
-  useEffect(() => {
-    if (!Array.isArray(contacts.getMyContactsComplete.items)) {
-      setMyContacts([]);
-      return;
-    }
-    setMyContacts(
-      contacts.getMyContactsComplete.items.map((c) => {
-        let singleContact = {
-          ...c,
-          mainText: c.displayName,
-          subText: c.email,
-          subText2: c.mobile,
-        };
-        delete singleContact.userId;
-        return singleContact;
-      }) || []
-    );
-  }, [contacts.getMyContactsComplete]);
-
-  useEffect(() => {
-    updateParticipants();
-  }, [myContacts]);
 
   useEffect(() => {
     if (Object.isObjectEmpty(meetings.deleteParticipantComplete)) return;
@@ -941,7 +905,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                     textFieldOnChange={handleChange}
                     textFieldOnKeyDown={handleKeyDown}
                     textFieldOnPaste={handlePaste}
-                    myContacts={myContacts}
                     handleChooseContact={handleChooseContact}
                     participants={participants}
                     setParticipants={setParticipants}
