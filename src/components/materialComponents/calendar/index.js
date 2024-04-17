@@ -42,7 +42,6 @@ const AppointmentTag = ({ data }) => {
             : calendarClasses.statusBox
         }
       >
-        <span className={calendarClasses.isStart}>{data.orderNo}</span>
         <span className={calendarClasses.isTopic}> {data.topic}</span>
         <br />
       </Box>
@@ -54,9 +53,6 @@ const AppointmentTag = ({ data }) => {
         <span className={calendarClasses.isTopic}>{data.topic}</span>
       </Box>
     );
-
-  if (data.isStart && data.isEnd)
-    return <Box className={calendarClasses.maxWidth}></Box>;
 
   if (data.isChunck && data.topic)
     return (
@@ -130,9 +126,6 @@ function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
                 <span className={calendarClasses.isTopic}>{data.topic}</span>
               </Box>
             )}
-            {data.isStart && data.isEnd && (
-              <Box className={calendarClasses.maxWidth}></Box>
-            )}
             {data.isChunck && data.topic && (
               <Box className={calendarClasses.ChunckBoxBg}>
                 <span className={calendarClasses.isTopic}>{data.topic}</span>
@@ -153,9 +146,9 @@ function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
 
       case "CALENDAR.MONTH":
         return (
-          <Box className={calendarClasses.AppointmentContentBox}>
+          <Box>
             <Appointments.AppointmentContent {...restProps}>
-              {data.isStart && data.subEventCount === 0 && data.topic && (
+              {data.isStart && data.topic && (
                 <Box
                   className={
                     data.isEnd
@@ -166,21 +159,13 @@ function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
-              {data.subEventCount > 0 && data.topic && (
-                <Box className={calendarClasses.statusBoxCircul}>
-                  <span className={calendarClasses.isTopic}>{data.topic}</span>
-                </Box>
-              )}
-              {data.isStart && data.isEnd && (
-                <Box className={calendarClasses.maxWidth}></Box>
-              )}
               {data.isChunck && data.topic && (
                 <Box className={calendarClasses.ChunckBoxBg}>
                   <span className={calendarClasses.isTopic}>{data.topic}</span>
                 </Box>
               )}
               {data.eventsGroup && (
-                <Box className={calendarClasses.eventsGroup}>
+                <Box className={calendarClasses.statusBoxCircul}>
                   <span> {data.topic}</span>
                 </Box>
               )}
@@ -194,6 +179,7 @@ function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
   };
 
   const Content = (data) => {
+    console.log("rendering Content " + JSON.stringify(data));
     if (!data) return null;
     if (isSmallScreen) return null;
 

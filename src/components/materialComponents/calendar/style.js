@@ -29,7 +29,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
         height: "50px!important",
       },
     },
-    "& .Cell-cell": {},
     "& .MuiTypography-subtitle ": {
       fontSize: theme.globals.fontSize.xs,
       whiteSpace: "nowrap",
@@ -254,9 +253,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
       bottom: 0,
     },
   },
-  cardIcons: {
-    display: "flex",
-  },
   reminderBox: {
     "& svg": {
       backgroundColor: "transparent!important",
@@ -327,34 +323,10 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
       display: "none",
     },
   },
-  AppointmentContentBox: {},
-  isStart: {
-    border: "1px solid ",
-    borderColor: `${theme.palette.primary.main}!important`,
-    borderRadius: "50%",
-    padding: "0 6px",
-    width: "22px",
-    height: "22px",
-    margin: "0 10px 0 0px",
-  },
-  isStartorderNo: {
-    borderRadius: "50%",
-    padding: "0 6px",
-
-    width: "22px",
-    height: "22px",
-    margin: "0 10px 0 0px",
-  },
   isTopic: {
     overflow: "hidden",
     textOverflow: "ellipsis",
     fontSize: "12px",
-  },
-  isTopicChunckBoxBg: {
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    fontSize: "12px",
-    backgroundColor: "#b7d4f7",
   },
   statusBox: {
     display: "flex",
@@ -368,25 +340,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
     backgroundColor: "#F5F6FA",
     borderRadius: "20px 0 0 20px",
   },
-  isChunckStartBox: {
-    display: "flex",
-    height: "24px",
-    alignItems: "center",
-    padding: "2px 5px 2px 0",
-    width: "100%",
-    marginRight: "auto",
-    marginLeft: "auto",
-    marginBottom: "5px",
-    borderRadius: "20px 0 0 20px",
-    backgroundColor: "#f7f0e9",
-    "& .fad": {
-      minWidth: "8px",
-      height: "8px",
-      borderRadius: "50%",
-      backgroundColor: `${theme.palette.primary.main}!important`,
-      margin: "0 8px",
-    },
-  },
   statusBoxCircul: {
     display: "flex",
     height: "20px",
@@ -398,20 +351,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
     marginBottom: "5px!important",
     backgroundColor: "#F5F6FA",
     borderRadius: "20px",
-    "& .fad": {
-      minWidth: "8px",
-      height: "8px",
-      borderRadius: "50%",
-      backgroundColor: `${theme.palette.primary.main}!important`,
-      margin: "0 8px",
-    },
-  },
-  isEnd: {
-    borderLeft: "3px solid",
-    borderColor: `${theme.palette.primary.main}!important`,
-  },
-  isChunck: {
-    backgroundColor: `${theme.palette.primary.main}!important`,
   },
   isChunckBox: {
     backgroundColor: "#f7f0e9",
@@ -441,23 +380,6 @@ const calendarStyle = makeStyles((theme, isRTL) => ({
     border: "1px solid !important",
     borderColor: `${theme.palette.primary.main}!important`,
     width: "100%",
-  },
-  AppointmentContent: {
-    display: "flex",
-    justifyContent: "'space-between',",
-    alignItems: "center",
-    flexDirection: "column",
-  },
-  maxWidth: {
-    backgroundColor: "green!important",
-  },
-  FlagBox: {
-    display: "flex",
-    justifyContent: "space-between!important",
-    alignItems: "center",
-    width: "70%",
-    margin: "auto",
-    borderRadius: "10px",
   },
 }));
 export default calendarStyle;
