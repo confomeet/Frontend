@@ -395,11 +395,15 @@ function Calendar(props) {
         <Toolbar />
         <DateNavigator />
       </Scheduler>
-      <EventsAccordion
+
+      {/* Show list of events below the calendar on view port with width < 600px */}
+      {isSmallScreen && Object.isFullArray(selectedDateEvents) && <EventsAccordion
         events={selectedDateEvents}
         isSmallScreen={isSmallScreen}
         {...props}
       />
+      }
+      {/* Add a scroll anchor */}
       <div id="events-accordion" />
     </Paper>
   );
