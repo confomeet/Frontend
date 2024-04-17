@@ -2,9 +2,8 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { Grid, TextField } from "components/muiComponents";
-import arSaLocale from "date-fns/locale/ar-SA";
 import enLocale from "date-fns/locale/en-US";
-import { useSelector } from "react-redux";
+import ruLocale from "date-fns/locale/ru";
 import { useStyles } from "./style";
 
 const DateTimePickerField = ({ ...props }) => {
@@ -14,7 +13,7 @@ const DateTimePickerField = ({ ...props }) => {
     <Grid className={classes.rootMainCalender}>
       <LocalizationProvider
         dateAdapter={AdapterDateFns}
-        adapterLocale={window.navigator.language}
+        adapterLocale={window.navigator.language.match("en") ? enLocale : ruLocale}
       >
         <DatePicker
           format={inputFormat}
