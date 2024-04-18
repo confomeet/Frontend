@@ -122,7 +122,7 @@ const PersonalProfile = () => {
   useEffect(() => {
     window.dispatch(fetchAllRoles());
     window.dispatchWantedAction("GET_PROFILE_INFO");
-  });
+  }, [authUser]);
 
   const HandleUserProps = () => ({
     initialValues,
