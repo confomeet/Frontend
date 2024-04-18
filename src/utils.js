@@ -345,7 +345,6 @@ export const handleCode401 = async () => {
   await sessionStorage.removeItem("OTP_INFO");
   window.location.reload();
 };
-export const handleCode403 = () => {};
 
 export const joinByMeetingLink = ({ link, shouldSignout, shouldRedirect }) => {
   if (shouldSignout) window.dispatch(clearAuthUser());

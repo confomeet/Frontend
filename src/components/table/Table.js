@@ -539,7 +539,6 @@ export default function FullTabel(props) {
     });
 
   const classes = useStyles();
-  const lang = window.getAppLang();
   const options = {
     rowsPerPage: props.rowsPerPage || 10,
     page: props.pagination && props.page,

@@ -356,6 +356,7 @@
     "ADDPHONE": "Добавить телефон",
     "INVALID_DOMAIN": "Адрес задан неверно",
     "PORT_DECIMAL": "Порт задан неверно",
-    "VERIFICATION_CODE_REQUIRED": "Не указан код подтверждения"
+    "VERIFICATION_CODE_REQUIRED": "Не указан код подтверждения",
+    "NOT_ENOUGH_PERMISSIONS": "Недостаточно прав для выполнения операции"
   }
 }

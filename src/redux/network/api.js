@@ -3,6 +3,7 @@ import {
   getErrorMsgFromException,
   handleApiFinalResult,
   getFullURL,
+  handleCode403
 } from "./functions";
 import axios from "axios";
 import { handleCode401 } from "utils";
@@ -32,6 +33,7 @@ const fetchData = async ({
   return fetch(url, { method: "GET", headers })
     .then((res) => {
       if (res.status === 401) return handleCode401();
+      if (res.status === 403) return handleCode403();
       return res.json();
     })
     .then(async (res) => {
@@ -106,6 +108,7 @@ const postData = async ({
   })
     .then((res) => {
       if (res.status === 401) return handleCode401();
+      if (res.status === 403) return handleCode403();
       return res.json();
     })
     .then(async (res) => {
@@ -181,6 +184,7 @@ const putData = async ({
   })
     .then((res) => {
       if (res.status === 401) return handleCode401();
+      if (res.status === 403) return handleCode403();
       return res.json();
     })
     .then(async (res) => {
@@ -251,6 +255,7 @@ const deleteData = async ({
   })
     .then((res) => {
       if (res.status === 401) return handleCode401();
+      if (res.status === 403) return handleCode403();
       return res.json();
     })
     .then(async (res) => {
@@ -369,6 +374,7 @@ const fetchBinaryData = async ({
   return fetch(url, { method: method ? method : "GET", headers })
     .then((res) => {
       if (res.status === 401) return handleCode401();
+      if (res.status === 403) return handleCode403();
       return res.blob();
     })
     .then(async (blob) => {

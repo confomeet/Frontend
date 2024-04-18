@@ -463,7 +463,8 @@
     "PORT_DECIMAL": "Port should not be decimal number",
     "PASSWORD_REQUIRED": "Password is required",
     "EMAIL_REQUIRED": "Email is required",
-    "VERIFICATION_CODE_REQUIRED": "Verification code is required"
+    "VERIFICATION_CODE_REQUIRED": "Verification code is required",
+    "NOT_ENOUGH_PERMISSIONS": "Not enough permissions to complete operation"
   },
   "FILTER": {
     "ALL": "All",

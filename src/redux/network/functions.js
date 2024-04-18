@@ -244,3 +244,11 @@ export const convertToFile = (obj) => {
     id: obj?.id,
   });
 };
+
+export const handleCode403 = async () => {
+  console.log("Not enough permission to perform a query");
+  handleNotification({
+    message: Object.translate("WARNING.NOT_ENOUGH_PERMISSIONS"),
+    success: false,
+  });
+};
