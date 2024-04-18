@@ -43,7 +43,6 @@ import { eventsStyles } from "./style";
 
 const {
   createNewMeeting,
-  createNewMeetingDone,
   editEvent,
   editEventDone,
   deleteParticipant,
@@ -515,11 +514,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
 
   const handleRRuleChange = (rRule) =>
     setReccurring((prevState) => ({ ...prevState, rRule }));
-
-  useEffect(() => {
-    if (!meetings.createNewMeetingDone) return;
-    window.dispatch(createNewMeetingDone({ data: false }));
-  }, [meetings.createNewMeetingDone]);
 
   useEffect(() => {
     if (!meetings.editExistingEventDone) return;

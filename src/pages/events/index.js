@@ -100,7 +100,6 @@ export default function MyMeetings(props) {
   const [expandArrows, setExpandArrows] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState(getStatusFilters()[0]);
   const [selectedFilterIdx, setSelectedFilterIdx] = useState(0);
-  const [meetingColor, setMeetingColor] = useState("unavailableMeetings");
   const [cancelEventNote, setCancelEventNote] = useState("");
   const [loaderPhrase, setLoaderPhrase] = useState(false);
   const [calendarCellClickData, setCalendarCellClickData] = useState({});
@@ -440,7 +439,6 @@ export default function MyMeetings(props) {
     expandArrows,
     selectedFilter,
     selectedFilterIdx,
-    meetingColor,
   ]);
 
   useEffect(() => {
@@ -522,23 +520,6 @@ export default function MyMeetings(props) {
         displyList: adjustedDisplayList,
         selectedId: meetings.getEventDetailsDone?.id,
       }));
-    }
-    switch (meetings?.getEventDetailsDone?.meetingStatus?.status) {
-      case 0:
-        setMeetingColor("unavailableMeetings");
-        break;
-      case 1:
-        setMeetingColor("liveMeetings");
-        break;
-      case 2:
-        setMeetingColor("finishedMeetings");
-        break;
-      case 3:
-        setMeetingColor("incomingMeetings");
-        break;
-
-      default:
-        break;
     }
   }, [meetings.getEventDetailsDone]);
 
@@ -692,7 +673,6 @@ export default function MyMeetings(props) {
     setSelectedFilter,
     selectedFilterIdx,
     setSelectedFilterIdx,
-    meetingColor,
     handleCancelEventPopUp,
     loaderPhrase,
     calendarCellClickData,
