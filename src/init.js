@@ -25,7 +25,13 @@ import {
 window.domain = process.env.PUBLIC_URL;
 window.scrollIntoRef = scrollIntoRef;
 window.officialLogo = confomeetLogo;
-window.defualtLang = "ru";
+window.defualtLang = (() => {
+  const lang = navigator.language || navigator.userLanguage;
+  if (lang.match('ru'))
+    return 'ru';
+  else
+    return 'en';
+})();
 
 window.currentZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 window.getAppLang = getAppLang;
