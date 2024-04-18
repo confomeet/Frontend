@@ -247,7 +247,7 @@
     "TYPE": "Тип",
     "USERCONFIRMED": "Email подтвержден",
     "USERFULLNAME": "Полное имя",
-    "USERLOCKED": "Аккаунт активен",
+    "USERLOCKED": "Аккаунт отключен",
     "USERNAME": "Имя пользователя",
     "USERROLE": "Роль пользователя",
     "USER_BUSY": "Пользователь занят",
@@ -277,7 +277,9 @@
       "ALLNOTIFICATIONS": "Все оповещения",
       "EVENTS": "Мои конференции",
       "ALLEVENTS": "Все конференции",
-      "STATISTICS": "Статистика"
+      "STATISTICS": "Статистика",
+      "TABS": "Вкладки",
+      "SMTP": "SMTP"
     }
   },
   "RECORDING_STATUS_NAMES": {
