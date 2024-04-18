@@ -87,7 +87,8 @@
     "CHOSE_COMPANY_FIRST": "Сначала выберите компанию",
     "TYPE_TO_SEARCH": "Начните печтать для появления подсказки",
     "EDIT_DETAILS": "Изменение параметров конференции",
-    "VIEW_DETAILS": "Просмотр параметров конференции"
+    "VIEW_DETAILS": "Просмотр параметров конференции",
+    "CONFIRM_PASSWORD": "Подтверждение пароля"
   },
   "FULL_TABLE": {
     "BODY": {
@@ -279,7 +280,9 @@
       "ALLEVENTS": "Все конференции",
       "STATISTICS": "Статистика",
       "TABS": "Вкладки",
-      "SMTP": "SMTP"
+      "SMTP": "SMTP",
+      "USERS": "Пользователи",
+      "USERSGROUPS": "Группы"
     }
   },
   "RECORDING_STATUS_NAMES": {
