@@ -59,7 +59,6 @@ const EventLoggerTable = ({logs, ...props}) => {
         page={pageIndex}
         rowsPerPage={pageSize}
         handlePaginationChange={async ({ pageIndex, pageSize }) => {
-          console.log("handlePagChange: " + pageIndex + "   " + pageSize);
           setPageSize(pageSize);
           setPageIndex(pageIndex - 1 > 0 ? pageIndex - 1 : 1);
         }}
