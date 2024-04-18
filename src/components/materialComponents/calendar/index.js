@@ -179,7 +179,6 @@ function Calendar({startDate, endDate, handleCalandarViewChange, ...props}) {
   };
 
   const Content = (data) => {
-    console.log("rendering Content " + JSON.stringify(data));
     if (!data) return null;
     if (isSmallScreen) return null;
 

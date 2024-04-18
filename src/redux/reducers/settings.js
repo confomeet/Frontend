@@ -118,7 +118,6 @@ const settings = (state = initialState, action) => {
       localStorage.removeItem("NavigateToDefaultOnSignIn");
       document.cookie = 'authUser=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
       if (action.performLogOut) {
-        console.log("aciton.performLogOut=true");
         setTimeout(() => window.dispatch(logOut({redirectUri: window.domain + '/login'})), 0);
       } else {
         window.navigateTo("/login");
