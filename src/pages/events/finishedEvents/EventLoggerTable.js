@@ -1,8 +1,8 @@
-import { Grid, Typography } from "components/muiComponents";
+import { Grid } from "components/muiComponents";
 import { pagination } from "components/shared/utils";
 import FullTabel from "components/table/Table";
-import { useEffect, useState } from "react";
-import { getTableRowsAndColumns } from "redux/network/functions";
+import { useState } from "react";
+import { getTableRowsAndColumnsSync } from "redux/network/functions";
 import { handleNoValue } from "utils";
 import PageSubHeading from "videoComponents/typographyGeneral/PageSubHeading";
 
@@ -11,8 +11,7 @@ const initTableData = {
   COLUMNS: [],
   COUNT: 0,
 };
-const EventLoggerTable = (props) => {
-  const [tableData, setTableData] = useState(initTableData);
+const EventLoggerTable = ({logs, ...props}) => {
   const [pageIndex, setPageIndex] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const getModifiedEventsByAppStatistics = (data) => {
@@ -24,22 +23,30 @@ const EventLoggerTable = (props) => {
     }));
   };
 
-  useEffect(() => {
-    (async () => {
-      if (!Array.isFullArray(props.logs)) return setTableData(initTableData);
-      let paginatedData = pagination(props.logs, pageSize, pageIndex);
-      let modifiedEventsByAppStatistics = getModifiedEventsByAppStatistics(
-        paginatedData?.requiredArr
-      );
-      let rowsAndColumnsData = await getTableRowsAndColumns(
-        modifiedEventsByAppStatistics
-      );
-      setTableData({
-        ...rowsAndColumnsData,
-        COUNT: paginatedData?.count,
-      });
-    })();
-  }, [props.logs]);
+  const tableData = (() => {
+    if (!Array.isFullArray(logs)) return initTableData;
+    const displayedLogs = logs.map((log) => ({
+      date: Date.displayDate(log.eventTime, "MMM DD,YYYY  hh:mm:ss A"),
+      text: `${log.userName}: ${log.status}`,
+    }));
+
+    let paginatedData = pagination(displayedLogs, pageSize, pageIndex);
+
+    let modifiedEventsByAppStatistics = getModifiedEventsByAppStatistics(
+      paginatedData?.requiredArr
+    );
+
+    let rowsAndColumnsData = getTableRowsAndColumnsSync(
+      modifiedEventsByAppStatistics
+    );
+
+    return {
+      ...rowsAndColumnsData,
+      COUNT: paginatedData?.count,
+    };
+  })();
+
+
   return (
     <Grid item xs={12}>
       <PageSubHeading subHeading={Object.translate("LABEL.LOG")} />
@@ -52,6 +59,7 @@ const EventLoggerTable = (props) => {
         page={pageIndex}
         rowsPerPage={pageSize}
         handlePaginationChange={async ({ pageIndex, pageSize }) => {
+          console.log("handlePagChange: " + pageIndex + "   " + pageSize);
           setPageSize(pageSize);
           setPageIndex(pageIndex - 1 > 0 ? pageIndex - 1 : 1);
         }}

@@ -216,13 +216,6 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     endMaxDate: undefined,
   });
 
-  const eventLogs = useMemo(() => {
-    if (!Array.isArray(selectedObj?.eventLogs)) return [];
-    return selectedObj?.eventLogs.map((log) => ({
-      date: Date.displayDate(log.eventTime, "MMM DD,YYYY  hh:mm:ss A"),
-      text: `${log.userName}: ${log.status}`,
-    }));
-  }, [selectedObj?.eventLogs]);
   const recordingLogs = useMemo(() => {
     if (!Array.isFullArray(selectedObj?.videoLogs)) return [];
     return selectedObj?.videoLogs;
@@ -884,7 +877,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
                         )}
                         {props?.detailsToggle && (
                           <>
-                            <EventLoggerTable logs={eventLogs} />
+                            <EventLoggerTable logs={meetings.getEventDetailsDone?.eventLogs} />
 
                             <RecordingLoggerTable
                               recordingLogs={recordingLogs}

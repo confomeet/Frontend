@@ -181,35 +181,52 @@ export const getFullURL = ({ baseURL, endpoint, params }) => {
   return url;
 };
 
-const generateColumnData = (data) => {
+const generateColumnDataSync = (data) => {
+  if (!data.length) return([]);
   let columnData = [];
-  return new Promise((resolve, reject) => {
-    if (!data.length) resolve([]);
-    Object.keys(data[0]).map((row) => {
-      let singleDataObj = {
-        Id: row,
-        name: row,
-        label: row.toUpperCase(),
+  Object.keys(data[0]).map((row) => {
+    let singleDataObj = {
+      Id: row,
+      name: row,
+      label: row.toUpperCase(),
+    };
+
+    if (["I.D.", "id", "*"].includes(row))
+      singleDataObj.options = {
+        display: "excluded",
       };
 
-      if (["I.D.", "id", "*"].includes(row))
-        singleDataObj.options = {
-          display: "excluded",
-        };
+    if (["I.D.", "id"].includes(row)) singleDataObj.Identity = true;
 
-      if (["I.D.", "id"].includes(row)) singleDataObj.Identity = true;
+    columnData.push(singleDataObj);
+  });
+  return columnData;
+};
 
-      columnData.push(singleDataObj);
-    });
+const generateColumnData = (data) => {
+  return new Promise((resolve, reject) => {
+    const columnData = generateColumnDataSync(data);
     resolve(columnData);
   });
 };
 
+// FIXME: make it non-async.
 export const getTableRowsAndColumns = async (data) => {
   let ROWS = [],
     COLUMNS = [];
   if (!(data && data.length)) return { ROWS, COLUMNS };
   COLUMNS = await generateColumnData(data);
+  ROWS = data.map((x) => {
+    return Object.values(x);
+  });
+  return { ROWS, COLUMNS };
+};
+
+export const getTableRowsAndColumnsSync = (data) => {
+  let ROWS = [],
+    COLUMNS = [];
+  if (!(data && data.length)) return { ROWS, COLUMNS };
+  COLUMNS = generateColumnDataSync(data);
   ROWS = data.map((x) => {
     return Object.values(x);
   });
