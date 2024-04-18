@@ -14,7 +14,14 @@ export default function ViewTabs(props) {
   const [tableData, setTableData] = useState({ ROWS: [], COLUMNS: [] });
   const [pageIndex, setPageIndex] = useState(1);
   const [pageSize, setPageSize] = useState(10);
-  const { tabs } = useSelector((state) => state);
+  const {
+    tabs,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
+  } = useSelector((state) => state);
   const classes = useStyles();
   const getModifiedSideMenuTabsData = (data) => {
     if (!data || !data.length) return [];
@@ -58,7 +65,7 @@ export default function ViewTabs(props) {
         })
       );
     })();
-  });
+  }, [authUser]);
   return (
     <div>
       <Grid container>

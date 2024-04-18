@@ -11,6 +11,11 @@ const { getAllTabs, deleteTabs, fetchAllRoles } = actions;
 const Tabs = () => {
   const {
     tabs,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
   } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -74,7 +79,7 @@ const Tabs = () => {
   useEffect(() => {
     dispatch(getAllTabs());
     window.dispatch(fetchAllRoles());
-  });
+  }, [authUser]);
   useEffect(() => {
     if (
       Object.isObjectEmpty(tabs.editTabsComplete) &&
