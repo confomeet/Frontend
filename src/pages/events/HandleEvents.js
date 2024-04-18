@@ -348,7 +348,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
     };
   })();
 
-  const constructFullDate = (date, time) => new Date (`${date}T${time}:00`).toISOString();
+  const constructFullDate = (date, time) => new Date (`${date}T${time}`).toISOString();
 
   const onSubmit = async (values) => {
     const currentErrors = Object.values(formErrors).filter((v) => v);
