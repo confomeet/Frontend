@@ -119,7 +119,6 @@ export const getEventDetails = (state = false, action) => {
 export const getEventDetailsDone = (state = {}, action) => {
   switch (action.type) {
     case GET_EVENT_DETAILS_DONE:
-      console.log("Receive new event details " + JSON.stringify(action.data));
       return action.data;
     default:
       return state;
