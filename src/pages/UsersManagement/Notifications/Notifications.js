@@ -135,7 +135,7 @@ function Notifications(props) {
         subHeader: <PageHeading />,
       })
     );
-  });
+  }, [authUser]);
   return (
     <Box className={classes.rootNotifications}>
       <Box
