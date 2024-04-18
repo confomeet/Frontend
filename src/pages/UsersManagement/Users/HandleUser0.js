@@ -20,6 +20,11 @@ const { addUser, editUser, setSubHeader } = actions;
 const HandleUser0 = (props) => {
   const {
     users,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
   } = useSelector((state) => state);
   const [roles, setRoles] = useState([]);
   const classes = loginStyles();
@@ -89,7 +94,7 @@ const HandleUser0 = (props) => {
         })
       );
     })();
-  });
+  }, [authUser]);
   useEffect(() => {
     let ids = [];
     let idsObj = {};

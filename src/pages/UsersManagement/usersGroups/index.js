@@ -15,6 +15,11 @@ const initSearchParams = {
 const UsersGroupsProvider = () => {
   const {
     usersgroups,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
   } = useSelector((state) => state);
   const [mainView, switchMainView] = useState(true);
   const [addToggle, switchAdd] = useState(false);
@@ -131,7 +136,7 @@ const UsersGroupsProvider = () => {
   useEffect(() => {
     handleToogle(UserGroupsActions.mainView);
     handleGetUsersGroups(true);
-  });
+  }, [authUser]);
 
   return (
     <UsersGroupsContext.Provider

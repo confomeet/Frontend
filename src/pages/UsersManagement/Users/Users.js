@@ -18,6 +18,11 @@ const Users = () => {
   const {
     users,
     usersgroups,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
   } = useSelector((state) => state);
   const initSearchParams = {
     topic: null,
@@ -116,7 +121,7 @@ const Users = () => {
         pageIndex: 1,
       },
     });
-  });
+  }, [authUser]);
 
   const clearSearchParams = () => {
     setSearchParams(initSearchParams);
