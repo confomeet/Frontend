@@ -25,7 +25,7 @@ import {
 window.domain = process.env.PUBLIC_URL;
 window.scrollIntoRef = scrollIntoRef;
 window.officialLogo = confomeetLogo;
-window.defualtLang = "en";
+window.defualtLang = "ru";
 
 window.currentZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 window.getAppLang = getAppLang;
