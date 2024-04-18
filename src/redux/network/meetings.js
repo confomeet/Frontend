@@ -76,9 +76,9 @@ export const addParticipantsToMeeting = async ({ body, id }) =>
     body: body,
   });
 
-export const editExistingMeeting = async ({ body, id }) =>
+export const editExistingMeeting = async ({ body, id, mine }) =>
   await putData({
-    endpoint: body.options ? `/v1/Event/Recurrence/${id}` : `/v1/Event/${id}`,
+    endpoint: mine ? `/v1/Event/Mine/${id}` : `/v1/Event/${id}`,
     body: body,
   });
 

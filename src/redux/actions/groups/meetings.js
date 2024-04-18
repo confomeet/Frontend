@@ -25,7 +25,7 @@ export default {
   ...createAction("CREATE_NEW_MEETING", "body", "params"),
   ...createAction("CREATE_NEW_MEETING_DONE", "data"),
 
-  ...createAction("EDIT_EVENT", "body", "id"),
+  ...createAction("EDIT_EVENT", "body", "id", "mine"),
   ...createAction("EDIT_EVENT_DONE", "data"),
 
   ...createAction("JOIN_MEETING", "params", "body", "meetingId"),

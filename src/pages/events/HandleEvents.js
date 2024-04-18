@@ -124,6 +124,11 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
   const {
     meetings,
     contacts,
+    settingsReducer: {
+      settings: {
+        authUser,
+      },
+    },
   } = useSelector((state) => state);
 
   const currentDate = Date.getAdjastISOString(Date.getAdjastTime(new Date()));
@@ -431,7 +436,7 @@ function HandleEvents({ selectedObj, handleView, ...props }) {
 
     window.dispatch(
       props.editToggle
-        ? editEvent({ body, id: selectedObj.id })
+        ? editEvent({ body, id: selectedObj.id, mine: selectedObj.createdBy == authUser.userId })
         : createNewMeeting({ body, params: props.disableSwal })
     );
   };
