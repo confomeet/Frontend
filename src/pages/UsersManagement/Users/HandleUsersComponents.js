@@ -99,7 +99,7 @@ const HandleUsersComponents = (props) => {
         className={usersClasses.userPhone}
         style={{ paddingTop: "30px!important" }}
       >
-        <InputLabel required className={usersClasses.userPhoneLabel}>
+        <InputLabel className={usersClasses.userPhoneLabel}>
           {Object.translate(`LABEL.PHONE`)}
         </InputLabel>
         <FormikPhoneNumberField
@@ -110,7 +110,6 @@ const HandleUsersComponents = (props) => {
           {...props?.formik}
           className={usersClasses.phoneNumber}
           value={props?.formik?.values?.phoneNumber}
-          required
         />
         {props?.formik.errors?.phoneNumber &&
         props?.formik.touched.phoneNumber ? (
