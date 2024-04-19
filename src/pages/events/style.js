@@ -745,11 +745,6 @@ export const eventsStyles = makeStyles((theme) => ({
         color: "#fff",
       },
     },
-    "& .medium-btn": {
-      [theme.breakpoints.down("sm")]: {
-        minWidth: "120px!important",
-      },
-    },
   },
   notifiBtnsBox: {
     width: "fit-content!important",
@@ -783,11 +778,6 @@ export const eventsStyles = makeStyles((theme) => ({
       "&:hover": {
         backgroundColor: theme.globals.colors.primary,
         color: "#fff",
-      },
-    },
-    "& .medium-btn": {
-      [theme.breakpoints.down("sm")]: {
-        minWidth: "120px!important",
       },
     },
   },

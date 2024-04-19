@@ -738,12 +738,6 @@ export const useStyles = makeStyles((theme) => ({
     "& .MuiGrid-root": {
       marginBottom: "35px",
     },
-    "& .medium-btn": {
-      minWidth: "120px!important",
-      [theme.breakpoints.down("sm")]: {
-        minWidth: "110px!important",
-      },
-    },
     "& .MuiFormHelperText-root": {
       position: "absolute",
       bottom: "-20px",
@@ -767,9 +761,6 @@ export const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.down("sm")]: {
         maxWidth: "100%",
       },
-    },
-    "& .medium-btn": {
-      minWidth: "120px!important",
     },
   },
 }));

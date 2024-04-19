@@ -417,12 +417,6 @@ button {
   text-transform: capitalize !important;
 }
 
-.medium-btn {
-  min-width: 146px !important;
-  height: 46px;
-  border-radius: 2px !important;
-}
-
 .small-btn {
   width: 40px;
   height: 40px;

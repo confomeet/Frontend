@@ -774,9 +774,6 @@ export const contactsStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       justifyContent: "center",
     },
-    "& .medium-btn": {
-      minWidth: "120px!important",
-    },
   },
 
   addContactBox: {

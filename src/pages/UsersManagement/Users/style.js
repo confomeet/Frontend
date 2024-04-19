@@ -173,11 +173,6 @@ export const userStyle = makeStyles((theme) => ({
       top: "calc(50% - 12px)",
     },
   },
-  passBtns: {
-    "& .medium-btn": {
-      minWidth: "120px!important",
-    },
-  },
   passGrid: {
     maxHeight: "50px",
   },
