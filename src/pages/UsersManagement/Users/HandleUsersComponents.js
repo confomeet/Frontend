@@ -63,7 +63,6 @@ const HandleUsersComponents = (props) => {
         md={6}
         sm={6}
         style={{ paddingTop: "30px!important" }}
-        className={usersClasses.addNewUserFld}
       >
         <FormikTextFeildGeneral
           name="fullName"
@@ -80,7 +79,6 @@ const HandleUsersComponents = (props) => {
         md={6}
         sm={6}
         style={{ paddingTop: "30px!important" }}
-        className={usersClasses.addNewUserFld}
       >
         <FormikTextFeildGeneral
           required
