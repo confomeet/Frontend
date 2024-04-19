@@ -171,6 +171,7 @@
     "DONE": "Выполнено",
     "DOWNLOAD": "Скачать",
     "EDIT_EVENT": "Изменить конференцию",
+    "EDIT_USER": "Изменить пользователя",
     "EDIT_USERS_GROUP": "Изменить группу",
     "EMAIL": "Эл. почта",
     "EMAIL_USERNAME": "Email или логин",
@@ -270,7 +271,7 @@
     "DEFAULT": "Главная страница",
     "SIGNUP": "Регистрация",
     "JOIN": "Присоединиться к конференции",
-    "RESETPASSWORD": "Сброс пароля",
+    "RESETPASSWORD": "Смена пароля",
     "FORGETPASSWORD": "Не помню пароль",
     "APPVERSION": "Версия",
     "PANEL": {
