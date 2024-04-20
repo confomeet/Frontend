@@ -5,11 +5,16 @@ export const usersInitialValues = {
   phoneNumber: "",
   email: "",
   userName: "",
-  fullName: "",
+  fullName: null,
   profileStatus: 0,
   roles: [],
   userGroups: [],
   enable2FA: false,
+  patronymic: "",
+  firstName: "",
+  surname: "",
+  country: null,
+  address: null,
 };
 export const usersGroupsInitialValues = {
   groupName: "",
@@ -40,6 +45,7 @@ export const getAddUsersValidationSchema = () =>
   Yup.object({
     fullName: Yup.string().required(Object.translate("WARNING.NAMEREQUIRED")),
     phoneNumber: Yup.string()
+      .nullable()
       .matches(
         customRegex.phoneRegExp,
         Object.translate("WARNING.INVALIDPHONE")
@@ -51,6 +57,9 @@ export const getAddUsersValidationSchema = () =>
     roles: Yup.array()
       .min(1, Object.translate("WARNING.REQUIRED"))
       .required(Object.translate("WARNING.REQUIRED")),
+    firstName: Yup.string().required(Object.translate("WARNING.NAMEREQUIRED")),
+    surname: Yup.string().required(Object.translate("WARNING.SURNAME_REQUIRED")),
+    patronymic: Yup.string().nullable(),
   });
 
 export const getEditPassValidationSchema = () =>

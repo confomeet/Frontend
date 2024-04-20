@@ -69,7 +69,12 @@ const HandleUser0 = (props) => {
       phoneNumber: values?.phoneNumber,
       roles,
       groups: values?.userGroups?.map((row) => row?.id) || [],
+      surname: values?.surname,
+      patronymic: values?.patronymic,
       enable2FA: values?.enable2FA,
+      firstName: values.firstName,
+      country: Number.parseInt(values.country),
+      address: values.address,
     };
     if (props.toggleAdd) {
       dispatch(addUser({ body, userGroupData: values?.userGroups }));

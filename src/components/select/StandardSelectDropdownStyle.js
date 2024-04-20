@@ -110,15 +110,6 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     "& .MuiSvgIcon-root": {},
-    "& .MuiInput-underline:before": {
-      borderBottom: "none!important",
-    },
-    "& .MuiInput-underline:after": {
-      borderBottom: "none!important",
-    },
-    "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
-      borderBottom: "none!important",
-    },
   },
 }));
 export default useStyles;

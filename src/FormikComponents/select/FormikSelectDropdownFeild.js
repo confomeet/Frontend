@@ -1,5 +1,5 @@
 import { TextField } from "components/muiComponents";
-import StandardSelectDropdown from "components/select/StandardSelectDropdown";
+import SelectDropdownFeild from "components/select/SelectDropdownFeild";
 import { Field, Form } from "formik";
 import { fieldToTextField } from "formik-mui";
 import useStyles from "./FormikSelectDropdownFeildStyle";
@@ -18,14 +18,15 @@ const FormikAutoCompleteFeild = ({ textFieldProps, style, ...props }) => {
     return setFieldValue(name, obj.id);
   };
   return (
-    <StandardSelectDropdown
+    <SelectDropdownFeild
       {...props}
       {...field}
       defaultValue={props.defaultValue || props.form?.values[name]}
       items={props.options}
       onChange={handleSelectChange}
+      handleClear={() => setFieldValue(name, null)}
       onBlur={() => setTouched({ [name]: true })}
-      getOptionSelected={(item, current) => item.value === current.value}
+      getOptionSelected={(item, current) => { return item.value === current.value;}}
       renderInput={(props) => (
         <TextField {...props} {...textFieldProps} style={style} />
       )}
@@ -33,14 +34,15 @@ const FormikAutoCompleteFeild = ({ textFieldProps, style, ...props }) => {
   );
 };
 
-export default function FormikSelectDropdownFeild(props) {
+export default function FormikSelectDropdownFeild({label, ...props}) {
   const classes = useStyles();
   return (
-    <Form className={classes.root}>
+    <Form className={classes.rootMultiSelected}>
       <Field
         component={FormikAutoCompleteFeild}
         {...props}
         textFieldProps={{
+          label,
           fullWidth: true,
           margin: "normal",
           variant: "standard",

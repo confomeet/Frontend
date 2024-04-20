@@ -33,11 +33,6 @@ const useStyles = makeStyles((theme) => ({
               ? "unset !important"
               : "inherit !important",
         },
-        "& > div": {
-          padding: "0!important",
-          marginTop: "17px!important",
-          minHeight: "40px",
-        },
       },
     },
     "& .MuiFormHelperText-root": {

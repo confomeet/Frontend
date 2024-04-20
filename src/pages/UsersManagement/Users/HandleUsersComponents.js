@@ -11,18 +11,20 @@ import PrimaryButton from "videoComponents/buttonsGeneral/PrimaryButton";
 import SecondaryButton from "videoComponents/buttonsGeneral/SecondaryButton";
 import { useStyles } from "../../../styles/generalStyle";
 import { userStyle } from "./style";
-import { FormikCheckboxWithLabel } from "FormikComponents/FormikMui";
-import { Field } from "formik";
 import { FormControlLabel, Checkbox } from "@mui/material";
+import { fullNameOrJoinedName } from "./UsersFromikUtils";
+import FormikSelectDropdownFeild from "FormikComponents/select/FormikSelectDropdownFeild";
 let timeout;
 
 const HandleUsersComponents = (props) => {
   const {
     users,
+    common,
   } = useSelector((state) => state);
   const classes = useStyles();
   const usersClasses = userStyle();
   const [userGroups, setUserGroups] = useState([]);
+  const [countries, setCountries] = useState([]);
 
   const handleInputChange = async (e, text, values) => {
     if (timeout) clearTimeout(timeout);
@@ -47,6 +49,9 @@ const HandleUsersComponents = (props) => {
     if (!props?.toggleEdit || Object.isObjectEmpty(props?.editObj)) return;
     setUserGroups(getModifiedContact(props?.editObj?.userGroups));
   }, [props?.toggleEdit, props?.editObj]);
+  useEffect(() => {
+    setCountries(countriesToDropdownOptions(common.AllCountries));
+  }, [common.AllCountries]);
   return (
     <Grid
       container
@@ -94,6 +99,80 @@ const HandleUsersComponents = (props) => {
         xs={12}
         md={6}
         sm={6}
+        style={{ paddingTop: "30px!important" }}
+      >
+        <FormikTextFeildGeneral
+          required
+          name="firstName"
+          variant="standard"
+          label={Object.translate(`LABEL.FIRST_NAME`)}
+          type="text"
+        />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sm={6}
+        style={{ paddingTop: "30px!important" }}
+      >
+        <FormikTextFeildGeneral
+          required
+          name="surname"
+          variant="standard"
+          label={Object.translate(`LABEL.SURNAME`)}
+          type="text"
+        />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sm={6}
+        style={{ paddingTop: "30px!important" }}
+      >
+        <FormikTextFeildGeneral
+          name="patronymic"
+          variant="standard"
+          label={Object.translate(`LABEL.PATRONYMIC`)}
+          type="text"
+        />
+      </Grid>
+
+      <Grid item xs={12} md={6} sm={6} style={{ paddingTop: "30px!important" }}>
+        <FormikAutoComplete
+          required
+          className={usersClasses.userList}
+          variant="standard"
+          name="roles"
+          label={Object.translate("LABEL.USERROLE")}
+          options={props.roles}
+          multiple={true}
+          InputProps={{ disableUnderline: true }}
+        />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        sm={6}
+      >
+        <FormikSelectDropdownFeild
+          name="country"
+          variant="standard"
+          type="text"
+          options={countries}
+          label={Object.translate("LABEL.COUNTRY")}
+        />
+      </Grid>
+
+      <Grid
+        item
+        xs={12}
+        md={6}
+        sm={6}
         className={usersClasses.userPhone}
         style={{ paddingTop: "30px!important" }}
       >
@@ -116,18 +195,19 @@ const HandleUsersComponents = (props) => {
           </div>
         ) : null}
       </Grid>
-      <Grid item xs={12} md={6} sm={6} style={{ paddingTop: "30px!important" }}>
-        <FormikAutoComplete
-          required
-          className={usersClasses.userList}
+
+      <Grid
+        item
+        xs={12}
+      >
+        <FormikTextFeildGeneral
+          name="address"
           variant="standard"
-          name="roles"
-          label={Object.translate("LABEL.USERROLE")}
-          options={props.roles}
-          multiple={true}
-          InputProps={{ disableUnderline: true }}
+          label={Object.translate("LABEL.ADDRESS")}
+          type="text"
         />
       </Grid>
+
       <Grid
         item
         xs={12}
@@ -194,5 +274,13 @@ const HandleUsersComponents = (props) => {
     </Grid>
   );
 };
+
+function countriesToDropdownOptions(countriesDto) {
+   return countriesDto.map(item => ({
+    id: item.cntId,
+    text: item.cntCountryEn,
+    value: item.cntId,
+  }));
+}
 
 export default HandleUsersComponents;
