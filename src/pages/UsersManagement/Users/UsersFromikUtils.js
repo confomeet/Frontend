@@ -30,8 +30,7 @@ export const getEditPersonalProfileValidationSchema = () =>
         customRegex.phoneRegExp,
         Object.translate("WARNING.INVALIDPHONE")
       )
-      .min(10, Object.translate("WARNING.INVALIDPHONE"))
-      .required(Object.translate("WARNING.REQUIRED")),
+      .min(10, Object.translate("WARNING.INVALIDPHONE")),
     email: Yup.string()
       .email(Object.translate("WARNING.EMAILFORMAT"))
       .required(Object.translate("WARNING.REQUIRED")),

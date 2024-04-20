@@ -126,7 +126,7 @@ const HandleEdit = (props) => {
                 lg={12}
                 className={classes.infoBoxPhone}
               >
-                <Typography required className={usersClasses.userPhoneEdit}>
+                <Typography className={usersClasses.userPhoneEdit}>
                   {Object.translate(`LABEL.PHONE`)}
                 </Typography>
                 <FormikPhoneNumberField
