@@ -85,17 +85,6 @@ const HandleUser0 = (props) => {
     props.onView();
   };
   useEffect(() => {
-    (async () => {
-      window.dispatch(
-        setSubHeader({
-          subHeader: (
-            <Box className={clsx(classes.myEvents, "d-flex-column")}></Box>
-          ),
-        })
-      );
-    })();
-  }, [authUser]);
-  useEffect(() => {
     let ids = [];
     let idsObj = {};
     if (!users?.AllRoles?.length) {
