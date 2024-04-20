@@ -4,7 +4,7 @@ export const userStyle = makeStyles((theme) => ({
   rootUserManagement: {
     margin: "0px 20px",
     [theme.breakpoints.down("sm")]: {
-      margin: "0",
+      margin: "8px",
     },
     "& .MuiOutlinedInput-root": {
       margin: "5px 0px 15px",
