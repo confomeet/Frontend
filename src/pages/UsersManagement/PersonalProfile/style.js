@@ -2,7 +2,7 @@ import { makeStyles } from "@mui/styles";
 
 export const pProfileStyles = makeStyles((theme) => ({
   personalProfileRoot: {
-    margin: "0 20px !important",
+    // margin: "0 20px !important",
     backgroundColor: "#ffffff",
     borderRadius: "10px",
     minHeight: "460px",
@@ -24,7 +24,7 @@ export const pProfileStyles = makeStyles((theme) => ({
       padding: "50px 20px",
     },
     [theme.breakpoints.down("600")]: {
-      margin: "0 10px !important",
+      padding: "0 10px !important",
     },
   },
   avatarBox: {
